@@ -1,0 +1,12 @@
+@use '../../styles/variables';
+
+.footer {
+  max-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: 60px;
+  background-color: variables.$footer-background;
+  color: variables.$footer-font-color;
+}
