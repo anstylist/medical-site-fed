@@ -8,7 +8,9 @@ function App () {
   return (
     <>
       <Header />
-      <Main />
+      <Main>
+        {/** Acá van los componentes de tipo Page */}
+      </Main>
       <Footer />
     </>
   )
