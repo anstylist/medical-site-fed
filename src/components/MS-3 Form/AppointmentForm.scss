@@ -3,29 +3,47 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #2b2b2b;
+  background-color: #161616;
 }
 
 .main-banner-container {
   text-align: left;
-  max-width: 600px;
+  max-width: 750px;
   color: white;
-  padding: 30px;
+  padding: 26px;
 
   span {
     font-size: 12px;
-    font-weight: bold;
     margin-bottom: 16px;
+    color: #59cbe7;
   }
 
   h1 {
-    font-size: 36px;
+    font-size: 70px;
     margin-bottom: 16px;
+    line-height: 1em;
+    font-weight: bolder;
   }
 
   p {
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 32px;
+  }
+  .banner-list__undertext {
+    font-size: 12px;
+    margin-top: 16px;
+  }
+  .banner-list__icons {
+    width: 50px;
+    height: 50px;
+    background-color: #59cbe7;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 10px;
+  }
+  .banner-list__icons:hover {
+    transition: 0.6s;
+    background-color: #3774d9;
   }
 }
 
@@ -42,17 +60,21 @@
 }
 
 .main-form-container {
-  display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
-  padding: 32px;
+  padding: 26px;
   border: 1px solid #ccc;
-  max-width: 600px;
   margin-top: 32px;
 
   h2 {
-    font-size: 24px;
+    font-size: 20px;
+    margin-bottom: 16px;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 12px;
     margin-bottom: 16px;
   }
 
@@ -60,28 +82,89 @@
   select,
   textarea {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     margin-bottom: 16px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    resize: vertical;
   }
 
   textarea {
-    height: 120px;
+    min-height: 50px;
   }
 
   button {
-    background-color: blue;
+    background-color: #59cbe7;
     color: #fff;
-    padding: 8px 16px;
+    padding: 14px 16px;
     border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
+    font-size: 14px;
+    width: 100%;
+
+    transition: background-color 0.6s ease;
     cursor: pointer;
 
     &:hover {
-      background-color: darkblue;
+      background-color: #3774d9;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .main-banner-area {
+    display: block;
+  }
+  .main-banner-container {
+    padding: 16px;
+
+    h1 {
+      font-size: 32px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 12px;
+      margin-bottom: 16px;
+    }
+
+    .banner-list__icons {
+      width: 30px;
+      height: 30px;
+      padding: 6px;
+      margin: 6px;
+    }
+  }
+
+  .banner-list li {
+    font-size: 14px;
+    margin-right: 8px;
+  }
+
+  .main-form-container {
+    padding: 16px;
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 10px;
+      margin-bottom: 8px;
+    }
+
+    input,
+    select,
+    textarea {
+      padding: 8px;
+    }
+
+    textarea {
+      min-height: 40px;
+    }
+
+    button {
+      padding: 10px 12px;
+      font-size: 12px;
     }
   }
 }

@@ -28,17 +28,18 @@ const AppointmentForm = () => {
         </p>
         <ul className="banner-list">
           <li>
-            <FaAmbulance />
-            <span>Urgent Care</span>
+            <FaAmbulance className="banner-list__icons" />
+            <p className="banner-list__undertext">Urgent Care</p>
           </li>
           <li>
-            <FaHandHoldingMedical />
-            <span>Primary Care</span>
+            <FaHandHoldingMedical className="banner-list__icons" />
+            <p className="banner-list__undertext">Primary Care</p>
           </li>
         </ul>
       </div>
       <div className="main-form-container">
-        <h2>Appointment Booking</h2>
+        <h2>Book Appointment</h2>
+        <p>Fillup the form to make an appointment with the doctor</p>
         <input
           type="text"
           placeholder="Full Name"
@@ -52,17 +53,20 @@ const AppointmentForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <input
-          type="text"
+          type="date"
           placeholder="Booking Date"
           value={bookingDate}
           onChange={(e) => setBookingDate(e.target.value)}
         />
-        <input
-          type="text"
-          placeholder="Department"
+        <select
           value={department}
           onChange={(e) => setDepartment(e.target.value)}
-        />
+        >
+          <option value="">Department</option>
+          <option value="department1">Department 1</option>
+          <option value="department2">Department 2</option>
+          <option value="department3">Department 3</option>
+        </select>
         <select
           value={selectedDoctor}
           onChange={(e) => setSelectedDoctor(e.target.value)}
@@ -77,7 +81,7 @@ const AppointmentForm = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         ></textarea>
-        <button onClick={handleFormSubmit}>Book Appointment</button>
+        <button onClick={handleFormSubmit}>Book appointment</button>
       </div>
     </div>
   );
