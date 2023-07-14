@@ -15,52 +15,61 @@ const AppointmentForm = () => {
     // Logic to handle the form submission goes here
     console.log("Form submitted!");
   };
+
   return (
     <div className="main-banner-area">
       <div className="main-banner-container">
-        <span>Welcome to Mebid</span>
-        <h1>We are by your side in any services</h1>
-        <p>
+        <span className="main-banner-container__span">Welcome to Mebid</span>
+        <h1 className="main-banner-container__h1">
+          We are by your side in any services
+        </h1>
+        <p className="main-banner-container__p">
           We provide all kinds of medical services to our patients according to
           their
-          <br></br>
+          <br />
           daily needs starting from special conditions
         </p>
         <ul className="banner-list">
-          <li>
+          <li className="banner-list__item">
             <FaAmbulance className="banner-list__icons" />
             <p className="banner-list__undertext">Urgent Care</p>
           </li>
-          <li>
+          <li className="banner-list__item">
             <FaHandHoldingMedical className="banner-list__icons" />
             <p className="banner-list__undertext">Primary Care</p>
           </li>
         </ul>
       </div>
       <div className="main-form-container">
-        <h2>Book Appointment</h2>
-        <p>Fillup the form to make an appointment with the doctor</p>
+        <h2 className="main-form-container__h2">Book Appointment</h2>
+        <p className="main-form-container__p">
+          Fillup the form to make an appointment with the doctor
+        </p>
         <input
           type="text"
           placeholder="Full Name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
+          className="main-form-container__input"
         />
         <input
           type="email"
           placeholder="Email Address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          className="main-form-container__input"
         />
         <input
           type="date"
           placeholder="Booking Date"
           value={bookingDate}
           onChange={(e) => setBookingDate(e.target.value)}
+          className="main-form-container__input"
         />
         <select
           value={department}
           onChange={(e) => setDepartment(e.target.value)}
+          className="main-form-container__select"
         >
           <option value="">Department</option>
           <option value="department1">Department 1</option>
@@ -70,6 +79,7 @@ const AppointmentForm = () => {
         <select
           value={selectedDoctor}
           onChange={(e) => setSelectedDoctor(e.target.value)}
+          className="main-form-container__select"
         >
           <option value="">Select a Doctor</option>
           <option value="doctor1">Doctor 1</option>
@@ -80,8 +90,15 @@ const AppointmentForm = () => {
           placeholder="Your Message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
+          className="main-form-container__textarea"
         ></textarea>
-        <button onClick={handleFormSubmit}>Book appointment</button>
+        <button
+          type="submit"
+          onClick={handleFormSubmit}
+          className="main-form-container__button"
+        >
+          Book appointment
+        </button>
       </div>
     </div>
   );

@@ -12,38 +12,22 @@
   color: white;
   padding: 26px;
 
-  span {
+  &__span {
     font-size: 12px;
     margin-bottom: 16px;
     color: #59cbe7;
   }
 
-  h1 {
+  &__h1 {
     font-size: 70px;
     margin-bottom: 16px;
     line-height: 1em;
     font-weight: bolder;
   }
 
-  p {
+  &__p {
     font-size: 14px;
     margin-bottom: 32px;
-  }
-  .banner-list__undertext {
-    font-size: 12px;
-    margin-top: 16px;
-  }
-  .banner-list__icons {
-    width: 50px;
-    height: 50px;
-    background-color: #59cbe7;
-    border-radius: 50px;
-    padding: 10px;
-    margin: 10px;
-  }
-  .banner-list__icons:hover {
-    transition: 0.6s;
-    background-color: #3774d9;
   }
 }
 
@@ -52,10 +36,27 @@
   list-style: none;
   padding: 0;
 
-  li {
+  & li {
     align-items: center;
     margin-right: 16px;
     font-size: 18px;
+  }
+  &__icons {
+    width: 50px;
+    height: 50px;
+    background-color: #59cbe7;
+    border-radius: 50px;
+    padding: 10px;
+    margin: 10px;
+
+    &:hover {
+      transition: 0.6s;
+      background-color: #3774d9;
+    }
+  }
+  &__undertext {
+    font-size: 14px;
+    margin-top: 16px;
   }
 }
 
@@ -67,20 +68,20 @@
   border: 1px solid #ccc;
   margin-top: 32px;
 
-  h2 {
+  &__h2 {
     font-size: 20px;
     margin-bottom: 16px;
     font-weight: bold;
   }
 
-  p {
+  &__p {
     font-size: 12px;
     margin-bottom: 16px;
   }
 
-  input,
-  select,
-  textarea {
+  &__input,
+  &__select,
+  &__textarea {
     width: 100%;
     padding: 12px;
     margin-bottom: 16px;
@@ -88,11 +89,11 @@
     resize: vertical;
   }
 
-  textarea {
+  &__textarea {
     min-height: 50px;
   }
 
-  button {
+  &__button {
     background-color: #59cbe7;
     color: #fff;
     padding: 14px 16px;
@@ -113,20 +114,21 @@
   .main-banner-area {
     display: block;
   }
+
   .main-banner-container {
     padding: 16px;
 
-    h1 {
+    &__h1 {
       font-size: 32px;
       margin-bottom: 12px;
     }
 
-    p {
+    &__p {
       font-size: 12px;
       margin-bottom: 16px;
     }
 
-    .banner-list__icons {
+    &__icons {
       width: 30px;
       height: 30px;
       padding: 6px;
@@ -142,27 +144,27 @@
   .main-form-container {
     padding: 16px;
 
-    h2 {
+    &__h2 {
       font-size: 18px;
       margin-bottom: 12px;
     }
 
-    p {
+    &__p {
       font-size: 10px;
       margin-bottom: 8px;
     }
 
-    input,
-    select,
-    textarea {
+    &__input,
+    &__select,
+    &__textarea {
       padding: 8px;
     }
 
-    textarea {
+    &__textarea {
       min-height: 40px;
     }
 
-    button {
+    &__button {
       padding: 10px 12px;
       font-size: 12px;
     }
