@@ -1,6 +1,6 @@
-@import '../../styles/variables';
+@use '../../styles/variables';
 
-.container__card{
+.statistics-card{
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -9,8 +9,7 @@
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     padding:20px;
     transition: .6s; 
-
-    
+        
     &--icono{
         display: flex;
         justify-content: center;
@@ -31,13 +30,23 @@
 
     &_content--text{
         font-size: 15px;
-        font-family: $font-open-sans;
+        font-family: variables.$font-open-sans;
     }
 
     &_content--count, &_content--simbolo{
         font-size: 25px;
-        font-family: $font-poppins;
+        font-family: variables.$font-poppins;
         font-weight: bold;
+    }   
+
+    &:hover{
+        background: #3FB6D6;
+        color: #FFFFFF;
+
+        i{
+            color: #3FB6D6;
+            background: #FFFFFF;
+        }
     }
     
 
@@ -66,21 +75,7 @@
         &_content--count, &_content--simbolo{
             font-size: 48px;
         }
-    }
-
-    &:hover{
-        background: #3FB6D6 !important;
-        color: #FFFFFF !important;
-
-        i{
-            color: #3FB6D6 !important;
-            background: #FFFFFF!important;
-        }
-    }
-
-   
-
-    
+    }    
 }
 
   
