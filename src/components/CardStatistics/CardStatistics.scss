@@ -14,11 +14,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: #3FB6D6;
+        background: variables.$color-lightblue;
         width: 70px;
         height: 70px;
         border-radius: 50%;
-        color: white;
+        color: variables.$bg-main-color;
     }
 
     &_content {
@@ -40,12 +40,12 @@
     }   
 
     &:hover{
-        background: #3FB6D6;
-        color: #FFFFFF;
+        background: variables.$color-lightblue;
+        color: variables.$bg-main-color;
 
         i{
-            color: #3FB6D6;
-            background: #FFFFFF;
+            color: variables.$color-lightblue;
+            background: variables.$bg-main-color;
         }
     }
     

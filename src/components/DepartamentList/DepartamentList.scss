@@ -1,16 +1,14 @@
-.statistics{
-    width: 100%;
-    padding-top: 5rem;
-    padding-bottom: 5rem;    
-}
-
-.list-statiscs-card{
-    display: flex;    
+.list-departament{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;    
-    margin: auto;   
-    gap: 10px;
+    margin: auto;
+    padding:10px;    
     box-sizing: border-box;
+    gap: 20px;
+    width: 100%;
+
 
     @media (min-width: 576px){
         max-width: 540px;
@@ -25,12 +23,13 @@
     }
 
     @media (min-width:1024px) {
-        flex-wrap: nowrap;
+        gap: 10px;
         max-width: 923px; 
     }
 
     @media (min-width:1440px) {
-        gap: 20px;
         max-width: 1320px;
-    }    
+    } 
+
+    
 }
