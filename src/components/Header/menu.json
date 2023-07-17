@@ -1,0 +1,235 @@
+[
+  {
+    "id": "menu-home",
+    "title": "Home",
+    "submenu": [
+      {
+        "id": "menu-home-1",
+        "title": "Home Demo 1",
+        "route": "#/home-demo-1"
+      },
+      {
+        "id": "menu-home-2",
+        "title": "Home Demo 2",
+        "route": "#/home-demo-2"
+      },
+      {
+        "id": "menu-home-3",
+        "title": "Home Demo 3",
+        "route": "#/home-demo-3"
+      }
+    ]
+  },
+  {
+    "id": "menu-about",
+    "title": "About",
+    "route": "#/about"
+  },
+  {
+    "id": "menu-pages",
+    "title": "Pages",
+    "submenu": [
+      {
+        "id": "menu-doctors",
+        "title": "Doctors",
+        "submenu": [
+          {
+            "id": "menu-doctors-1",
+            "title": "Doctors",
+            "route": "#/doctors"
+          },
+          {
+            "id": "menu-doctors-details-2",
+            "title": "Doctor Details",
+            "route": "#/doctor-details"
+          }
+        ]
+      },
+      {
+        "id": "menu-others-pages",
+        "title": "Others Pages",
+        "submenu": [
+          {
+            "id": "menu-terms-of-service-1",
+            "title": "Terms of Service",
+            "route": "#/terms-of-service"
+          },
+          {
+            "id": "menu-privacy-policy-2",
+            "title": "Privacy Policy",
+            "route": "#/privacy-policy"
+          },
+          {
+            "id": "menu-404-error-3",
+            "title": "404 Error",
+            "route": "#/not-found"
+          },
+          {
+            "id": "menu-categories-4",
+            "title": "Categories",
+            "route": "#/categories"
+          },
+          {
+            "id": "menu-tags-5",
+            "title": "Tags",
+            "route": "#/tags"
+          },
+          {
+            "id": "menu-search-page-6",
+            "title": "Search Page",
+            "route": "#/search-page"
+          },
+          {
+            "id": "menu-coming-soon-7",
+            "title": "Coming Soon",
+            "route": "#/coming-soon"
+          }
+        ]
+      },
+      {
+        "id": "menu-user-pages",
+        "title": "User Pages",
+        "submenu": [
+          {
+            "id": "menu-login-1",
+            "title": "Login",
+            "route": "#/login"
+          },
+          {
+            "id": "menu-register-2",
+            "title": "Register",
+            "route": "#/register"
+          },
+          {
+            "id": "menu-forgot-password-3",
+            "title": "Forgot Password",
+            "route": "#/forgot-password"
+          }
+        ]
+      },
+      {
+        "id": "menu-pricing",
+        "title": "Pricing",
+        "route": "#/pricing"
+      },
+      {
+        "id": "menu-gallery",
+        "title": "Gallery",
+        "route": "#/gallery"
+      },
+      {
+        "id": "menu-appointment",
+        "title": "Appointment",
+        "route": "#/appointment"
+      },
+      {
+        "id": "menu-doctors-timetable",
+        "title": "Doctors Timetable",
+        "route": "#/doctors-timetable"
+      },
+      {
+        "id": "menu-emergency-services",
+        "title": "Emergency Services",
+        "route": "#/emergency-services"
+      },
+      {
+        "id": "menu-patients-and-visitors",
+        "title": "Patients & Visitors",
+        "route": "#/patients-and-visitors"
+      },
+      {
+        "id": "menu-find-doctor",
+        "title": "Find A Doctor",
+        "route": "#/find-doctor"
+      },
+      {
+        "id": "menu-testimonials",
+        "title": "Testimonials",
+        "route": "#/testimonials"
+      },
+      {
+        "id": "menu-faq",
+        "title": "FAQ",
+        "route": "#/faq"
+      }                                 
+    ]
+  },
+  {
+    "id": "menu-department",
+    "title": "Department",
+    "submenu": [
+      {
+        "id": "menu-department-1",
+        "title": "Department",
+        "route": "#/department"
+      },
+      {
+        "id": "menu-department-details-2",
+        "title": "Department Details",
+        "route": "#/department-details"
+      }
+    ]
+  },
+  {
+    "id": "menu-shop",
+    "title": "Shop",
+    "submenu": [
+      {
+        "id": "menu-products-1",
+        "title": "Products",
+        "route": "#/products"
+      },
+      {
+        "id": "menu-cart-2",
+        "title": "Cart",
+        "route": "#/cart"
+      },
+      {
+        "id": "menu-checkout-3",
+        "title": "Checkout",
+        "route": "#/checkout"
+      },
+      {
+        "id": "menu-my-account-4",
+        "title": "My Account",
+        "route": "#/my-account"
+      },
+      {
+        "id": "menu-products-details-5",
+        "title": "Products Details",
+        "route": "#/products-details"
+      }
+    ]
+  },
+  {
+    "id": "menu-blog",
+    "title": "Blog",
+    "submenu": [
+      {
+        "id": "menu-blog-1",
+        "title": "Blog",
+        "route": "#/blog"
+      },
+      {
+        "id": "menu-author-2",
+        "title": "Author",
+        "route": "#/author"
+      },
+      {
+        "id": "menu-blog-details-3",
+        "title": "Blog Details",
+        "route": "#/blog-details"
+      },
+      {
+        "id": "menu-blog-right-sidebar-4",
+        "title": "Blog Right Sidebar",
+        "route": "#/blog-right-sidebar"
+      }
+    ]
+  },
+  {
+    "id": "menu-contact",
+    "title": "Contact",
+    "route": "#/contact"
+  }
+]

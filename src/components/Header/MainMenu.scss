@@ -1,0 +1,121 @@
+@use './variables';
+
+.main-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__icon {}
+
+  &__mobile-btn {
+    display: block;
+  }
+}
+
+.menu {
+  &__list {
+    display: none;
+
+    &--submenu {
+      display: none;
+    }
+  }
+
+  &__list-item {
+    width: 100%;
+  }
+
+  &__list-link {}
+}
+
+@media screen and (min-width: 1024px) {
+  .main-menu {
+    &__icon {}
+  
+    &__mobile-btn {
+      display: none;
+    }
+  }
+
+  .menu {
+    &__list {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &-icon {
+        font-size: .6rem;
+        margin-left: 0.2rem;
+      }
+    }
+  
+    &__list-item {
+      transition: color 0.25s ease-in;
+      position: relative;
+
+      &:hover, &:focus {
+        color: variables.$header-menu-color-hover;
+
+        > .menu__list--submenu {
+          display: flex;
+          -webkit-animation: fadeIn 0.25s ease-in;
+          animation: fadeIn 0.25s ease-in;
+        }
+      }
+
+      .menu__list--submenu {
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        background-color: variables.$header-menu-bg-color;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: .5rem;
+        display: none;
+
+        .menu__list--submenu {
+          top: 0;
+          left: 100%;
+        }
+
+        .menu__list-icon {
+          width: 0.6rem;
+        }
+
+        .menu__list-link {
+          color: variables.$header-main-menu-color;
+          width: 100%;
+          justify-content: space-between;
+
+          &:hover {
+            color: variables.$header-menu-color-hover;
+          }
+
+          &:first-child {
+            border-radius: .5rem .5rem 0 0 ;
+          }
+      
+          &:last-child {
+            border-radius: 0 0 .5rem .5rem;
+          }
+        }
+      }
+    }
+  
+    &__list-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.5rem 1.2rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  from { opacity: 0; top: 130%; }
+    to { opacity: 1; top: 115%; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; top: 130%; }
+    to { opacity: 1; top: 115%; }
+}

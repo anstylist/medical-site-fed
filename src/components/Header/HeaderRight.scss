@@ -1,0 +1,117 @@
+@use './variables';
+
+.header__nav-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-icon {
+
+  }
+
+  &-mobile {
+    display: flex;
+    margin-left: 1rem;    
+  }
+
+  &-counter-tag {
+    position: absolute;
+    border-radius: 50%;
+    background-color: variables.$header-shopping-counter-bg;
+    color: variables.$header-shopping-counter-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0.8rem;
+    height: 0.8rem;
+    font-size: 0.5rem;
+    top: -0.5rem;
+    left: 1rem;
+    transition: all .25s linear;
+  }
+
+
+  &-link {
+    padding: 0 .7rem;
+
+    &--cart {
+      position: relative;
+    }
+
+    &--btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0.6rem 1.2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-left: 0.7rem;
+      background-color: variables.$header-appointment-btn;
+
+      .header__nav-right-icon {
+        padding-right: 0.5rem;
+      }
+    }
+  }
+
+  &-menu {
+    display: none;
+  }
+
+  &-menu__item {
+    transition: all .25s linear;
+    display: flex;
+    white-space: nowrap;
+    position: relative;
+
+    &:hover {
+      color: variables.$header-contact-color-hover;
+
+      .header__nav-right-counter-tag {
+        background-color: variables.$header-shopping-counter-hover-bg;
+      }
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 100%;
+      background-color: variables.$header-main-menu-color;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+  .header__nav-right {
+  
+    &-icon {
+  
+    }
+  
+    &-mobile {
+      display: none;
+    }
+  
+    &-link {
+  
+      &--btn {
+
+      }
+    }
+  
+    &-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+  }
+}

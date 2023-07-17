@@ -1,0 +1,138 @@
+@use "../../styles/mixins";
+@use "./variables";
+
+.header-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: variables.$header-contact-bg-color;
+  color: variables.$header-contact-color;
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    height: 4rem;
+    padding: 0.5rem 0;
+  }
+  
+  &__left {
+    display: flex;
+  }
+  
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__list-item {
+    display: flex;
+    white-space: nowrap;
+    padding: 0 1rem;
+    position: relative;
+
+    &:hover {
+      color: variables.$header-contact-color-hover;
+    }
+
+    &:hover &--icon {
+      scale: 1.2;
+    }
+
+    &:not(:first-child)::before {
+      content: "";
+      display: block;
+      width: 1px;
+      height: 100%;
+      background-color: variables.$header-contact-color-hover;
+      position: relative;
+      top: 0;
+      left: -1rem;
+    }
+
+    &--link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &--icon {
+      width: 100%;
+      padding-right: .50rem;
+      transition: scale .2s ease-in;
+    }
+
+    &--icon-menu {
+      padding-left: .50rem;
+      font-size: .7rem;
+    }
+
+    &--menu { 
+      position: relative;
+    }
+  }
+}
+
+.language-submenu {
+  position: absolute;
+  display: none;
+  top: 150%;
+  right: 10%;
+  background-color: variables.$header-menu-bg-color;
+  color: variables.$header-menu-color;
+  border-radius: .5rem;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1;
+
+  &--visible {
+    display: block;
+  }
+  
+  &__icon {
+    width: 1rem;
+    margin-right: .7rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    white-space: nowrap;
+    padding: 0.7rem;
+    padding-right: 1.7rem;
+    width: 100%;
+    
+    &:not(:first-child) {
+      border-top: 1px solid #EEEEEE;
+    }
+
+    &:first-child {
+      border-radius: .5rem .5rem 0 0 ;
+    }
+
+    &:last-child {
+      border-radius: 0 0 .5rem .5rem;
+    }
+
+    &:hover {
+      color: variables.$header-contact-color-hover;
+      background-color: #EEEEEE;
+    }
+
+    &-btn {
+      display: flex;
+      white-space: nowrap;
+    }
+  }
+}
+
+@include mixins.set-container-width('.header-contact');
+
+@media screen and (min-width: 1024px) {
+  .header-contact {
+    &__container {
+      height: 3rem;
+      flex-direction: row;
+    }
+  }
+}
