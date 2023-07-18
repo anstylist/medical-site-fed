@@ -5,6 +5,7 @@ import Header from '../components/Header/Header'
 import OurDepartament from '../components/OurDepartament/OurDepartament'
 import Statistics from '../components/Statistics/Statistics'
 import './App.scss'
+import OurPartners from '../components/OurPartners/OurPartners'
 
 function App () {
   return (
@@ -14,6 +15,7 @@ function App () {
         {/** Acá van los componentes de tipo Page */}
         <Statistics></Statistics>
         <OurDepartament></OurDepartament>
+        <OurPartners></OurPartners>
       </Main>
       <Footer />
     </>
