@@ -9,8 +9,9 @@ function App() {
   return (
     <>
       <Header />
-      <AppointmentForm />
-      <Main />
+      <Main>
+        {/** Acá van los componentes de tipo Page */}
+      </Main>
       <Footer />
     </>
   );
