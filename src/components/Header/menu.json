@@ -34,8 +34,8 @@
         "title": "Doctors",
         "submenu": [
           {
-            "id": "menu-doctors-1",
-            "title": "Doctors",
+            "id": "menu-doctors-list-1",
+            "title": "Doctors List",
             "route": "#/doctors"
           },
           {
@@ -159,8 +159,8 @@
     "title": "Department",
     "submenu": [
       {
-        "id": "menu-department-1",
-        "title": "Department",
+        "id": "menu-departments-list-1",
+        "title": "Departments List",
         "route": "#/department"
       },
       {
@@ -206,9 +206,9 @@
     "title": "Blog",
     "submenu": [
       {
-        "id": "menu-blog-1",
-        "title": "Blog",
-        "route": "#/blog"
+        "id": "menu-blogs-1",
+        "title": "Blogs",
+        "route": "#/blogs"
       },
       {
         "id": "menu-author-2",

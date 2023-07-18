@@ -17,6 +17,11 @@ function HeaderContact () {
     setIsLangMenuVisible((isVisible) => !isVisible)
   }
 
+  const setCurrentLanguage = (newLanguage) => {
+    setLanguage(newLanguage)
+    handleLangMenuClick()
+  }
+
   return (
     <section className='header-contact'>
       <section className='header-contact__container'>
@@ -55,7 +60,6 @@ function HeaderContact () {
                 type='button'
                 className='header-contact__list-item--link'
                 onClick={handleLangMenuClick}
-                onBlur={() => setIsLangMenuVisible(false)}
               >
                 <GiWorld className='header-contact__list-item--icon' />
                 {language}
@@ -66,7 +70,7 @@ function HeaderContact () {
                   <button
                     type='button'
                     className='language-submenu__item-btn'
-                    onClick={() => setLanguage('English')}
+                    onClick={() => setCurrentLanguage('English')}
                   >
                     <img src={flagEnglishURL} alt="English" className='language-submenu__icon' /> English
                   </button>
@@ -75,7 +79,7 @@ function HeaderContact () {
                   <button
                     type='button'
                     className='language-submenu__item-btn'
-                    onClick={() => setLanguage('简体中文')}
+                    onClick={() => setCurrentLanguage('简体中文')}
                   >
                     <img src={flagChinaURL} alt="简体中文" className='language-submenu__icon' /> 简体中文
                   </button>
@@ -84,7 +88,7 @@ function HeaderContact () {
                   <button
                     type='button'
                     className='language-submenu__item-btn'
-                    onClick={() => setLanguage('العربيّة')}
+                    onClick={() => setCurrentLanguage('العربيّة')}
                   >
                     <img src={flagArabianURL} alt="العربيّة" className='language-submenu__icon' /> العربيّة
                   </button>

@@ -1,11 +1,26 @@
 @use './variables';
 
+@mixin leftPosition($startingValue: 2, $increment: 2, $max: 5) {
+  $selector: '';
+  
+  @for $i from 1 through $max {
+    $selector: $selector + ' li';
+    #{$selector} a {
+      padding-left: #{$i * $increment}rem;
+    }
+  }
+}
+
 .main-menu {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
 
-  &__icon {}
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
 
   &__mobile-btn {
     display: block;
@@ -16,19 +31,95 @@
   &__list {
     display: none;
 
+    &:not(.menu__list--submenu) {
+      max-height: 580px;
+      overflow-y: scroll;
+    }
+
     &--submenu {
       display: none;
+    }
+
+    &--submenu-open {
+      display: block;
+      @include leftPosition()
+    }
+
+    &--visible {
+      display:flex;
+      flex-direction: column;
+      color: variables.$header-menu-color;
+      position: absolute;
+      top: 125%;
+      background: variables.$header-menu-bg-color;
+      white-space: nowrap;
+      width: 80vw;
+      transform: translateX(-38%);
+      box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+
+    &-icon {
+      width: 1rem;
+
+      &--chevron {
+        display: none;
+      }
     }
   }
 
   &__list-item {
-    width: 100%;
+    transition: color 0.25s ease-in;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    border-top: 1px solid variables.$header-menu-border;
+    justify-content: space-between;
+    white-space: nowrap;
+
+    &:hover, &:focus, &:active, &:focus-visible, &.active {
+      
+      > .menu__list-link {
+        color: variables.$header-menu-color-hover;
+      }
+
+      > .menu__list--submenu {
+        opacity: 1;
+        top: 100%;
+        visibility: visible;
+
+        .menu__list--submenu {
+          top: 5px;
+        }
+      }
+    }
+
+    .menu__list--submenu {
+
+      .menu__list--submenu {
+        top: 20px;
+        left: 100%;
+      }
+
+      .menu__list-item {
+        width: 100%;
+      }
+
+      .menu__list-icon {
+        width: 1rem;
+      }
+    }
   }
 
-  &__list-link {}
+  &__list-link {
+    width: 100%;
+    padding: .9rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1200px) {
   .main-menu {
     &__icon {}
   
@@ -43,38 +134,63 @@
       justify-content: center;
       align-items: center;
 
+      &:not(.menu__list--submenu) {
+        max-height: none;
+        overflow-y: initial;
+      }
+      
+      &--visible {
+        flex-direction: row;
+        position: static;
+        background: variables.$header-menu-bg-color;
+        white-space: nowrap;
+        width: 100%;
+        box-shadow: none;
+      }
+
       &-icon {
         font-size: .6rem;
         margin-left: 0.2rem;
+     
+        &--chevron {
+          display: block;
+        }
+
+        &--plus {
+          display: none;
+        }
+
+        &--minus {
+          display: none;
+        }
       }
     }
   
     &__list-item {
       transition: color 0.25s ease-in;
       position: relative;
+      border: 0;
 
-      &:hover, &:focus {
-        color: variables.$header-menu-color-hover;
-
-        > .menu__list--submenu {
-          display: flex;
-          -webkit-animation: fadeIn 0.25s ease-in;
-          animation: fadeIn 0.25s ease-in;
-        }
-      }
 
       .menu__list--submenu {
         flex-direction: column;
         align-items: flex-start;
+        opacity: 0;
+        visibility: hidden;
         position: absolute;
+        top: 130%;
         background-color: variables.$header-menu-bg-color;
         box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
         border-radius: .5rem;
-        display: none;
+        transition: opacity 0.25s ease-in, top 0.25s ease-in;
 
         .menu__list--submenu {
-          top: 0;
+          top: 20px;
           left: 100%;
+        }
+
+        .menu__list-item {
+          width: 100%;
         }
 
         .menu__list-icon {
@@ -109,13 +225,4 @@
       white-space: nowrap;
     }
   }
-}
-
-@-webkit-keyframes fadeIn {
-  from { opacity: 0; top: 130%; }
-    to { opacity: 1; top: 115%; }
-}
-@keyframes fadeIn {
-  from { opacity: 0; top: 130%; }
-    to { opacity: 1; top: 115%; }
 }
