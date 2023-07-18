@@ -12,8 +12,6 @@ function App () {
       <Header />
       <Main>
         {/** Acá van los componentes de tipo Page */}
-        <Statistics></Statistics>
-        <OurDepartament></OurDepartament>
       </Main>
       <Footer />
     </>
