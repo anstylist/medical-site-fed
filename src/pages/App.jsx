@@ -8,9 +8,9 @@ import AppointmentForm from "../components/MS-3 Form/AppointmentForm";
 function App() {
   return (
     <>
-      <Header />
+      <Header />    
       <Main>
-        {/** Acá van los componentes de tipo Page */}
+         <AppointmentForm />
       </Main>
       <Footer />
     </>
