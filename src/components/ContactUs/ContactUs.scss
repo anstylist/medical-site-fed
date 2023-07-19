@@ -36,8 +36,8 @@
 
 .Contact__Botton{
     display: flex;
-    align-items: center;
-    width: 165px;
+    align-items: center; 
+    width: 170px;
     height: 46.5px;
     padding-top: 12px;
     padding-bottom: 12px;
@@ -50,8 +50,6 @@
     
 }
 .hvr-shutter-out-vertical {
-    display: inline-block;
-    vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
     transform: perspective(1px) translateZ(0);
     box-shadow: 0 0 1px rgba(0, 0, 0, 0);

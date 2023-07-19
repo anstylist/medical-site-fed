@@ -1,6 +1,6 @@
 import React from 'react'
 import './ContactUs.scss'
-import { HiArrowNarrowRight } from "react-icons/hi";
+import { HiArrowNarrowRight } from 'react-icons/hi'
 function ContactUs () {
   return (
     <div className='Contact__Body'>
