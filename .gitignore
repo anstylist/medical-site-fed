@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 .env
 # Ignorar el archivo App.jsx
-App.jsx
+./src/components/pages/App.jsx
