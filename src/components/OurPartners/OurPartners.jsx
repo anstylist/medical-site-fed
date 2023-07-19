@@ -21,8 +21,7 @@ const OurPartners = () => {
     speed: 3000,
     autoplaySpeed: 3000,
     cssEase: 'linear',
-    nextArrow: <></>,
-    prevArrow: <></>,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,

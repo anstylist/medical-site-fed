@@ -6,16 +6,18 @@ import OurDepartament from '../components/OurDepartament/OurDepartament'
 import Statistics from '../components/Statistics/Statistics'
 import './App.scss'
 import OurPartners from '../components/OurPartners/OurPartners'
+import OurTestimonials from '../components/OurTestimonials/OurTestimonials'
 
 function App () {
   return (
     <>
       <Header />
-      <Main>
-        {/** Acá van los componentes de tipo Page */}
         <Statistics></Statistics>
         <OurDepartament></OurDepartament>
+        <OurTestimonials></OurTestimonials>
         <OurPartners></OurPartners>
+      <Main>
+        {/** Acá van los componentes de tipo Page */}
       </Main>
       <Footer />
     </>

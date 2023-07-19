@@ -7,7 +7,7 @@ const OurDepartament = () => {
     <div className='ourdepartament'>
         <h3 className='ourdepartament-title'>Our department</h3>
         <h2 className='ourdepartament-subtitle'>Our hospital has all kinds of department services</h2>
-        <DepartamentList/>
+        <DepartamentList isHome={true}/>
         <button className='ourdepartament--button'>All services → </button>
     </div>)
 }
