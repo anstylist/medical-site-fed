@@ -1,0 +1,25 @@
+.container_statistics{
+    width: 100%;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+}
+
+.container_cardstatistics{
+    display: flex;    
+    justify-content: center;
+    flex-wrap: wrap;    
+    margin: auto;   
+    gap: 10px;
+    box-sizing: border-box;
+
+    @media (min-width:1024px) {
+        margin-inline: 20px;
+        flex-wrap: nowrap;
+    }
+
+    @media (min-width:1440px) {
+        margin-inline: 94px;
+        gap: 20px;
+    }
+    
+}
