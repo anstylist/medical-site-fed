@@ -1,8 +1,12 @@
 import React from 'react'
 import { BsLinkedin, BsGithub, BsArrowRight } from 'react-icons/bs'
+import { dataDepartament, dataLink } from '../data'
 import './Footer.scss'
 
 function Footer () {
+  const departaments = [...dataDepartament()].slice(0, 6)
+  const links = dataLink()
+
   return (
     <footer className='footer'>
       <div className='footer__section__container'>
@@ -14,71 +18,47 @@ function Footer () {
             <ul>
               <li className='section-subtitle'>Andry Peña</li>
               <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20}/></a>
-                <a href='#'><BsGithub size={20}/></a>
+                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
               </div>
               <li className='section-subtitle'>Juan Villegas</li>
               <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20}/></a>
-                <a href='#'><BsGithub size={20}/></a>
+                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
               </div>
               <li className='section-subtitle'>Carlos Mendoza</li>
               <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20}/></a>
-                <a href='#'><BsGithub size={20}/></a>
+                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
               </div>
               <li className='section-subtitle'>Erick Carrasco</li>
               <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20}/></a>
-                <a href='#'><BsGithub size={20}/></a>
+                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
               </div>
             </ul>
         </section>
         <section className='section'>
         <h3 className='section-title'>Our departaments</h3>
-            <ul>
-              <li className='section-subtitle'>
-                <a href='#'>Orthopedic</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Dental service</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Neurology</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Emergency departament</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Diagnostic departament</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Therapy departament</a>
-              </li>
-            </ul>
+          <ul>
+            {departaments.map((item) => {
+              return (
+                <li key={item.id} className='section-subtitle'>
+                <a href={item.link}>{item.name}</a>
+                </li>)
+            })}
+          </ul>
         </section>
         <section className='section'>
         <h3 className='section-title'>Useful link</h3>
-            <ul>
-            <li className='section-subtitle'>
-                <a href='#'>About</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Find a doctor</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Patients and visitors</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>International service</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Terms and conditions</a>
-              </li>
-              <li className='section-subtitle'>
-                <a href='#'>Privacy policy</a>
-              </li>
-            </ul>
+          <ul>
+            {links.map((item) => {
+              return (
+                <li key={item.id} className='section-subtitle'>
+                <a href={item.link}>{item.name}</a>
+                </li>)
+            })}
+          </ul>
         </section>
         <section className='section'>
           <h3 className='section-title'>Newsletter</h3>

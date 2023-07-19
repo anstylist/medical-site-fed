@@ -19,13 +19,13 @@ const Statistics = () => {
         <div className="list-statiscs-card">
         {infoStatistics.map((item, index) => {
           return (
-                <CardStatistics
-                key={index}
-                num={item.num}
-                symbol={item.symbol}
-                icon={item.icon}
-                text={item.text}
-                />)
+            <CardStatistics
+              key={index}
+              num={item.num}
+              symbol={item.symbol}
+              icon={item.icon}
+               text={item.text}
+            />)
         })
         }
         </div>

@@ -1,31 +1,39 @@
 import React from 'react'
 import './DepartamentList.scss'
 import DepartamentCard from '../DepartamentCard/DepartamentCard'
-import { GiHeartOrgan, GiTemplarEye, GiStomach /** , GiBrokenBone, GiBrain, GiAbdominalArmor */ } from 'react-icons/gi'
+import { GiHeartOrgan, GiAmbulance, GiMedicalDrip, GiTemplarEye, GiStomach, GiBrokenBone, GiBrain, GiAbdominalArmor } from 'react-icons/gi'
+import { TbDental, TbPhysotherapist } from 'react-icons/tb'
+import { dataDepartament } from '../data'
 
-const DepartamentList = () => {
-  const arrayDepartament = [
-    { id: 1, icon: <GiStomach size={34}/>, title: 'Gastroenterologist', information: 'Curabitur aliquet quam id dui posuere blandit. lacinia eget consectetur sed.' },
-    { id: 2, icon: <GiHeartOrgan size={34}/>, title: 'Cardiology', information: 'Curabitur aliquet quam id dui posuere blandit. lacinia eget consectetur sed.' },
-    { id: 3, icon: <GiTemplarEye size={34}/>, title: 'Ophthalmology', information: 'Curabitur aliquet quam id dui posuere blandit. lacinia eget consectetur sed.' }
-    /** ,
-    { id: 4, icon: <GiBrokenBone size={34}/>, title: 'Orthopedics', information: 'Curabitur aliquet quam id dui posuere blandit. lacinia eget consectetur sed.' },
-    { id: 5, icon: <GiBrain size={34}/>, title: 'Neurology', information: 'Curabitur aliquet quam id dui posuere blandit. lacinia eget consectetur sed.' },
-    { id: 6, icon: <GiAbdominalArmor size={34}/>, title: 'Plastic surgeons', information: 'Curabitur aliquet quam id dui posuere blandit. lacinia eget consectetur sed.' } */
-  ]
+const DepartamentList = ({ isHome }) => {
+  const icons = {
+    stomach: <GiStomach size={34}/>,
+    heartorgan: <GiHeartOrgan size={34}/>,
+    templareye: <GiTemplarEye size={34}/>,
+    brokebone: <GiBrokenBone size={34}/>,
+    brain: <GiBrain size={34}/>,
+    abdominal: <GiAbdominalArmor size={34}/>,
+    dental: <TbDental size={34}/>,
+    ambulance: <GiAmbulance size={34}/>,
+    medicaldrip: <GiMedicalDrip size={34}/>,
+    therapy: <TbPhysotherapist size={34}/>
+  }
+
+  const arrayDepartament = isHome ? [...dataDepartament()].slice(7, 10) : [...dataDepartament()]
+
   return (
     <div className='list-departament'>
-      {arrayDepartament.map((item) => {
+      { arrayDepartament.map((item) => {
         return (
           <DepartamentCard
           key={item.id}
           id={item.id}
-          icon={item.icon}
-          title={item.title}
+          icon={icons[item.icon]}
+          title={item.name}
           information={item.information}
         />)
-      })
-      }
+      })}
+
     </div>
   )
 }

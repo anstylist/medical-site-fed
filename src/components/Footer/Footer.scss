@@ -75,7 +75,10 @@
         padding-left: 22px;
         padding-bottom: 2px;
         gap: 10px;
-        color: variables.$color-lightblue
+        color: variables.$color-lightblue;
+        &-option:hover{          
+          color: variables.$bg-main-color;
+        }
       }
       &-input{
         position: relative;
