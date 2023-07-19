@@ -10,9 +10,15 @@ function App() {
   return (
     <>
       <Header />
+<<<<<<< HEAD
       <Main>
         <AppointmentForm />
         <WhoWeAre />
+=======
+      <Statistics></Statistics>
+      <Main>
+        {/** Acá van los componentes de tipo Page */}
+>>>>>>> 1006d1e (MS-5 - Create component Statistics)
       </Main>
       <Footer />
     </>
