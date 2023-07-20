@@ -10,6 +10,8 @@ import OurDepartament from '../components/OurDepartament/OurDepartament'
 import Statistics from '../components/Statistics/Statistics'
 import OurPartners from '../components/OurPartners/OurPartners'
 import OurTestimonials from '../components/OurTestimonials/OurTestimonials'
+import GalleryCarousel from '../components/MS-8 GalleryCarousel/GalleryCarousel'
+import LatestNews from '../components/Latest News/LatestNews'
 
 function App() {
   return (
@@ -20,8 +22,10 @@ function App() {
         <WhoWeAre />
         <Statistics />
         <OurDepartament />
+        <GalleryCarousel />
         <OurTestimonials />
         <OurPartners />
+        <LatestNews />
       </Main>
       <Footer />
     </>
