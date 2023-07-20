@@ -30,21 +30,34 @@ const AppointmentForm = () => {
           daily needs starting from special conditions
         </p>
         <ul className="banner-list">
+<<<<<<< HEAD
           <li className="banner-list__item">
             <FaAmbulance className="banner-list__icons" />
             <p className="banner-list__undertext">Urgent Care</p>
           </li>
           <li className="banner-list__item">
+=======
+          <li>
+            <FaAmbulance className="banner-list__icons" />
+            <p className="banner-list__undertext">Urgent Care</p>
+          </li>
+          <li>
+>>>>>>> 4c2ef82 (MS-3 - Create component Appointment Form)
             <FaHandHoldingMedical className="banner-list__icons" />
             <p className="banner-list__undertext">Primary Care</p>
           </li>
         </ul>
       </div>
       <div className="main-form-container">
+<<<<<<< HEAD
         <h2 className="main-form-container__h2">Book Appointment</h2>
         <p className="main-form-container__p">
           Fillup the form to make an appointment with the doctor
         </p>
+=======
+        <h2>Book Appointment</h2>
+        <p>Fillup the form to make an appointment with the doctor</p>
+>>>>>>> 4c2ef82 (MS-3 - Create component Appointment Form)
         <input
           type="text"
           placeholder="Full Name"
@@ -69,7 +82,10 @@ const AppointmentForm = () => {
         <select
           value={department}
           onChange={(e) => setDepartment(e.target.value)}
+<<<<<<< HEAD
           className="main-form-container__select"
+=======
+>>>>>>> 4c2ef82 (MS-3 - Create component Appointment Form)
         >
           <option value="">Department</option>
           <option value="department1">Department 1</option>
@@ -92,6 +108,7 @@ const AppointmentForm = () => {
           onChange={(e) => setMessage(e.target.value)}
           className="main-form-container__textarea"
         ></textarea>
+<<<<<<< HEAD
         <button
           type="submit"
           onClick={handleFormSubmit}
@@ -99,6 +116,9 @@ const AppointmentForm = () => {
         >
           Book appointment
         </button>
+=======
+        <button onClick={handleFormSubmit}>Book appointment</button>
+>>>>>>> 4c2ef82 (MS-3 - Create component Appointment Form)
       </div>
     </div>
   );
