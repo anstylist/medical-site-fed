@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+.Container__All{
+    padding: 0px 24px 0 24px;
+    background-color: #EBF1F5;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.Container__Img{
+    height: 450px;
+    background-image: url(https://templates.envytheme.com/mebid/default/assets/images/faq.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+.Container__FAQ{
+    padding-top: 30px;
+    padding-bottom: 50px;
+    max-width: 645px;
+    &__Title{
+        font-size: 25px;
+        margin-bottom: 25px;
+        font-weight: bold;
+        line-height: 1.4;
+    }
+}
+
+.Container__Acordion{
+    &__Item{
+        margin-bottom: 20px;
+        background-color: transparent;
+        &__Title{
+            color: #000;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        &__NoContent{
+            color: #565656;
+            padding:  15px 20px 0 20px;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: all .6s ease-in-out;
+        }
+        &__Content{
+            position: relative;
+            text-align: start;
+            hyphens: none;
+            padding-top: 15px;
+            padding-left: 15px;
+            padding-right: 15px;
+            color: #565656;
+            max-height: 100%;
+            opacity: 1;
+            transition: all 1s ease-in-out;
+            
+        }
+    }
+}
+.Title__Content{
+    color: #000;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 1s;
+}
+.Title__NoContent{
+    color: #3FB6D6;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 1s;
+}
+
+.Icon{
+    color: #000;
+    transition: color 1s;
+    &--Azul{
+        color: #3FB6D6;
+        transition: color 1s;
+    }
+}
+@media (min-width: 768px){
+    .Container__All{
+        flex: 0 0 auto;
+        width: 100%;
+    }
+}
+@media (min-width: 992px){
+    .Container__All{
+        display: flex;
+    }
+    .Container__Img{
+        width: 50%;
+        height: auto;
+    }
+    .Container__FAQ{
+        padding-top: 100px;
+        padding-bottom: 100px;
+        padding-left: 27px;
+        padding-right: 27px;
+        width: 50%;
+    }
+}
+    
