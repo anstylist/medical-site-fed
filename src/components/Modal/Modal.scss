@@ -1,0 +1,46 @@
+.modal {
+  position: absolute;
+  top: 0;
+  visibility: hidden;
+  opacity: 0;
+  min-width: 20vw;
+  min-height: 20vh;
+  max-width: 80vw;
+  transition: visibility 0.25s ease-in, opacity 0.25s ease-in, top 0.25s ease-in;
+  background-color: white;
+}
+
+.modal-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent overlay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 9999;
+  transition: visibility 0.25s ease-in-out, opacity 0.25s ease-out;
+  
+  &__open {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+
+    .modal {
+      visibility: visible;
+      opacity: 1;
+      top: 9rem;
+      z-index: 99999;
+      pointer-events: auto;
+    }
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
