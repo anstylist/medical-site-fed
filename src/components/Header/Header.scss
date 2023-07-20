@@ -1,6 +1,5 @@
-@use './variables';
-@use '../../styles/mixins';
-
+@use "./variables";
+@use "../../styles/mixins";
 
 .header {
   display: flex;
@@ -12,7 +11,8 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
- 
+  z-index: 999;
+
   &__container {
     display: flex;
     justify-content: space-between;
@@ -23,7 +23,7 @@
     .header__item:first-child {
       margin-left: 0;
     }
-    
+
     .header__item:nth-child(2) {
       margin-left: auto;
     }
@@ -38,7 +38,7 @@
   }
 }
 
-@include mixins.set-container-width('.header');
+@include mixins.set-container-width(".header");
 
 @media screen and (min-width: 1024px) {
   .header {
@@ -48,13 +48,6 @@
       align-items: center;
       height: 4rem;
       padding: 1rem;
-    }
-  
-    &-section {
-  
-      &__logo {
-
-      }
     }
   }
 }

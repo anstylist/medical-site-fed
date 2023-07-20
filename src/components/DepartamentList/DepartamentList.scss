@@ -1,0 +1,38 @@
+.list-departament{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding:10px;    
+    box-sizing: border-box;
+    gap: 20px;
+    width: 100%;
+
+    .slider{
+        width: 100%;
+    }
+
+    @media (min-width: 576px){
+        max-width: 540px;
+    }
+
+    @media (min-width: 768px){
+        max-width: 720px;
+    }
+
+    @media (min-width: 992px){
+        max-width: 960px;
+    }
+
+    @media (min-width:1024px) {
+        gap: 10px;
+        max-width: 923px; 
+    }
+
+    @media (min-width:1440px) {
+        max-width: 1320px;
+    } 
+
+    
+}
