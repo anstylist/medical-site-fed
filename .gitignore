@@ -23,10 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 .env
-<<<<<<< HEAD
-# Ignorar el archivo App.jsx
-./src/components/pages/App.jsx
-=======
-App.jsx
-App.scss
->>>>>>> 2bdf88c (Updated gitignore to ignore App.jsx and created an empty MS8 component.)
