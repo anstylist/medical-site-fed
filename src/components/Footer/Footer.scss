@@ -71,8 +71,8 @@
       }
       &-redes{
         display: flex;
-        align-items: start;
-        padding-left: 22px;
+        align-items: center;
+        padding-left: 10px;
         padding-bottom: 2px;
         gap: 10px;
         color: variables.$color-lightblue;
@@ -102,6 +102,10 @@
             color: variables.$color-lightblue;
           }
         }
+      }
+      &-develop{
+        display: flex;
+        align-items: center;
       }
      
     }    
