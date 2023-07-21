@@ -12,6 +12,7 @@ import OurTestimonials from '../components/OurTestimonials/OurTestimonials'
 import GalleryCarousel from '../components/MS-8 GalleryCarousel/GalleryCarousel'
 import LatestNews from '../components/Latest News/LatestNews'
 import WideVideoSection from '../components/WideVideoSection/WideVideoSection'
+import DoctorCarousel from '../components/DoctorCarousel/DoctorCarousel'
 
 function App () {
   return (
@@ -24,6 +25,7 @@ function App () {
         <OurDepartament />
         <WideVideoSection />
         <GalleryCarousel />
+        <DoctorCarousel />
         <OurTestimonials />
         <OurPartners />
         <LatestNews />
