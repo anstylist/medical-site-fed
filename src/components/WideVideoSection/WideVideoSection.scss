@@ -1,0 +1,91 @@
+@use "../../styles/mixins";
+@use "../../styles/variables";
+
+.wide-video {
+  display: flex;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background-image: url(https://res.cloudinary.com/dzmkilinu/image/upload/v1689680108/medical-site/ylqbnwwbpbq5nsp8djd0.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 67vh;
+  max-height: 800px;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  &__play-icon {
+    color: white;
+    width: 7rem;
+    transition: color 0.25s ease-in;
+    cursor: pointer;
+
+    &:hover {
+      color: variables.$color-button-hover;
+    }
+  }
+  
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    z-index: 1;
+  }
+
+  &__modal {
+    width: 60vw;
+    height: 60vh;
+  }
+
+  &__modal-iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__modal-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__text {
+    color: white;
+    font-family: variables.$font-poppins;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 4rem;
+    margin-top: 2rem;
+  }
+
+@include mixins.set-container-width(".header");
+
+@media screen and (min-width: 1024px) {
+  .wide-video {
+    &__text {
+      color: white;
+      font-family: variables.$font-poppins;
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      line-height: 4rem;
+      margin-top: 2rem;
+    }
+  }
+}}
