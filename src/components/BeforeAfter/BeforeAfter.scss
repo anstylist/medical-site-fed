@@ -1,0 +1,92 @@
+@use "./variables";
+@use "../../styles/mixins";
+
+.before-after {
+  font-family: variables.$font-poppins;
+  display: block;
+  margin: 4rem 0;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    margin-bottom: 1.5rem;
+    color: black;
+    font-size: 2rem;
+  }
+
+  &__title {
+    margin-bottom: 1.5rem ;
+    margin-top: 4rem;
+    color: variables.$color-lightblue;
+    font-size: 1rem;
+    font-family: variables.$font-poppins;
+    font-weight: bold;
+  }
+}
+.handler {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+
+  &__circle {
+    position: absolute;
+    top: 50%;
+    height: 1.5rem;
+    width: 25px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: -12.5px;
+    color: #999999;
+    box-shadow: 0 0 12px #222;
+    touch-action: none;
+    transition: all 0.5s;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 0 30px #222;
+      color: #777777;
+    }
+  }
+
+  &__control {
+    position: relative;
+    top: 0;
+    height: 100%;
+  }
+
+  &__line {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: white;
+  }
+}
+
+.image {
+}
+
+.image-after {
+  position: absolute;
+}
+
+.image-before {
+  position: absolute;
+}
+
+.image-section {
+  background-image: url(https://res.cloudinary.com/dzmkilinu/image/upload/v1689612718/medical-site/footer-shape_ilh1vv.png);
+}
+
+.image-section__container {
+  position: relative;
+  height: 84.3vh;
+  margin: 0 4rem;
+}
+
+@include mixins.set-container-width("before-after");

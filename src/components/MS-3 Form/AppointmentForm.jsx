@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { FaAmbulance, FaHandHoldingMedical } from "react-icons/fa";
-import "./AppointmentForm.scss";
+import React, { useState } from 'react'
+import { FaAmbulance, FaHandHoldingMedical } from 'react-icons/fa'
+import './AppointmentForm.scss'
 
 const AppointmentForm = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [bookingDate, setBookingDate] = useState("");
-  const [department, setDepartment] = useState("");
-  const [selectedDoctor, setSelectedDoctor] = useState("");
-  const [message, setMessage] = useState("");
+  const [fullName, setFullName] = useState('')
+  const [email, setEmail] = useState('')
+  const [bookingDate, setBookingDate] = useState('')
+  const [department, setDepartment] = useState('')
+  const [selectedDoctor, setSelectedDoctor] = useState('')
+  const [message, setMessage] = useState('')
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     // Logic to handle the form submission goes here
-    console.log("Form submitted!");
-  };
+    console.log('Form submitted!')
+  }
 
   return (
     <div className="main-banner-area">
@@ -101,7 +101,7 @@ const AppointmentForm = () => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default AppointmentForm;
+export default AppointmentForm
