@@ -13,30 +13,8 @@ function Footer () {
         <section className='section'>
           <h3 className='section-title'>About</h3>
           <p className='section-description'>Our team has created a web system that allows you to book medical appointments and buy medical products.
-            Designed to be intuitive and secure, our solution provides convenience and ease of use for users, development team :
+            Designed to be intuitive and secure, our solution provides convenience and ease of use for users.
             </p>
-            <ul>
-              <li className='section-subtitle'>Andry Peña</li>
-              <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
-                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
-              </div>
-              <li className='section-subtitle'>Juan Villegas</li>
-              <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
-                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
-              </div>
-              <li className='section-subtitle'>Carlos Mendoza</li>
-              <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
-                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
-              </div>
-              <li className='section-subtitle'>Erick Carrasco</li>
-              <div className='section-redes'>
-                <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
-                <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
-              </div>
-            </ul>
         </section>
         <section className='section'>
         <h3 className='section-title'>Our departaments</h3>
@@ -67,6 +45,37 @@ function Footer () {
             <input type='text' className='section-input-email'placeholder='Email addres'></input>
             <button className='section-input-button'><BsArrowRight size={20}/></button>
           </div>
+          <h3 className='section-title'>Development team</h3>
+          <ul>
+              <li className= 'section-develop'>
+                <h3 className='section-subtitle'>Andry Peña</h3>
+                <div className='section-redes'>
+                  <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
+                </div>
+              </li>
+              <li className= 'section-develop'>
+                <h3 className='section-subtitle'>Carlos Mendoza</h3>
+                <div className='section-redes'>
+                  <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
+                </div>
+              </li>
+              <li className= 'section-develop'>
+                <h3 className='section-subtitle'>Erick Carrasco</h3>
+                <div className='section-redes'>
+                  <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
+                </div>
+              </li>
+              <li className= 'section-develop'>
+                <h3 className='section-subtitle'>Juan Villegas</h3>
+                <div className='section-redes'>
+                  <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
+                </div>
+              </li>
+            </ul>
         </section>
       </div>
       <div className='footer__copyright__container'>
@@ -77,4 +86,3 @@ function Footer () {
 }
 
 export default Footer
-
