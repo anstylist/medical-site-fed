@@ -1,49 +1,49 @@
-import React, { useState, useRef } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import "./GalleryCarousel.scss";
+import React, { useState, useRef } from 'react'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+import './GalleryCarousel.scss'
 
 const GalleryCarousel = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("");
-  const [isDragging, setIsDragging] = useState(false);
-  const sliderRef = useRef();
+  const [modalOpen, setModalOpen] = useState(false)
+  const [selectedImage, setSelectedImage] = useState('')
+  const [isDragging, setIsDragging] = useState(false)
+  const sliderRef = useRef()
 
   const images = [
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/gallery-1_jlzrit.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-3_a2sosw.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-4_yj9i5o.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-2_qday1w.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/gallery-1_jlzrit.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-3_a2sosw.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-4_yj9i5o.jpg",
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-2_qday1w.jpg",
-  ];
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/gallery-1_jlzrit.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-3_a2sosw.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-4_yj9i5o.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-2_qday1w.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/gallery-1_jlzrit.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-3_a2sosw.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-4_yj9i5o.jpg',
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/gallery-2_qday1w.jpg'
+  ]
 
   const openModal = (image) => {
-    setSelectedImage(image);
-    setModalOpen(true);
-  };
+    setSelectedImage(image)
+    setModalOpen(true)
+  }
 
   const closeModal = () => {
-    setModalOpen(false);
-    setSelectedImage("");
-  };
+    setModalOpen(false)
+    setSelectedImage('')
+  }
 
   const handleImageClick = (image) => {
     if (!isDragging) {
-      openModal(image);
+      openModal(image)
     }
-  };
+  }
 
   const handleSwipe = () => {
-    setIsDragging(true);
-  };
+    setIsDragging(true)
+  }
 
   const handleSwipeEnd = () => {
-    setIsDragging(false);
-  };
+    setIsDragging(false)
+  }
 
   const settings = {
     dots: true,
@@ -57,50 +57,50 @@ const GalleryCarousel = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-        },
+          slidesToShow: 3
+        }
       },
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
-        },
+          slidesToShow: 2
+        }
       },
       {
         breakpoint: 480,
         settings: {
-          slidesToShow: 1,
-        },
-      },
+          slidesToShow: 1
+        }
+      }
     ],
     swipe: true,
     swipeToSlide: true,
     beforeChange: handleSwipe,
-    afterChange: handleSwipeEnd,
-  };
+    afterChange: handleSwipeEnd
+  }
 
   const handlePrevious = () => {
-    const currentIndex = images.indexOf(selectedImage);
-    const previousIndex = (currentIndex - 1 + images.length) % images.length;
-    setSelectedImage(images[previousIndex]);
-  };
+    const currentIndex = images.indexOf(selectedImage)
+    const previousIndex = (currentIndex - 1 + images.length) % images.length
+    setSelectedImage(images[previousIndex])
+  }
 
   const handleNext = () => {
-    const currentIndex = images.indexOf(selectedImage);
-    const nextIndex = (currentIndex + 1) % images.length;
-    setSelectedImage(images[nextIndex]);
-  };
+    const currentIndex = images.indexOf(selectedImage)
+    const nextIndex = (currentIndex + 1) % images.length
+    setSelectedImage(images[nextIndex])
+  }
 
   const handleModalClick = (e) => {
-    if (e.target.classList.contains("modal-overlay")) {
-      closeModal();
+    if (e.target.classList.contains('modal-overlay')) {
+      closeModal()
     }
-  };
+  }
 
   const handleImageLoad = () => {
-    const modalImage = document.querySelector(".modal-image");
-    modalImage.classList.add("loaded");
-  };
+    const modalImage = document.querySelector('.modal-image')
+    modalImage.classList.add('loaded')
+  }
 
   return (
     <div>
@@ -127,7 +127,7 @@ const GalleryCarousel = () => {
             <img
               src={selectedImage}
               alt="Modal"
-              className={`modal-image ${modalOpen ? "transitioned" : ""}`}
+              className={`modal-image ${modalOpen ? 'transitioned' : ''}`}
               onLoad={handleImageLoad}
             />
             <div className="modal-arrows">
@@ -142,7 +142,7 @@ const GalleryCarousel = () => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default GalleryCarousel;
+export default GalleryCarousel
