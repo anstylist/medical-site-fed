@@ -16,6 +16,7 @@ export default function DoctorCarousel () {
     pauseOnHover: true,
     initialSlide: 0,
     dotsClass: 'med-gallery-dots',
+    arrows: false,
     responsive: [
       {
         breakpoint: 1024,
