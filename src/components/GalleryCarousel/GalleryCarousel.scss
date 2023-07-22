@@ -1,12 +1,15 @@
 @use "../../styles/variables";
+
 .gallery-carousel__header {
   text-align: center;
   padding: 3em;
+
   &--p {
     color: variables.$color-lightblue;
     margin: 10px;
     font-size: 14px;
   }
+
   &--h1 {
     font-size: 40px;
     font-weight: bold;
@@ -92,9 +95,57 @@
       border: none;
       cursor: pointer;
       transition: background-color 0.2s;
+
       &:hover {
         background-color: rgba(0, 0, 0, 0.8);
       }
     }
   }
 }
+
+.gallery-carousel__dots {
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
+  text-align: center;
+
+  li {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid variables.$color-lightblue;
+    opacity: 0.7;
+    margin: 0.3rem;
+
+    &:hover {
+      border: 1px solid variables.$optional-color;
+    }
+
+    button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: variables.$color-lightblue;
+      position: absolute;
+      color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background: variables.$optional-color;
+      }
+    }
+
+    &.slick-active {
+      border: 1px solid variables.$optional-color;
+
+      button {
+        background: variables.$optional-color;
+      }
+    }
+  }
+}
+

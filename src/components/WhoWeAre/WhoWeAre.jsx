@@ -1,11 +1,12 @@
-import { BsTelephoneFill } from "react-icons/bs";
-import "./WhoWeAre.scss";
+import { BsTelephoneFill } from 'react-icons/bs'
+import './WhoWeAre.scss'
+import React from 'react'
 
 const WhoWeAre = () => {
   const img1 =
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393385/medical-site/about-4_n2kpdd.jpg";
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393385/medical-site/about-4_n2kpdd.jpg'
   const img2 =
-    "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393386/medical-site/about-5_klveyi.jpg";
+    'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393386/medical-site/about-5_klveyi.jpg'
   return (
     <div className="whoweare-area">
       <div className="whoweare-content">
@@ -64,7 +65,7 @@ const WhoWeAre = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WhoWeAre;
+export default WhoWeAre

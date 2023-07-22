@@ -47,12 +47,14 @@ const GalleryCarousel = () => {
 
   const settings = {
     dots: true,
+    arrows: false,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 2,
     autoplay: true,
     autoplaySpeed: 4000,
+    dotsClass: 'gallery-carousel__dots',
     responsive: [
       {
         breakpoint: 1024,
