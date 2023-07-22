@@ -4,6 +4,7 @@ import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import './App.scss'
 import AppointmentForm from '../components/AppointmentForm/AppointmentForm'
+import BeforeAfter from '../components/BeforeAfter/BeforeAfter'
 import WhoWeAre from '../components/WhoWeAre/WhoWeAre'
 import OurDepartament from '../components/OurDepartament/OurDepartament'
 import Statistics from '../components/Statistics/Statistics'
@@ -27,6 +28,7 @@ function App () {
         <WideVideoSection />
         <GalleryCarousel />
         <DoctorCarousel />
+        <BeforeAfter />
         <OurTestimonials />
         <OurPartners />
         <LatestNews />
