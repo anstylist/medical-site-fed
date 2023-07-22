@@ -3,8 +3,9 @@
 
 .before-after {
   font-family: variables.$font-poppins;
-  display: block;
-  margin: 4rem 0;
+  display: flex;
+  margin: 2rem 0;
+  justify-content: center;
 
   &__content {
     display: flex;
@@ -14,9 +15,11 @@
   }
 
   &__text {
+    text-align: center;
     margin-bottom: 1.5rem;
     color: black;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
   &__title {
@@ -35,7 +38,7 @@
 
   &__circle {
     position: absolute;
-    top: 50%;
+    top: 25%;
     height: 1.5rem;
     width: 25px;
     border-radius: 50%;
@@ -68,9 +71,6 @@
   }
 }
 
-.image {
-}
-
 .image-after {
   position: absolute;
 }
@@ -81,12 +81,66 @@
 
 .image-section {
   background-image: url(https://res.cloudinary.com/dzmkilinu/image/upload/v1689612718/medical-site/footer-shape_ilh1vv.png);
+  height: 20vh;
 }
 
 .image-section__container {
   position: relative;
-  height: 84.3vh;
-  margin: 0 4rem;
+  height: 41.2vh;
+  margin: 0 1rem;
 }
 
-@include mixins.set-container-width("before-after");
+@media screen and (min-width: 768px) {
+  .image-section {
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 834px) {
+  .image-section {
+    height: 30vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  .before-after {
+    margin: 5rem 0;
+    &__text {
+      margin-bottom: 1.5rem;
+      color: black;
+      font-size: 2rem;
+    }}
+
+  .image-section__container {
+    position: relative;
+    height: 84.3vh;
+    margin: 0 3rem;
+  }
+  .image-section {
+    height: 60vh ;
+  }
+  .handler {
+    &__circle {
+      top: 35%;
+      }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .image-section {
+    height: 75vh ;
+  }
+  .image-section__container {
+    position: relative;
+    height: 84.3vh;
+    margin: 0 4rem;
+  }
+}
+@media screen and (min-width: 2560px) {
+  .image-section {
+    height: 63vh ;
+  }
+}
+
+@include mixins.set-container-width(".before-after");
