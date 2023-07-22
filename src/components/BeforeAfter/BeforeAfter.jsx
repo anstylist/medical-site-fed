@@ -48,42 +48,44 @@ export default function App () {
 
   return (
     <div className="before-after">
-      <section className='before-after__content'>
-        <h2 className='before-after__title'>Before and after</h2>
-        <h3 className='before-after__text'>See samples of our treatment</h3>
-      </section>
-      <section className="image-section">
-        <section className="image-section__container" ref={imgContainer}>
-          <img
-            className="image image-after"
-            src={urlAfter}
-            alt="after"
-          />
-          <img
-            className="image image-before"
-            src={urlBefore}
-            alt="before"
-            style={{
-              clipPath: `polygon(0 0, ${imgRevealFrag * 100}% 0, ${
-                imgRevealFrag * 100
-              }% 100%, 0 100%)`
-            }}
-            />
-          <div className="handler" style={{ left: `${imgRevealFrag * 100}%` }}>
-            <div className="handler__control">
-              <div className="handler__line" />
-              <button
-                onMouseDown={handleMouseDown}
-                onTouchMove={handleTouchMove}
-                type="button"
-                className="handler__circle"
-                >
-                <LuChevronsLeftRight />
-              </button>
-            </div>
-          </div>
+      <div className="before-after__container">
+        <section className='before-after__content'>
+          <h2 className='before-after__title'>Before and after</h2>
+          <h3 className='before-after__text'>See samples of our treatment</h3>
         </section>
-      </section>
+        <section className="image-section">
+          <section className="image-section__container" ref={imgContainer}>
+            <img
+              className="image image-after"
+              src={urlAfter}
+              alt="after"
+            />
+            <img
+              className="image image-before"
+              src={urlBefore}
+              alt="before"
+              style={{
+                clipPath: `polygon(0 0, ${imgRevealFrag * 100}% 0, ${
+                  imgRevealFrag * 100
+                }% 100%, 0 100%)`
+              }}
+              />
+            <div className="handler" style={{ left: `${imgRevealFrag * 100}%` }}>
+              <div className="handler__control">
+                <div className="handler__line" />
+                <button
+                  onMouseDown={handleMouseDown}
+                  onTouchMove={handleTouchMove}
+                  type="button"
+                  className="handler__circle"
+                  >
+                  <LuChevronsLeftRight />
+                </button>
+              </div>
+            </div>
+          </section>
+        </section>
+      </div>
     </div>
   )
 }
