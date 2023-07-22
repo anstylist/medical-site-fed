@@ -12,6 +12,7 @@ import OurTestimonials from '../components/OurTestimonials/OurTestimonials'
 import WideVideoSection from '../components/WideVideoSection/WideVideoSection'
 import DoctorCarousel from '../components/DoctorCarousel/DoctorCarousel'
 import GalleryCarousel from '../components/GalleryCarousel/GalleryCarousel'
+import BeforeAfter from '../components/BeforeAfter/BeforeAfter'
 import LatestNews from '../components/LatestNews/LatestNews'
 import ContactUs from '../components/ContactUs/ContactUs'
 
@@ -27,6 +28,7 @@ function App () {
         <WideVideoSection />
         <GalleryCarousel />
         <DoctorCarousel />
+        <BeforeAfter />
         <OurTestimonials />
         <OurPartners />
         <LatestNews />
