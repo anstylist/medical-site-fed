@@ -14,6 +14,7 @@ import DoctorCarousel from '../components/DoctorCarousel/DoctorCarousel'
 import GalleryCarousel from '../components/GalleryCarousel/GalleryCarousel'
 import LatestNews from '../components/LatestNews/LatestNews'
 import ContactUs from '../components/ContactUs/ContactUs'
+import Faq from '../components/FAQ/Faq'
 
 function App () {
   return (
@@ -30,6 +31,7 @@ function App () {
         <OurTestimonials />
         <OurPartners />
         <LatestNews />
+        <Faq />
         <ContactUs />
       </Main>
       <Footer />
