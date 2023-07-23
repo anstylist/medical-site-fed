@@ -39,7 +39,7 @@
     color:variables.$color-lightblue;   
   }
   &_subtitle{
-    font-size: 25px;    
+    font-size: variables.$font-size-large;    
     font-family: variables.$font-poppins;
     font-weight: bold;
     padding-left: 2rem;
@@ -54,7 +54,7 @@
 
     &-testimonial{
       padding-top: 4rem;
-      font-size: 16px;
+      font-size: variables.$font-size-x-small;
       font-family: variables.$font-open-sans;
       line-height: 2;          
       color: variables.$color-gray;
@@ -73,7 +73,7 @@
       }     
     }
     &-author{
-      font-size: 18px;    
+      font-size: variables.$font-size-small;    
       font-family: variables.$font-poppins;
       font-weight: bold;
       padding-bottom: 0.5rem;
@@ -95,6 +95,7 @@
 
   @media (min-width: 768px){
     &_slider{
+      padding-inline: 3rem;
       max-width: 720px;
     }
   }
@@ -109,7 +110,7 @@
     padding-top: 4rem;
     padding-bottom: 4rem;
     &_title{
-      font-size: 16px;
+      font-size: variables.$font-size-x-small;
     }
     &_subtitle{
       font-size: 48px;

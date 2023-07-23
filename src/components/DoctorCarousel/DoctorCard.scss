@@ -25,7 +25,7 @@
   &__id-name {
     width: 100%;
     font-size: 1.5rem;
-    font-family: sans-serif;
+    font-family: variables.$font-poppins;
     font-weight: bold;
     transition: color 0.6s ease-in-out;
     cursor: pointer;
@@ -36,6 +36,8 @@
   }
 
   &__id-specialty {
+    font-family: variables.$font-open-sans;
+    font-size: variables.$font-size-x-small;
     margin-top: 1.25rem;
     color: #565656;
   }

@@ -1,6 +1,6 @@
 @use '../../styles/variables';
 
-.departament-card{
+.department-card{
     display: flex;
     flex-direction: column;
     justify-content: left;   
@@ -27,10 +27,10 @@
     &--title{
         font-family: variables.$font-poppins;
         font-weight: bold;
-        font-size: 18px;               
+        font-size: variables.$font-size-small;               
     }
     &--information{        
-        font-size: 16px;
+        font-size: variables.$font-size-x-small;
         color:#565656;
         line-height: 2;
         font-weight: 300;
@@ -74,7 +74,7 @@
         flex-wrap: wrap;        
         width:30% ;
         &--title{
-            font-size: 24px;               
+            font-size: variables.$font-size-large;               
         }       
     }
     @media (min-width:1440px) {

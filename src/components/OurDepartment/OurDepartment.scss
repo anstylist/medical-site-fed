@@ -1,6 +1,6 @@
 @use '../../styles/variables';
 
-.ourdepartament{    
+.ourdepartment{    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,12 +12,12 @@
 
     &-title{
         color:variables.$color-lightblue;
-        font-size: 15px;
+        font-size: variables.$font-size-x-small;
         font-weight: bold;
         font-family: variables.$font-open-sans;
     }
     &-subtitle{
-        font-size: 25px;
+        font-size: variables.$font-size-large;
         font-weight: bold;
         font-family: variables.$font-poppins;
         padding: 1rem;
@@ -28,7 +28,7 @@
         background-color: variables.$color-lightblue;
         color: variables.$bg-main-color;
         font-family: variables.$font-open-sans;
-        font-size: 16px;
+        font-size: variables.$font-size-x-small;
         padding: 1rem;
         padding-inline: 2rem;
         margin-top: 1.5rem;
