@@ -1,8 +1,7 @@
 @use "./variables";
 @use "../../styles/mixins";
 
-.before-after {
-  font-family: variables.$font-poppins;
+.before-after {  
   display: flex;
   margin: 0rem 0;
   justify-content: center;
@@ -15,18 +14,19 @@
   }
 
   &__text {
+    font-family: variables.$font-poppins;
     text-align: center;
     margin-bottom: 1.5rem;
     color: black;
-    font-size: 1.5rem;
+    font-size: variables.$font-size-large;
     font-weight: bold;
   }
 
   &__title {
-    margin-bottom: 1.5rem ;
+    font-family: variables.$font-open-sans;
+    margin-bottom: variables.$font-size-x-small ;
     margin-top: 0rem;
     color: variables.$color-lightblue;
-    font-size: 1rem;
     font-family: variables.$font-poppins;
     font-weight: bold;
   }
@@ -81,13 +81,27 @@
 
 .image-section {
   background-image: url(https://res.cloudinary.com/dzmkilinu/image/upload/v1689612718/medical-site/footer-shape_ilh1vv.png);
-  height: 150px;
+  height: 200px;
 }
 
 .image-section__container {
   position: relative;
   height: 421px;
   margin: 0 2rem;
+}
+
+@media screen and (min-width: 576px) {
+  .image-section {
+    height: 300px;
+  }
+  .handler {
+    &__line {
+      height: 300px;
+    }
+    &__circle {
+      top: 60%;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -111,6 +125,12 @@
 }
 
 @media screen and (min-width: 1024px) {
+  .before-after{    
+    &__text{
+    padding: 2rem 0;
+    font-size: variables.$font-size-x-large;
+    }
+  }
   .image-section {
     height: 500px ;
   }

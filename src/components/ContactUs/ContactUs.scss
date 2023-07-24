@@ -3,21 +3,21 @@
 .Contact {
     &__Body {
         background-color: #005CB9;
-        font-family: 'Open Sans', sans-serif;
         padding-bottom: 50px;
         padding-top: 50px;
     }
 
     &__Botton {
         display: flex;
-    align-items: center; 
-    width: 170px;
-    height: 46.5px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    padding-right: 25px;
-    padding-left: 25px;
-    background-color: #ffffff;
+        align-items: center; 
+        width: 170px;
+        height: 46.5px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-right: 25px;
+        padding-left: 25px;
+        background-color: #ffffff;
+        font-family: variables.$font-open-sans;
     &__Icon{
         width: 34px;
     }
@@ -41,12 +41,13 @@
     }
     }
 
-    &__Text {
-        font-family: 'Poppins', sans-serif;
+    &__Text {        
+        font-family: variables.$font-open-sans;
+        font-size: variables.$font-size-medium;
+        line-height: variables.$font-x-line-height;
         color: #ffffff;
         margin-bottom: 25px;
-        font-size: 22px;
-        font-weight: 600;
+        font-weight: bold;
     }
 }
 
@@ -112,7 +113,7 @@
             width: 66.66666667%;
             padding-right: 12px;
             padding-left: 12px;
-            font-size: 24px;
+            font-size: variables.$font-size-large;
         }
     }
     

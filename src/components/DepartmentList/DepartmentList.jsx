@@ -1,11 +1,11 @@
 import React from 'react'
-import './DepartamentList.scss'
-import DepartamentCard from '../DepartamentCard/DepartamentCard'
+import './DepartmentList.scss'
+import DepartmentCard from '../DepartmentCard/DepartmentCard'
 import { GiHeartOrgan, GiAmbulance, GiMedicalDrip, GiTemplarEye, GiStomach, GiBrokenBone, GiBrain, GiAbdominalArmor } from 'react-icons/gi'
 import { TbDental, TbPhysotherapist } from 'react-icons/tb'
 import { dataDepartament } from '../data'
 
-const DepartamentList = ({ isHome }) => {
+const DepartmentList = ({ isHome }) => {
   const icons = {
     stomach: <GiStomach size={34}/>,
     heartorgan: <GiHeartOrgan size={34}/>,
@@ -22,10 +22,10 @@ const DepartamentList = ({ isHome }) => {
   const arrayDepartament = isHome ? [...dataDepartament()].slice(7, 10) : [...dataDepartament()]
 
   return (
-    <div className='list-departament'>
+    <div className='list-department'>
       { arrayDepartament.map((item) => {
         return (
-          <DepartamentCard
+          <DepartmentCard
           key={item.id}
           id={item.id}
           icon={icons[item.icon]}
@@ -37,4 +37,4 @@ const DepartamentList = ({ isHome }) => {
     </div>
   )
 }
-export default DepartamentList
+export default DepartmentList

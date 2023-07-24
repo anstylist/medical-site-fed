@@ -1,3 +1,5 @@
+@use '../../styles/variables';
+
 .whoweare-area {
   display: flex;
   align-items: center;
@@ -12,16 +14,18 @@
     align-items: flex-start;
     width: 50%;
     margin-left: 100px;
+    font-family: variables.$font-open-sans;
+    font-size: variables.$font-size-x-small;
 
     &__span {
-      font-size: 14px;
-      line-height: 3em;
-      color: #59cbe7;
+     line-height: 3em;
+      color: variables.$color-lightblue;
     }
 
     &__h1 {
-      font-weight: bolder;
-      font-size: 48px;
+      font-family: variables.$font-poppins;
+      font-size: variables.$font-size-medium;
+      font-weight: bold;
       margin-bottom: 15px;
       line-height: 1em;
     }
@@ -78,7 +82,8 @@
     width: 50%;
     margin-left: 20px;
     position: relative;
-
+    font-family: variables.$font-open-sans;
+    
     &__wrap {
       margin-left: 70px;
     }
@@ -179,3 +184,24 @@
     position: relative;
   }
 }
+
+@media (min-width:1024px){
+  .whoweare-area{
+    .whoweare-content{
+      &__h1{
+        font-size: variables.$font-size-optional;
+      }
+    }
+  }
+}
+@media (min-width:1440px) {
+  .whoweare-area{
+    .whoweare-content{
+      &__h1{
+        font-size: variables.$font-size-x-large;
+      }
+    }
+  }
+  
+}
+

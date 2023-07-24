@@ -12,7 +12,7 @@
     color:variables.$color-lightblue;
     font-family: variables.$font-open-sans;
     font-weight: bold;
-    font-size: 15px;
+    font-size: variables.$font-size-x-small;
     padding: 2rem;
   }
 
@@ -44,10 +44,7 @@
   }
 
   @media (min-width:1024px) {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
     &-title{
-      font-size: 16px;
       padding-bottom: 3rem;
     }
     &-slider{

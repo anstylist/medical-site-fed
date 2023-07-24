@@ -8,7 +8,7 @@ const CardStatistics = ({ num, symbol, icon, text }) => {
     let interval
     if (count < num) {
       const increment = (num === 700 ? 20 : 1)
-      interval = setInterval(() => setCount((prevCount) => prevCount + increment), num === 20 ? 40 : num === 99 ? 5 : 20)
+      interval = setInterval(() => setCount(count + increment), num === 20 ? 40 : num === 99 ? 5 : 20)
     }
     return () => clearInterval(interval)
   }, [count, num])

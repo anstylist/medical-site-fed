@@ -49,7 +49,7 @@ export default function DoctorCarousel () {
 
   return (
       <div className='doctor-carousel'>
-        <h2 className='doctor-carousel__title'>Our Doctors</h2>
+        <h2 className='doctor-carousel__title'>Our doctors</h2>
         <h3 className='doctor-carousel__text'>Professional staff at our hospital</h3>
         <Slider {...settings}>
             {doctorsList.map((doctor) => (

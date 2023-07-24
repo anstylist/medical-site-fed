@@ -2,6 +2,7 @@ import React from 'react'
 import { BsLinkedin, BsGithub, BsArrowRight } from 'react-icons/bs'
 import { dataDepartament, dataLink } from '../data'
 import './Footer.scss'
+import ContactUs from '../ContactUs/ContactUs'
 
 function Footer () {
   const departaments = [...dataDepartament()].slice(0, 6)
@@ -9,6 +10,9 @@ function Footer () {
 
   return (
     <footer className='footer'>
+      <div className='footer__section__contactus'>
+        <ContactUs/>
+      </div>
       <div className='footer__section__container'>
         <section className='section'>
           <h3 className='section-title'>About</h3>
@@ -17,7 +21,7 @@ function Footer () {
             </p>
         </section>
         <section className='section'>
-        <h3 className='section-title'>Our departaments</h3>
+        <h3 className='section-title'>Our departments</h3>
           <ul>
             {departaments.map((item) => {
               return (

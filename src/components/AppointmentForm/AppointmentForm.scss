@@ -1,32 +1,36 @@
+@use '../../styles/variables';
 
 .main-banner-area {
   display: block;
   height: auto;
   background-color: #161616;
-  padding: 16px;
+  padding: 2rem 1rem;
 }
 
 .main-banner-container {
-  text-align: center;
+  padding-top: 2rem;
+  font-family: variables.$font-open-sans;
+  font-size: variables.$font-size-x-small;
   color: white;
   max-width: 100%;
 }
 
 .main-banner-container__span {
-  font-size: 12px;
   margin-bottom: 16px;
   color: #59cbe7;
 }
 
 .main-banner-container__h1 {
-  font-size: 32px;
+  padding-top: 1rem;
+  font-family: variables.$font-poppins;
+  font-size: variables.$font-size-large;
+  line-height: variables.$font-x-line-height;
   margin-bottom: 12px;
-  line-height: 1em;
   font-weight: bolder;
 }
 
 .main-banner-container__p {
-  font-size: 12px;
+  line-height: variables.$font-line-height;
   margin-bottom: 16px;
 }
 
@@ -39,7 +43,6 @@
   & li {
     align-items: center;
     margin-right: 8px;
-    font-size: 14px;
   }
   &__icons {
     width: 40px;
@@ -60,6 +63,9 @@
 }
 
 .main-form-container {
+  font-family: variables.$font-open-sans;
+  font-size: variables.$font-size-x-small;
+  line-height: variables.$font-line-height;
   flex-direction: column;
   align-items: center;
   background-color: #ffffff;
@@ -69,13 +75,13 @@
 }
 
 .main-form-container__h2 {
-  font-size: 18px;
+  font-family: variables.$font-poppins;
+  font-size: variables.$font-size-small;
   margin-bottom: 12px;
   font-weight: bold;
 }
 
 .main-form-container__p {
-  font-size: 10px;
   margin-bottom: 8px;
 }
 
@@ -98,11 +104,17 @@
   color: #fff;
   padding: 10px 12px;
   border: none;
-  font-size: 12px;
   width: 100%;
-
-  transition: background-color 0.6s ease;
+  transition:0.6s ease;
   cursor: pointer;
+  &:hover{
+    background-color: variables.$color-button-hover;
+  }
+}
+@media (min-width:576px){
+  .main-banner-area {
+    padding-inline: 3rem;
+  }
 }
 
 @media (min-width: 769px) {
@@ -111,27 +123,24 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    padding: 0;
   }
 
   .main-banner-container {
-    padding: 26px;
     text-align: left;
-    max-width: 750px;
+    max-width: 720px;
+    font-size: variables.$font-size-small;
   }
 
   .main-banner-container__h1 {
-    font-size: 70px;
+    font-size: 35px;
     margin-bottom: 16px;
   }
 
   .main-banner-container__p {
-    font-size: 14px;
     margin-bottom: 32px;
   }
 
   .banner-list li {
-    font-size: 18px;
     margin-right: 16px;
   }
 
@@ -140,12 +149,11 @@
   }
 
   .main-form-container__h2 {
-    font-size: 20px;
+    font-size: variables.$font-size-large;
     margin-bottom: 16px;
   }
 
   .main-form-container__p {
-    font-size: 12px;
     margin-bottom: 16px;
   }
 
@@ -172,6 +180,12 @@
   }
 
   .banner-list__icons:hover {
-    background-color: #3774d9;
+    background-color: variables.$color-hover-icon;
+  }
+}
+
+@media (min-width:1440px){
+  .main-banner-container__h1 {
+    font-size: variables.$font-size-xx-large;
   }
 }
