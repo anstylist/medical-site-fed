@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import './Jumbotron.scss'
 
 const Jumbotron = ({ pageTitle, breadcrumb, backgroundClassName }) => {
@@ -24,6 +25,15 @@ const Jumbotron = ({ pageTitle, breadcrumb, backgroundClassName }) => {
       </div>
     </section>
   )
+}
+
+Jumbotron.propTypes = {
+  pageTitle: PropTypes.string.isRequired,
+  backgroundClassName: PropTypes.string,
+  breadcrumb: PropTypes.arrayOf(PropTypes.shape({
+    text: PropTypes.string.isRequired,
+    route: PropTypes.string
+  }))
 }
 
 export default Jumbotron
