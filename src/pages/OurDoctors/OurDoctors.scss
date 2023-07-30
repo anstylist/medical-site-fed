@@ -1,0 +1,66 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.our-doctors {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/banner-bg-2_qhpmwi.jpg');
+  }
+  
+  &__container {
+    margin-top: 4rem;
+  }
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: variables.$font-size-x-small;
+    font-family: variables.$font-open-sans;
+    font-weight: bold;
+    color: variables.$color-lightblue;
+  }
+  
+  &__text {
+    font-size: variables.$font-size-large;
+    font-family: variables.$font-poppins;
+    font-weight: bold;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 4rem;
+  }
+
+  &__cards-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__card {
+    width: 80;
+  }
+}
+
+@include mixins.set-container-width(".our-doctors");
+
+
+@media screen and (min-width: 1024px) {
+  .our-doctors {
+  
+    &__cards-box {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  
+    &__card {
+      width: 250px;
+    }
+  } 
+}

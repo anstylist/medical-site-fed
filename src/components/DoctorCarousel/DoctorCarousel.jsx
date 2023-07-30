@@ -62,16 +62,6 @@ export default function DoctorCarousel () {
                 socialLinks={doctor.socialLinks}
               />
             ))}
-            {doctorsList.map((doctor) => (
-              <DoctorCard
-                key={doctor.id}
-                id={doctor.id}
-                name={doctor.name}
-                specialty={doctor.specialty}
-                image={doctor.image}
-                socialLinks={doctor.socialLinks}
-              />
-            ))}
         </Slider>
       </div>
   )

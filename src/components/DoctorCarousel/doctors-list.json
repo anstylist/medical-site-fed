@@ -85,7 +85,7 @@
   },
   {
     "id": 4,
-    "name": "Helen scheffler",
+    "name": "Helen Scheffler",
     "specialty": "Oncologist",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-7_cddw1a.jpg",
     "socialLinks": [
@@ -110,5 +110,117 @@
           "url": "https://www.linkedin.com/"
         }
       ]
-    }
+    },
+    {
+      "id": 5,
+      "name": "Dr. Charles Gordon",
+      "specialty": "Medical Advisor",
+      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-1_oqluuf.jpg",
+      "socialLinks": [
+        {
+          "id":51,
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "id":52,
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        },
+        {
+          "id":53,
+          "type": "twitter",
+          "url": "https://www.twitter.com/"
+        },
+        {
+          "id":54,
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Dr. Mattie Delgado",
+      "specialty": "Surgery Surgeon",
+      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-2_xoxxld.jpg",
+      "socialLinks": [
+        {
+          "id": 61,
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "id": 62,
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        },
+        {
+          "id": 63,
+          "type": "twitter",
+          "url": "https://www.twitter.com/"
+        },
+        {
+          "id": 64,
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Dr. Verna Leto",
+      "specialty": "Cosmetic surgeon",
+      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/doctors-3_tpteqa.jpg",
+      "socialLinks": [
+        {
+          "id": 71,
+          "type": "facebook",
+          "url": "https://www.facebook.com/"
+        },
+        {
+          "id": 72,
+          "type": "instagram",
+          "url": "https://www.instagram.com/"
+        },
+        {
+          "id": 73,
+          "type": "twitter",
+          "url": "https://www.twitter.com/"
+        },
+        {
+          "id": 74,
+          "type": "linkedin",
+          "url": "https://www.linkedin.com/"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Dr. Gail Parrish",
+      "specialty": "Neurologist",
+      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/doctors-4_er4fly.jpg",
+      "socialLinks": [
+          {
+            "id": 81,
+            "type": "facebook",
+            "url": "https://www.facebook.com/"
+          },
+          {
+            "id": 82,
+            "type": "instagram",
+            "url": "https://www.instagram.com/"
+          },
+          {
+            "id": 83,
+            "type": "twitter",
+            "url": "https://www.twitter.com/"
+          },
+          {
+            "id": 84,
+            "type": "linkedin",
+            "url": "https://www.linkedin.com/"
+          }
+        ]
+      }
   ]
