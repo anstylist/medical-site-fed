@@ -13,7 +13,7 @@
 
   &__content {
     margin-bottom: 1.5rem;
-    max-width: 61rem;
+    max-width: 22rem;
     margin: auto;
   
   }
@@ -39,9 +39,10 @@
   }
 
   &__title {
+    max-width: 17rem;
     font-family: variables.$font-poppins;
     text-align: center;
-    font-size: 3rem;
+    font-size: 1.5rem;
     font-weight: bold;
   }
 }
@@ -51,3 +52,21 @@
 }
 
 @include mixins.set-container-width(".patients-visitors");
+
+@media screen and (min-width: 1024px) {
+  .patients-visitors {
+    &__container {
+      margin: 5rem 5rem;
+    }
+  
+    &__content { 
+      max-width: 61rem; 
+    }
+  
+    &__title {
+      font-size: 3rem;
+      max-width: 100%;
+       
+    }
+  }
+}
