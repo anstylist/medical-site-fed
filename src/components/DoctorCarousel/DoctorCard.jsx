@@ -10,9 +10,9 @@ const socialIcon = {
   linkedin: <BiLogoLinkedin className='doctor-card__social-icon'/>
 }
 
-const DoctorCard = ({ id, name, specialty, image, socialLinks }) => {
+const DoctorCard = ({ id, name, specialty, image, socialLinks, externalClass }) => {
   return (
-    <section className='doctor-card'>
+    <section className={`doctor-card ${externalClass || ''}`}>
       <div className='doctor-card__pic'>
         <a
           className='doctor-card__doctor'
