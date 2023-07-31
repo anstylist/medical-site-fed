@@ -1,0 +1,53 @@
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
+.patients-visitor__bg{
+  background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/banner-bg-5_q6oop9.jpg');
+}
+
+.patients-visitors {
+  &__container {
+
+    margin: 5rem 5rem;
+  }
+
+  &__content {
+    margin-bottom: 1.5rem;
+    max-width: 61rem;
+    margin: auto;
+  
+  }
+
+  &__map-section {
+    height: 400px;
+  }
+
+  &__subtitle {
+    font-family: variables.$font-poppins;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  &__text {
+    font-family: variables.$font-poppins;
+    color: #565656;
+    line-height: 2;
+    font-size: 1rem;
+    // text-align: justify;
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    font-family: variables.$font-poppins;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+}
+
+.leaflet-container {
+  height: 100%;
+}
+
+@include mixins.set-container-width(".patients-visitors");
