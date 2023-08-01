@@ -1,0 +1,31 @@
+@use '../../styles/variables';
+.banner {
+  background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+  background-size: cover;
+  background-color: rgb(59, 65, 59);
+  background-blend-mode: soft-light;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+.banner-h1 {
+  color: variables.$bg-main-color;
+  font-size: variables.$font-size-xx-large;
+  font-weight: bolder;
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+
+.banner-h2 {
+  width: 100%;
+  margin-top: 5%;
+  text-align: center;
+  font-size: variables.$font-size-medium;
+  color: variables.$bg-main-color;
+}
