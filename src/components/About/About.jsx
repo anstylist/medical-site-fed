@@ -7,19 +7,25 @@ import WideVideoSection from '../WideVideoSection/WideVideoSection'
 import DoctorCarousel from '../DoctorCarousel/DoctorCarousel'
 import OurPartners from '../OurPartners/OurPartners'
 import OurTestimonials from '../OurTestimonials/OurTestimonials'
-import Banner from '../Banner/Banner'
+import Jumbotron from '../Jumbotron/Jumbotron'
 // rgb(82, 87, 82);
 function About () {
-  const banner = {
-    title: 'Abuot',
-    subtitle: 'Home / About'
-  }
+  const breadcrumb = [
+    {
+      text: 'Home',
+      route: '/'
+    },
+    {
+      text: 'About'
+    }
+  ]
   return (
    <div>
-     <Banner
-      title = {banner.title}
-      subtitle={banner.subtitle}
-     />
+     <Jumbotron
+      pageTitle = {'About'}
+      backgroundClassName="About__bg"
+      breadcrumb={breadcrumb}
+      />
      <WhoWeAre />
      <Statistics />
      <div className='whypeople'>

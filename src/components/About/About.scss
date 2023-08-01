@@ -1,6 +1,9 @@
 .whypeople{
   display: flex;
 }
+.About__bg{
+  background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+}
 @media (max-width: 992px){
   .whypeople{
     display: block;

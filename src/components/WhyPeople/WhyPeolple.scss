@@ -18,6 +18,8 @@
 }
 .people-container {
   margin-left: 10%;
+  margin-right: 5%;
+  hyphens: none;
   &-span{
     font-size: variables.$font-size-x-small;
   }
@@ -27,7 +29,6 @@
 
 .people-parrafo {
   margin-bottom: 15px;
-  hyphens: none;
 }
 
 .people-title {
