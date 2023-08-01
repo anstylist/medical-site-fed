@@ -1,7 +1,7 @@
 import React from 'react'
 import './Error404.scss'
 import { HiArrowNarrowRight } from 'react-icons/hi'
-import Jumbotron from '../Jumbotron/Jumbotron'
+import Jumbotron from '../../components/Jumbotron/Jumbotron'
 function Error404 () {
   const breadcrumb = [
     {
