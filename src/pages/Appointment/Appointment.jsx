@@ -221,6 +221,7 @@ const Appointment = () => {
                  name='message'
                  value={appointment.message}
                  onChange={handlechange}
+                 required
                 />
             </div>
           </div>
