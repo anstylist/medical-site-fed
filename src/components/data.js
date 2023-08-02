@@ -26,6 +26,7 @@ export const dataLink = () => {
   ]
   return link
 }
+
 export const dataCountries = () => {
   const countries = [
     { id: 1, name: 'Australia' },
@@ -62,12 +63,13 @@ export const dataHospitals = () => {
 }
 
 export const dataDoctor = () => {
-  const hospitals = [
+  const doctors = [
+
     { id: 1, name: 'Kasey burt' },
     { id: 2, name: 'Lyle Kauffman' },
     { id: 3, name: 'Larry lin' },
     { id: 4, name: 'Victoria roach' },
     { id: 5, name: 'David collins' }
   ]
-  return hospitals
+  return doctors
 }
