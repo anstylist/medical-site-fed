@@ -1,0 +1,118 @@
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
+.emergency-services {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+
+  &__title {}
+
+  &__link {
+    display: inline-block;
+
+    &:hover {
+      color: #3FB6D6 ;
+    }
+  }
+
+  &__icon {
+    transition: scale 0.2s ease-in;
+    font-size: 1.5rem;
+    &:hover {
+      color: #3FB6D6 ;
+    };
+  }
+  &__map-section {
+    height: 400px;
+  }
+
+  &__phone-box {
+    display: flex;
+  }
+
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/banner-bg-4_mot6ce.jpg');
+  }
+
+  &__container { 
+    padding: 2rem;    
+  }
+
+  &__header {
+    margin-top: 3rem;
+    background-color: #EBF5F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 2rem;
+
+    &-send {
+
+    }
+
+    &-title {
+      font-family: variables.$font-poppins;
+      font-weight: 800;
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+      margin: 2rem 0;
+    }
+  }
+
+
+  &__phone{
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  &__contact {
+    display:flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+}
+.leaflet-container {
+  height: 100%;
+}
+
+@include mixins.set-container-width('.emergency-services');
+
+@media screen and (min-width: 1024px) {
+  .emergency-services {
+      &__container {
+      padding: 0;
+      }
+      &__contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      &__header {
+        margin-top: 3rem;
+        background-color: #EBF5F5;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 2rem;
+      }
+      &__icon {
+        transition: scale 0.2s ease-in;
+      }
+}}

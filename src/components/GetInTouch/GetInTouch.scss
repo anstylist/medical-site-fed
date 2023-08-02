@@ -1,0 +1,96 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.get-in-touch {
+  width: 50%;
+
+  &__title {
+    font-family: variables.$font-poppins;
+    font-weight: 800;
+    font-size: 1.5rem;
+    margin: 2rem 0;
+  }
+  &__container {
+    width: 100%;
+  }
+
+  &__info-list {
+    display: flex;
+    flex-direction: column;
+
+    &-item {
+      display: flex;
+      padding-bottom: 1rem;
+    }
+  }
+
+  &__link {
+    
+    &:hover {
+      color: #3FB6D6 ;
+    };
+  }
+
+  &__i {
+    padding-right: 1rem;
+  }
+
+  &__icon {
+    color: #3fb6d6;
+  }
+
+  &__location-text {}
+
+  
+  &-list {
+
+  }
+  
+  &__text {
+    padding-bottom: 1rem;
+    color:#565656;
+  }
+  
+  
+  &__social {
+    display:flex;
+    padding-bottom: 1rem;
+    justify-content: start;
+    min-width: 350px;
+
+    &-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    &-list{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      color: variables.$font-color;     
+      background-color: #EBF5F5;
+      border-radius: 50%;
+      width: 22px;
+      height: 22px;
+      padding: 5px;
+      margin-right: 1rem;
+      transition: background-color 0.25s ease-in-out;
+
+      &:hover {
+        background-color: variables.$optional-color;
+        color: white;
+        font-family: variables.$font-poppins;
+      }
+    }
+  }
+}
+
+@include mixins.set-container-width('.get-in-touch');
+
+@media screen and (min-width: 1024px) {
+  .get-in-touch {
+    &__container {
+      
+    }
+}}
