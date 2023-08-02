@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-import Header from '../../components/Header/Header'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import Footer from '../../components/Footer/Footer'
 import './Login.scss'
 
 function Login () {
@@ -39,7 +37,6 @@ function Login () {
   ]
   return (
         <div className="login">
-          <Header />
             <Jumbotron
                 pageTitle={'Login'}
                 backgroundClassName="login__bg"
@@ -70,7 +67,6 @@ function Login () {
                     </p>
                 </div>
             </div>
-            <Footer />
         </div>
   )
 }
