@@ -1,0 +1,121 @@
+@use '../../styles/variables';
+
+.register {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: variables.$font-poppins;
+
+  &-container {
+    padding: 10px 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/banner-bg-5_q6oop9.jpg');
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 20px;
+    font-size: 18px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  &__checkbox {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    color: variables.$color-gray;
+    .agree-terms {
+        display: inline;
+        color: variables.$color-lightblue;
+    }
+
+    input[type='checkbox'] {
+      margin-right: 10px;
+      appearance: auto;
+      transform: scale(1.5);
+    }
+  }
+
+  &__button {
+    width: 180px;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: variables.$color-lightblue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+        background-color: variables.$color-button-hover;
+    }
+  }
+
+  &__login-now {
+    font-size: 14px;
+    margin-top: 15px;
+    padding-bottom: 50px;
+
+    a {
+        color: variables.$color-gray;
+    }
+  }
+
+  @media (min-width: 768px) {
+
+    .register-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    &__input {
+      padding: 15px;
+      font-size: 20px;
+    }
+
+    &__button {
+      padding: 20px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+
+    .register-container {
+      max-width: 700px;
+      padding-top: 50px;
+      margin: 0 auto;
+    }
+
+    &__input {
+      padding: 15px;
+      font-size: 18px;
+    }
+
+    &__button {
+      padding: 18px;
+      font-size: 18px;
+    }
+  }
+}
