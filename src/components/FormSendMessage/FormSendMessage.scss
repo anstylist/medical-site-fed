@@ -1,0 +1,120 @@
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
+.form-send-message {
+  max-width: 3000px;
+  &__header {
+    font-family: variables.$font-poppins;
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 2rem 0;
+  }
+
+  &__button {
+    padding: 10px 20px;
+    background-color: #3DB6D6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  
+
+  &__control {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+
+    &-checkbox-icon-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      color: black;
+      border: 1px solid darkgrey;
+      margin-right: 0.5rem;
+      position: relative;
+      top: .2rem;
+
+      .icon {
+        color: rgb(10, 132, 184);
+        font-size: 1.5rem;
+      }
+    }
+  }
+  
+  &__label {
+    display: flex;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  &__email {
+    color: #565656;
+  }
+  
+  &__message {
+    color: #565656;
+  }
+
+  &__name {
+    color: #565656;
+    padding-right: 1rem;
+    max-width: 100%;
+  }
+
+  &__phone {
+    color: #565656;
+    padding-right: 1rem;
+  }
+
+  &__subject {
+    color: #565656;
+  }
+
+  &__terms {
+    color: #565656;
+    display: flex
+    
+  }
+}
+
+.div-1 {
+display: flex;
+}
+
+.div-2{
+  display: flex;
+}
+@include mixins.set-container-width(".form-send-message");
+
+@media screen and (min-width: 1024px) {
+  .form-send-message {
+    max-width: 3000px;
+
+    &__control {
+      width: 420px;
+      height: 50px;
+
+      &--textarea {
+        width: 100%;
+      }
+    }
+    &__message {
+      width: 100%;
+    }
+
+  }
+}

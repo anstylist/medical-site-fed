@@ -1,0 +1,20 @@
+[
+  {
+    "text": "Ambulance",
+    "number": 223446,
+    "icon": "BiPhone"
+
+  },
+  {
+    "text": "Trauma Emergency",
+    "number": 5674836,
+    "icon": "BiPhone"
+
+  },
+  {
+    "text": "Pediatric Emergency",
+    "number": 567009,
+    "icon": "BiPhone"
+
+  }
+]

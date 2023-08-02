@@ -3,6 +3,7 @@ import React from 'react'
 import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi'
 import './DoctorCard.scss'
 
+
 const socialIcon = {
   facebook: <BiLogoFacebook className='doctor-card__social-icon'/>,
   instagram: <BiLogoInstagram className='doctor-card__social-icon' />,
