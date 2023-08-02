@@ -80,6 +80,7 @@
   &__contact {
     display:flex;
     flex-direction: column;
+    width: 100%;
   }
   
 }
@@ -95,8 +96,9 @@
       padding: 0;
       }
       &__contact {
-        display:flex;
+        display: flex;
         flex-direction: row;
+        justify-content: space-between;
       }
 
       &__header {

@@ -43,13 +43,13 @@ function GetInTouch() {
         <li className='get-in-touch__social-list'>
           <BiLogoFacebook className='get-in-touch__social-icon'/>
         </li>
-        <li>
+        <li className='get-in-touch__social-list'>
           <BiLogoInstagram className='get-in-touch__social-icon' />
         </li>
-        <li>
+        <li className='get-in-touch__social-list'>
           <BiLogoTwitter className='get-in-touch__social-icon'/>
         </li>
-        <li>
+        <li className='get-in-touch__social-list'>
           <BiLogoLinkedin className='get-in-touch__social-icon'/>
         </li>
       </ul>

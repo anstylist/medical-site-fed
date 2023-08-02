@@ -33,7 +33,7 @@ const FormSendMessage = () => {
     <section className='form-send-message'>
       <form onSubmit={handleSubmit} className='form-send-message__container'>
         <div className='div-1'>
-          <div className='form-send-message__name'>
+          <div className='form-send-message__row'>
             <label htmlFor="name" className='form-send-message__label'>Name</label>
             <input
               type="text"
@@ -45,7 +45,7 @@ const FormSendMessage = () => {
               className='form-send-message__control'
               />
           </div>
-          <div className='form-send-message__email'>
+          <div className='form-send-message__row'>
             <label htmlFor="email" className='form-send-message__label'>Email</label>
             <input
               type="email"
@@ -59,7 +59,7 @@ const FormSendMessage = () => {
           </div>
         </div>
         <div className='div-2'>
-          <div className='form-send-message__phone'>
+          <div className='form-send-message__row'>
             <label htmlFor="phone" className='form-send-message__label'>Phone</label>
             <input
               type="tel"
@@ -70,7 +70,7 @@ const FormSendMessage = () => {
               className='form-send-message__control'
               />
           </div>
-          <div className='form-send-message__subject'>
+          <div className='form-send-message__row'>
             <label htmlFor="subject" className='form-send-message__label'>Subject</label>
             <input
               type="text"

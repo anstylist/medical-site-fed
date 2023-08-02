@@ -2,6 +2,7 @@
 @use '../../styles/mixins';
 
 .get-in-touch {
+  width: 50%;
 
   &__title {
     font-family: variables.$font-poppins;
@@ -55,29 +56,35 @@
     display:flex;
     padding-bottom: 1rem;
     justify-content: start;
+    min-width: 350px;
 
     &-icon {
-      width: 100%;
-      margin-right: 1rem;
+      width: 1rem;
+      height: 1rem;
+    }
+    
+    &-list{
       display: flex;
       justify-content: center;
       align-items: center;
       cursor: pointer;
-      width: 1rem;
-      height: 1rem;
+      color: variables.$font-color;     
       background-color: #EBF5F5;
-      color: variables.$font-color;
       border-radius: 50%;
-      
+      width: 22px;
+      height: 22px;
+      padding: 5px;
+      margin-right: 1rem;
+      transition: background-color 0.25s ease-in-out;
+
       &:hover {
         background-color: variables.$optional-color;
         color: white;
         font-family: variables.$font-poppins;
+      }
     }
   }
-   
 }
-
 
 @include mixins.set-container-width('.get-in-touch');
 
@@ -87,4 +94,3 @@
       
     }
 }}
-}
