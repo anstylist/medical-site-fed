@@ -5,7 +5,7 @@ import { GiHeartOrgan, GiAmbulance, GiMedicalDrip, GiTemplarEye, GiStomach, GiBr
 import { TbDental, TbPhysotherapist } from 'react-icons/tb'
 import { dataDepartament } from '../data'
 
-const DepartmentList = ({ isHome }) => {
+const DepartmentList = () => {
   const icons = {
     stomach: <GiStomach size={34}/>,
     heartorgan: <GiHeartOrgan size={34}/>,
@@ -19,8 +19,7 @@ const DepartmentList = ({ isHome }) => {
     therapy: <TbPhysotherapist size={34}/>
   }
 
-  const arrayDepartament = isHome ? [...dataDepartament()].slice(7, 10) : [...dataDepartament()]
-
+  const arrayDepartament = [...dataDepartament()].slice(7, 10)
   return (
     <div className='list-department'>
       { arrayDepartament.map((item) => {
