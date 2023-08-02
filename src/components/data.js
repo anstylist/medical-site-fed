@@ -27,6 +27,38 @@ export const dataLink = () => {
   return link
 }
 
+export const dataTimetable = () => {
+  const timetable = [
+    { id: 0, doctor: { id: 1, name: 'Crystal Fitzhugh', specialty: 'Neurology' }, day: 'Sunday', start_time: '09:00', end_time: '12:00' },
+    { id: 1, doctor: { id: 2, name: 'Perry Barkley', specialty: 'Orthopedic' }, day: 'Sunday', start_time: '12:00', end_time: '15:00' },
+    { id: 2, doctor: { id: 3, name: 'Juan Perez', specialty: 'Ophthalmology' }, day: 'Sunday', start_time: '15:00', end_time: '18:00' },
+    { id: 3, doctor: { id: 4, name: 'Gail Parrish', specialty: 'Cardiology' }, day: 'Sunday', start_time: '18:00', end_time: '21:00' },
+    { id: 4, doctor: { id: 5, name: 'Helen Scheffler', specialty: 'Gastroenterologist' }, day: 'Sunday', start_time: '21:00', end_time: '24:00' },
+    { id: 5, doctor: { id: 1, name: 'Crystal Fitzhugh', specialty: 'Neurology' }, day: 'Monday', start_time: '09:00', end_time: '12:00' },
+    { id: 6, doctor: { id: 2, name: 'Perry Barkley', specialty: 'Orthopedic' }, day: 'Monday', start_time: '12:00', end_time: '15:00' },
+    { id: 7, doctor: { id: 3, name: 'Juan Perez', specialty: 'Orthopedic' }, day: 'Monday', start_time: '15:00', end_time: '18:00' },
+    { id: 8, doctor: { id: 4, name: 'Gail Parrish', specialty: 'Cardiology' }, day: 'Monday', start_time: '18:00', end_time: '21:00' },
+    { id: 9, doctor: { id: 5, name: 'Helen Scheffler', specialty: 'Gastroenterologist' }, day: 'Tuesday', start_time: '21:00', end_time: '24:00' },
+    { id: 10, doctor: { id: 1, name: 'Crystal Fitzhugh', specialty: 'Neurology' }, day: 'Tuesday', start_time: '09:00', end_time: '12:00' },
+    { id: 11, doctor: { id: 2, name: 'Perry Barkley', specialty: 'Orthopedic' }, day: 'Tuesday', start_time: '12:00', end_time: '15:00' },
+    { id: 12, doctor: { id: 3, name: 'Juan Perez', specialty: 'Ophthalmology' }, day: 'Wednesday', start_time: '9:00', end_time: '12:00' },
+    { id: 13, doctor: { id: 4, name: 'Gail Parrish', specialty: 'Cardiology' }, day: 'Wednesday', start_time: '15:00', end_time: '18:00' },
+    { id: 14, doctor: { id: 5, name: 'Helen Scheffler', specialty: 'Gastroenterologist' }, day: 'Wednesday', start_time: '21:00', end_time: '24:00' },
+    { id: 15, doctor: { id: 1, name: 'Crystal Fitzhugh', specialty: 'Neurology' }, day: 'Thursday', start_time: '09:00', end_time: '12:00' },
+    { id: 16, doctor: { id: 2, name: 'Perry Barkley', specialty: 'Orthopedic' }, day: 'Thursday', start_time: '12:00', end_time: '15:00' },
+    { id: 17, doctor: { id: 3, name: 'Juan Perez', specialty: 'Ophthalmology' }, day: 'Thursday', start_time: '18:00', end_time: '21:00' },
+    { id: 18, doctor: { id: 4, name: 'Gail Parrish', specialty: 'Cardiology' }, day: 'Friday', start_time: '15:00', end_time: '18:00' },
+    { id: 19, doctor: { id: 5, name: 'Helen Scheffler', specialty: 'Gastroenterologist' }, day: 'Friday', start_time: '21:00', end_time: '24:00' },
+    { id: 20, doctor: { id: 2, name: 'Perry Barkley', specialty: 'Orthopedic' }, day: 'Saturday', start_time: '12:00', end_time: '15:00' },
+    { id: 21, doctor: { id: 3, name: 'Juan Perez', specialty: 'Ophthalmology' }, day: 'Saturday', start_time: '9:00', end_time: '12:00' },
+    { id: 22, doctor: { id: 4, name: 'Gail Parrish', specialty: 'Cardiology' }, day: 'Saturday', start_time: '15:00', end_time: '18:00' },
+    { id: 23, doctor: { id: 6, name: 'Maria Gomez', specialty: 'Gastroenterologist' }, day: 'Thursday', start_time: '21:00', end_time: '24:00' },
+    { id: 24, doctor: { id: 6, name: 'Maria Gomez', specialty: 'Gastroenterologist' }, day: 'Sunday', start_time: '21:00', end_time: '24:00' },
+    { id: 25, doctor: { id: 7, name: 'Mattie Delgado', specialty: 'Ophthalmology' }, day: 'Monday', start_time: '21:00', end_time: '24:00' }
+  ]
+  return timetable
+}
+
 export const dataCountries = () => {
   const countries = [
     { id: 1, name: 'Australia' },
