@@ -1,0 +1,61 @@
+@use '../../styles/variables';
+
+
+.error {
+  &__bg{
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+  }
+  &__container {
+    margin-left: 10%;
+    margin-right: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__botton{
+    width: 200px;
+    padding: 12px 20px;
+    margin-top: 30px;
+    color: variables.$header-font-color;
+    background-color: variables.$color-lightblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover{
+      background-color: variables.$color-button-hover;
+    }
+  }
+
+  &__container-img {
+    max-width: 500px;
+  }
+
+  &__container-p {
+    max-width: 550px;
+    font-family: variables.$font-open-sans;
+  }
+
+  &__container-title {
+    margin-top: 45px;
+    margin-bottom: 20px;
+    font-family: variables.$primary-color;
+    font-size: variables.$font-size-optional;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  &__content {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    font-family: variables.$font-poppins;
+  }
+}
+
+
+
+
+
+
+

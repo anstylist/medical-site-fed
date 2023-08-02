@@ -1,0 +1,87 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+.our-departments{  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+  }
+  &__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 0rem;
+
+    &__title {
+      font-size: variables.$font-size-x-small;
+      font-family: variables.$font-open-sans;
+      font-weight: bold;
+      color: variables.$color-lightblue;
+    }
+        
+    &__text {
+      font-size: variables.$font-size-large;
+      font-family: variables.$font-poppins;
+      font-weight: bold;
+      line-height: 1.2;
+      text-align: center;
+      padding-inline: 1rem;
+      padding-top: 1rem;
+    }
+
+  }  
+}
+
+.paging{
+  background-color: #F4F7FC;
+  color: variables.$color-lightblue;
+  font-family: variables.$font-open-sans;
+  font-size: variables.$font-size-x-small;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick{ 
+  &-dots{    
+    bottom: -40px;    
+    &-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+  }  
+  &-active{
+    .paging{
+      background-color: variables.$color-lightblue;
+      color:variables.$bg-main-color;
+    }
+  }
+    
+}
+
+@include mixins.set-container-width(".our-departments");
+
+@media (min-width:1024px) {
+  .our-departments{
+    &__header{
+      &__text{
+        font-size: 48px;
+        padding-inline: 5rem;
+      }
+    }
+  }
+  
+}
+

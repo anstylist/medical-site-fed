@@ -1,0 +1,210 @@
+@use '../../styles/variables';
+
+$primary-blue: #007bff;
+$light-gray: #f8f8f8;
+$light-blue: #b0e0e6;
+
+.doctor-details {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: variables.$font-poppins;
+
+  @media (min-width: 768px) {
+    flex-wrap: wrap;
+    display: -webkit-inline-box;
+    margin: 50px;
+
+    .doctor-details__first-column {
+      width: 33%;
+      padding-right: 20px;
+    }
+
+    .doctor-details__second-column {
+      width: 66%;
+      padding-left: 20px;
+    }
+  }
+
+  .doctor-details__first-column {
+    display: flex;
+    flex-direction: column;
+
+    .doctor-details__image {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+
+    .doctor-details__name-specialty {
+      margin-top: 15px;
+
+      .doctor-details__name {
+        font-size: variables.$font-size-medium;
+        font-weight: bold;
+        padding-bottom: 10px;
+      }
+
+      .doctor-details__specialty {
+        color: variables.$color-lightblue;
+        font-size: 14px;
+      }
+    }
+
+    .doctor-details__qualifications,
+    .doctor-details__memberships {
+      width: 100%;
+      background-color: variables.$color-light-blue-gray;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+
+      .doctor-details__qualifications-box,
+      .doctor-details__memberships-box {
+        .doctor-details__qualifications-heading,
+        .doctor-details__memberships-heading {
+          font-size: variables.$font-size-small;
+          margin-bottom: 10px;
+          font-weight: bold;
+        }
+      }
+    }
+    .doctor-details__qualifications-list {
+      color: #565656;
+      line-height: 1.8em;
+      font-size: 16px;
+    }
+
+    .doctor-details__membership-list {
+      color: variables.$color-lightblue;
+      line-height: 1.8em;
+      font-size: 16px;
+    }
+  }
+
+  .doctor-details__second-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+
+    .doctor-details__introduction {
+      margin-bottom: 20px;
+
+      .doctor-details__introduction-title {
+        font-size: 30px;
+        font-weight: bold;
+        padding: 20px 0;
+      }
+
+      .doctor-details__introduction-text {
+        font-size: 18px;
+        line-height: 25px;
+        color:#565656;
+      }
+
+      .doctor-details__affiliations {
+        display: flex;
+        margin-top: 40px;
+        align-items: center;
+        .doctor-details__checkmark {
+          margin: 5px;
+          display: flex;
+          align-items: center;
+          padding: 12px;
+          background-color: variables.$color-lightblue;
+          border-radius: 50%;
+          color: #fff;
+
+          width: 20px;
+          height: 20px;
+          justify-content: center;
+        }
+
+        .doctor-details__affiliation-text {
+          margin: 0 5px;
+          font-size: 20px;
+          color: #565656;
+        }
+      }
+    }
+
+    .doctor-details__skills {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+      width: 100%;
+
+      .doctor-details__column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        .doctor-details__skill-box {
+          background-color: $light-gray;
+          padding: 10px;
+          color:#565656;
+          margin: 5px;
+          display: flex;
+          align-items: center;
+          height: 60px;
+          transition: 0.6s ease;
+
+          &::before {
+            content: "✓";
+            color: variables.$color-lightblue;
+            margin-right: 5px;
+          }
+
+          &:hover {
+            color: white;
+            background-color: variables.$color-lightblue;
+          }
+        }
+      }
+    }
+
+    .doctor-details__appointment-form {
+      width: 100%;
+      margin-bottom: 20px;
+
+      .doctor-details__column {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 10px;
+        padding: 10px;
+
+        .doctor-details__form-title {
+          padding-bottom: 10px;
+        }
+        
+
+        input,
+        select {
+          width: 100%;
+          padding: 15px;
+          border: 1px solid #ccc;
+          margin-bottom: 30px;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}
+
+.doctor-details__get-appointment-btn {
+  background-color: variables.$color-lightblue;
+  color: #fff;
+  border: none;
+  padding: 20px 30px;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+
+  &:hover {
+    background-color: variables.$color-button-hover
+  }
+}
