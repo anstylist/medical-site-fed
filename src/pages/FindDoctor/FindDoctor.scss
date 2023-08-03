@@ -1,0 +1,131 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.find-doctor{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  &__header{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 3rem;    
+    background-color: variables.$section-color;    
+    padding: 1rem 2rem;    
+    margin-inline: 0.5rem;
+
+    &__text{
+      font-size: variables.$font-size-large;
+      font-family: variables.$font-poppins;
+      font-weight: bold;
+      padding: 1rem 0rem;
+    }
+    &--appointment{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; 
+      gap: 10px;     
+      padding: 18px 25px;
+      background-color: variables.$color-lightblue;
+      color: variables.$bg-main-color;
+      font-family: variables.$font-open-sans;
+      font-size: variables.$font-size-x-small;
+      transition: .6s;
+      &:hover{
+        background-color: variables.$color-button-hover;
+        cursor: pointer;
+      }
+    }
+  }    
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+  }
+  &__form{
+    padding: 1rem;
+    &__title{
+      font-size: variables.$font-size-small;
+      font-family: variables.$font-poppins;
+      font-weight: 600;
+      padding-top: 0.5rem;
+    }
+    &__container{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      width: 100%;
+      font-family: variables.$font-open-sans;
+      font-size: variables.$font-size-x-small;
+      color: variables.$color-gray;
+
+      &--section{
+        width: 100%;
+        label{
+          padding-top: 1.5rem;
+          padding-bottom: 0.5rem;
+
+        }
+        input{
+          border: 1px solid #DDDDDD;
+          width: 100%;
+          padding: 1rem 0.5rem;
+        }
+        select{        
+          font-family: variables.$font-open-sans;
+          font-size: variables.$font-size-x-small;      
+          border: 1px solid #DDDDDD;        
+          color: variables.$color-gray;        
+          padding: 1rem 1rem;
+          width: 100%;       
+        }        
+      }
+    }
+    &--button{      
+      margin-top: 1rem;
+      background-color: variables.$color-lightblue;
+      padding: 1rem 2.5rem;
+      color: variables.$bg-main-color;
+      transition: .6s;
+      &:hover{
+        background-color: variables.$color-button-hover;
+        cursor: pointer;
+      }
+    }
+    
+  }
+}
+
+@include mixins.set-container-width(".find-doctor");
+
+@media (min-width:1024px) {
+  .find-doctor{
+    &__header{
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 2rem 2rem;
+      &__text{
+        font-size: 30px;
+      }
+    }
+    &__form{
+      padding-top: 2rem;
+      &__title{
+        font-size: variables.$font-size-large;
+      }
+      &__container{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: left;
+        align-items: center;
+        &--section{
+          width: 50%;
+          padding-right: 1rem;
+        }
+      }
+    }
+
+  }
+}

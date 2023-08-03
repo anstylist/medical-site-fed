@@ -1,0 +1,179 @@
+@use "./variables";
+@use "../../styles/mixins";
+
+.before-after {  
+  display: flex;
+  margin: 0rem 0;
+  justify-content: center;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    font-family: variables.$font-poppins;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: black;
+    font-size: variables.$font-size-large;
+    font-weight: bold;
+  }
+
+  &__title {
+    font-family: variables.$font-open-sans;
+    margin-bottom: variables.$font-size-x-small ;
+    margin-top: 0rem;
+    color: variables.$color-lightblue;
+    font-family: variables.$font-poppins;
+    font-weight: bold;
+  }
+}
+.handler {
+  position: absolute;
+  inset: 0;
+  height: 170px;
+
+  &__circle {
+    position: absolute;
+    top: 50%;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background-color: white;
+    margin-left: -12.5px;
+    color: #999999;
+    box-shadow: 0 0 12px #222;
+    touch-action: none;
+    transition: all 0.5s;
+
+    &:hover,
+    &:active {
+      box-shadow: 0 0 30px #222;
+      color: #777777;
+    }
+  }
+
+  &__control {
+    position: relative;
+    top: 0;
+    height: 100%;
+  }
+
+  &__line {
+    position: absolute;
+    top: 0;
+    height: 200px;
+    width: 2px;
+    background-color: white;
+  }
+}
+
+.image-after {
+  position: absolute;
+}
+
+.image-before {
+  position: absolute;
+}
+
+.image-section {
+  background-image: url(https://res.cloudinary.com/dzmkilinu/image/upload/v1689612718/medical-site/footer-shape_ilh1vv.png);
+  height: 200px;
+}
+
+.image-section__container {
+  position: relative;
+  height: 421px;
+  margin: 0 2rem;
+}
+
+@media screen and (min-width: 576px) {
+  .image-section {
+    height: 300px;
+  }
+  .handler {
+    &__line {
+      height: 300px;
+    }
+    &__circle {
+      top: 60%;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .image-section {
+    height: 400px;
+  }
+  .handler {
+    &__line {
+      height: 400px;
+    }
+    &__circle {
+      top: 80%;
+    }
+  }
+}
+@media screen and (min-width: 990px) {
+  .image-section {
+    height: 500px ;
+  }
+ 
+}
+
+@media screen and (min-width: 1024px) {
+  .before-after{    
+    &__text{
+    padding: 2rem 0;
+    font-size: variables.$font-size-x-large;
+    }
+  }
+  .image-section {
+    height: 500px ;
+  }
+  .handler {
+    &__line {
+      height: 490px;
+    }
+    &__circle{
+      top: 120%;
+    }
+  }
+}  
+
+@media screen and (min-width: 1200px) {
+  .image-section {
+    height: 590px ;
+  }
+
+  .handler {
+    &__line {
+      height: 580px;
+    }
+    &__circle {
+      top: 150%;
+    } 
+  
+  }  
+}  
+
+@media screen and (min-width: 1400px) {
+  .image-section {
+    height: 650px ;
+  }
+  .image-section__container {
+    position: relative;
+    height: 703px;
+    margin: 0 4rem;
+  }
+  .handler {
+    &__line {
+      height: 620px;
+    }
+  }
+}
+
+@include mixins.set-container-width(".before-after");

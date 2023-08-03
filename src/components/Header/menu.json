@@ -1,0 +1,153 @@
+[
+  {
+    "id": "menu-home",
+    "title": "Home",
+    "route": "/"
+  },
+  {
+    "id": "menu-about",
+    "title": "About",
+    "route": "/about"
+  },
+  {
+    "id": "menu-pages",
+    "title": "Pages",
+    "submenu": [
+      {
+        "id": "menu-doctors",
+        "title": "Doctors",
+        "submenu": [
+          {
+            "id": "menu-doctors-list-1",
+            "title": "Doctors List",
+            "route": "/our-doctors"
+          },
+          {
+            "id": "menu-doctors-details-2",
+            "title": "Doctor Details",
+            "route": "/doctor-details"
+          }
+        ]
+      },
+      {
+        "id": "menu-others-pages",
+        "title": "Others Pages",
+        "submenu": [
+          {
+            "id": "menu-terms-of-service-1",
+            "title": "Terms of Service",
+            "route": "/terms-of-service"
+          },
+          {
+            "id": "menu-privacy-policy-2",
+            "title": "Privacy Policy",
+            "route": "/privacy-policy"
+          },
+          {
+            "id": "menu-404-error-3",
+            "title": "404 Error",
+            "route": "/not-found"
+          },
+          {
+            "id": "menu-coming-soon-7",
+            "title": "Coming Soon",
+            "route": "/coming-soon"
+          }
+        ]
+      },
+      {
+        "id": "menu-user-pages",
+        "title": "User Pages",
+        "submenu": [
+          {
+            "id": "menu-login-1",
+            "title": "Login",
+            "route": "/login"
+          },
+          {
+            "id": "menu-register-2",
+            "title": "Register",
+            "route": "/register"
+          },
+          {
+            "id": "menu-forgot-password-3",
+            "title": "Forgot Password",
+            "route": "/forgot-password"
+          }
+        ]
+      },
+      {
+        "id": "menu-appointment",
+        "title": "Appointment",
+        "route": "/appointment"
+      },
+      {
+        "id": "menu-doctors-timetable",
+        "title": "Doctors Timetable",
+        "route": "/doctors-timetable"
+      },
+      {
+        "id": "menu-emergency-services",
+        "title": "Emergency Services",
+        "route": "/emergency-services"
+      },
+      {
+        "id": "menu-patients-and-visitors",
+        "title": "Patients & Visitors",
+        "route": "/patients-and-visitors"
+      },
+      {
+        "id": "menu-find-doctor",
+        "title": "Find A Doctor",
+        "route": "/find-doctor"
+      }                              
+    ]
+  },
+  {
+    "id": "menu-department",
+    "title": "Department",
+    "submenu": [
+      {
+        "id": "menu-departments-list-1",
+        "title": "Departments List",
+        "route": "/our-departments"
+      }
+    ]
+  },
+  {
+    "id": "menu-shop",
+    "title": "Shop",
+    "submenu": [
+      {
+        "id": "menu-products-1",
+        "title": "Products",
+        "route": "/products"
+      },
+      {
+        "id": "menu-cart-2",
+        "title": "Cart",
+        "route": "/cart"
+      },
+      {
+        "id": "menu-checkout-3",
+        "title": "Checkout",
+        "route": "/checkout"
+      },
+      {
+        "id": "menu-my-account-4",
+        "title": "My Account",
+        "route": "/my-account"
+      },
+      {
+        "id": "menu-products-details-5",
+        "title": "Products Details",
+        "route": "/products-details"
+      }
+    ]
+  },
+  {
+    "id": "menu-contact",
+    "title": "Contact",
+    "route": "/contact"
+  }
+]

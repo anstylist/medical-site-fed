@@ -1,0 +1,146 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.doctors-timetable{  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 4rem;
+
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+  }
+
+  &__header{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+    padding-inline: 1rem;
+    &__title{
+      font-size: variables.$font-size-large;
+      font-family: variables.$font-poppins;
+      font-weight: 600;
+      padding-bottom: 2rem;
+    }
+    select{
+      font-family:variables.$font-open-sans;
+      font-size: variables.$font-size-x-small;
+      border-bottom: 1px solid #8c8a8a;        
+      color: variables.$color-gray; 
+      padding: 1rem rem;
+      width: 100%;    
+    }
+    &__button{
+      margin-top: 1rem;
+      padding: 18px 25px;
+      background-color: variables.$color-lightblue;
+      color: variables.$bg-main-color;
+      font-family: variables.$font-open-sans;
+      font-size: variables.$font-size-x-small;
+      transition: .6s;
+      &:hover{
+        background-color: variables.$color-button-hover;
+        cursor: pointer;
+      }
+    }
+  }
+  &__table-container{
+    width: 100%;
+    padding-inline: 1rem;          
+    overflow-x: auto;
+    .table{
+      width: 100%;
+      box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
+      thead{
+        background-color: variables.$color-lightblue;
+        th{
+          font-family: variables.$font-open-sans;
+          color:variables.$bg-main-color;
+          font-size: variables.$font-size-x-small;
+          font-weight: 400;
+          vertical-align: middle;
+          text-align: center;
+          padding-top: 15px;
+          padding-bottom: 15px;
+          white-space: nowrap;          
+          width: 12.5%;
+        }
+      }
+      tbody{
+        border: 2px solid variables.$bg-main-color;
+        border-bottom: none;
+         
+        td{
+          border: 1px solid #9C9C9C;
+          white-space: nowrap;
+          vertical-align: middle;
+          text-align: center;
+          font-size: 14.5px;
+          font-family: variables.$font-open-sans;
+          color: variables.$color-gray;
+          font-weight: 400;
+          height: 90px;
+          transition: .6s;
+          padding-inline: 0.5rem;
+          &:hover{
+            background-color: variables.$color-lightblue;            
+            color:variables.$bg-main-color;
+            .container_doctor{
+              .doctor_name{
+                color:variables.$bg-main-color;
+              } 
+            }
+          }
+          .container_doctor{
+            padding: 0.2rem 0rem;
+            .doctor_name{
+              font-family: variables.$font-poppins;
+              font-weight: bold;
+              color: #272727;
+            }
+          }
+        }
+      }
+    }
+
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey; 
+      border-radius: 10px;
+    }
+     
+    &::-webkit-scrollbar-thumb {
+      background: variables.$color-lightblue; 
+      border-radius: 10px;
+    }
+  }
+}
+
+@include mixins.set-container-width(".doctors-timetable");
+
+@media (min-width:1024px) {
+  .doctors-timetable{ 
+    &__header{
+      flex-direction: row;
+      flex-wrap: wrap;
+      padding-top: 7rem;
+      justify-content: space-between;
+      &__title{
+        font-size: variables.$font-size-x-large;
+        width: 100%;
+        text-align: center;
+      }
+      select{
+        width: 30%;
+        margin-left: 35%;
+      }
+    }
+  }
+  
+}

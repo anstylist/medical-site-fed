@@ -1,0 +1,90 @@
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #005cb9;
+  color: white;
+  margin: 1rem 0;
+  padding: 3rem 2rem;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &:hover {
+    background-color: #3FB6D6 ;
+
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  &__phone-box {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__icon-box {
+    padding-right: 1rem;
+  }
+
+  &__icon {
+    font-size: 2rem;    
+  }
+
+  &__number {
+    font-family: variables.$font-poppins;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  &__title {
+    font-family: variables.$font-poppins;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .contact-card {
+    flex: 1;
+    width: auto;
+    
+    &:not(:last-child) {
+      margin-right: 2rem;
+    }
+  
+    &__container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    &__section {
+      display:flex;
+      justify-content: center;
+    }
+  
+    &__section-icon {
+      font-size: 2rem;
+      display: flex;
+    }
+  
+  
+    &__title {
+      font-size: 2rem;
+      font-weight: bold;
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 1.2rem;
+    }
+  }
+  
+
+}

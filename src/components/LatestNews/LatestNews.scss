@@ -1,0 +1,114 @@
+@use '../../styles/variables';
+
+.latest-news__header {
+  text-align: center;
+  padding: 2em;
+  &-span {
+    font-family: variables.$font-open-sans;
+    font-size: variables.$font-size-x-small;
+    font-weight: bold;
+    color: #3399cc;
+  }
+  &-h1 {
+    font-family:variables.$font-poppins;
+    font-size: variables.$font-size-large;
+    font-weight: bold;
+    margin-top: 1em;
+  }
+}
+
+.latest-news {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1em;
+  font-family: variables.$font-open-sans;
+
+  .latest-news__card {
+    width: 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+      .latest-news__title {
+        color: #3399cc;
+        transition: color 0.6s;
+      }
+    }
+  }
+
+  .latest-news__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .latest-news__image-container {
+    position: relative;
+  }
+
+  .latest-news__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .latest-news__content {
+    padding-top: 20px;
+  }
+
+  .latest-news__posted-by {
+    font-size: 12px;
+    color: #999999;
+  }
+
+  .latest-news__date {
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    font-size: 12px;
+    color: #ffffff;
+    background-color: rgb(56, 56, 226);
+    padding: 5px 10px;
+  }
+
+  .latest-news__title {
+    margin-top: 10px;
+    font-size: variables.$font-size-small;    
+    font-family: variables.$font-poppins;
+    color: #000000;
+    transition: color 0.3s;
+  }
+
+  .latest-news__read-more {
+    margin-top: 10px;
+    font-size: 12px;
+    color: #3399cc;
+  }
+}
+
+@media (min-width: 769px) {
+  .latest-news {
+    justify-content: space-around;
+    padding: 2em;
+
+    .latest-news__card {
+      width: 30%;
+    }
+  }
+}
+
+@media (min-width:1024px){
+  .latest-news__header{
+    &-h1{
+      font-size: variables.$font-size-x-large;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+@use '../../styles/variables';
+.privacy__bg{
+  background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+}
+.privacy {
+  font-family: variables.$font-open-sans;
+  line-height: variables.$font-line-height;
+  hyphens: none;
+  &__content {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 8%;
+    margin-left: 8%;
+    & ol, ul{
+      padding-left: 2rem;
+      font-size: variables.$font-size-x-small;
+    }
+    & ol li{
+      margin-bottom: 15px;
+      color: variables.$secondary-color;
+      font-weight: 200;
+      list-style-type:decimal;
+    }
+    & ul li{
+      margin-bottom: 15px;
+      color: variables.$secondary-color;
+      font-size: variables.$font-size-x-small;
+      font-weight: 400;
+      list-style-type:disc;
+    }
+
+    & blockquote{
+      background-color: #e6f2f5;
+      border-radius: 10px;
+      padding: 15px 25px;
+    }
+  }
+
+  &__content-p {
+    margin-bottom: 15px;
+    color: variables.$secondary-color;
+    font-size: variables.$font-size-x-small;
+    font-weight: 400;
+  }
+
+  &__content-subtitle {
+      margin-top: 25px;
+      margin-bottom: 15px;
+      font-size: 22px;
+      font-weight: 600;
+      font-family: variables.$font-poppins;
+  }
+
+  &__content-update {
+    margin-bottom: 15px;
+    font-style: italic;
+  }
+}
