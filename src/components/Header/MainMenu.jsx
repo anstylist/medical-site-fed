@@ -4,6 +4,7 @@ import { FiMenu } from 'react-icons/fi'
 import { FaChevronRight, FaChevronDown } from 'react-icons/fa'
 import { CgClose } from 'react-icons/cg'
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
+import { NavLink } from 'react-router-dom'
 import menu from './menu.json'
 import './MainMenu.scss'
 
@@ -32,11 +33,11 @@ function SubMenu ({ menuList, isSubMenuOpen }) {
     <ul className={`menu__list menu__list--submenu ${isSubMenuOpen && 'menu__list--submenu-open'}`}>
       {menuList.map((item) => (
         <li key={item.id} className="menu__list-item">
-          <a href={`${item.route ?? '#'}`} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
+          <NavLink to={`${item.route ?? '#'}`} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
             {item.title}
             {item.submenu && <FaChevronRight className='menu__list-icon menu__list-icon--chevron' />}
             {item.submenu && (isChildSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
-          </a>
+          </NavLink>
           {item.submenu && (
             <SubMenu menuList={item.submenu} isSubMenuOpen={isChildSubMenuOpen(item.id)} />
           )}
@@ -92,11 +93,11 @@ function MainMenu ({ onMenuOpen, mustHideMenu }) {
       <ul className={`menu__list ${isMainMenuVisible && 'menu__list--visible'}`}>
         {menu.map((item) => (
           <li key={item.id} className="menu__list-item">
-            <a href={`${item.route || '#'}`} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
+            <NavLink to={`${item.route || '#'}`} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
               {item.title}
               {item.submenu && <FaChevronDown className='menu__list-icon menu__list-icon--chevron' />}
               {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
-            </a>
+            </NavLink>
             {item.submenu && (
               <SubMenu className='' menuList={item.submenu} isSubMenuOpen={isSubMenuOpen(item.id)} />
             )}

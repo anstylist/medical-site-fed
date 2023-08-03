@@ -4,6 +4,7 @@ import { FaRegCalendarAlt } from 'react-icons/fa'
 import { HiOutlineShoppingCart } from 'react-icons/hi2'
 import { BiSearch } from 'react-icons/bi'
 import { BsThreeDotsVertical } from 'react-icons/bs'
+import { NavLink } from 'react-router-dom'
 import './HeaderRight.scss'
 
 function HeaderRight ({ onMenuOpen, mustHideMenu }) {
@@ -32,21 +33,21 @@ function HeaderRight ({ onMenuOpen, mustHideMenu }) {
       </button>
       <ul className={`header__nav-right-menu ${isMenuVisible && 'header__nav-right-menu--visible'}`} aria-label='Search'>
         <li className='header__nav-right-menu__item'>
-          <a href='#' className='header__nav-right-link'>
+          <NavLink to='#' className='header__nav-right-link'>
             <BiSearch className='header__nav-right-icon'/>
-          </a>
+          </NavLink>
         </li>
         <li className='header__nav-right-menu__item'>
-          <a href='#' className='header__nav-right-link header__nav-right-link--cart' aria-label='Shopping Cart'>
+          <NavLink to='#' className='header__nav-right-link header__nav-right-link--cart' aria-label='Shopping Cart'>
             <HiOutlineShoppingCart className='header__nav-right-icon'/>
             <div className='header__nav-right-counter-tag'>0</div>
-          </a>
+          </NavLink>
         </li>
         <li className='header__nav-right-menu__item'>
-          <a href='#' className='header__nav-right-link header__nav-right-link--btn'>
+          <NavLink to='/appointment' className='header__nav-right-link header__nav-right-link--btn'>
             <FaRegCalendarAlt className='header__nav-right-icon'/>
             Appointment
-          </a>
+          </NavLink>
         </li>
       </ul>
     </nav>

@@ -2,28 +2,12 @@
   {
     "id": "menu-home",
     "title": "Home",
-    "submenu": [
-      {
-        "id": "menu-home-1",
-        "title": "Home Demo 1",
-        "route": "#/home-demo-1"
-      },
-      {
-        "id": "menu-home-2",
-        "title": "Home Demo 2",
-        "route": "#/home-demo-2"
-      },
-      {
-        "id": "menu-home-3",
-        "title": "Home Demo 3",
-        "route": "#/home-demo-3"
-      }
-    ]
+    "route": "/"
   },
   {
     "id": "menu-about",
     "title": "About",
-    "route": "#/about"
+    "route": "/about"
   },
   {
     "id": "menu-pages",
@@ -36,12 +20,12 @@
           {
             "id": "menu-doctors-list-1",
             "title": "Doctors List",
-            "route": "#/doctors"
+            "route": "/our-doctors"
           },
           {
             "id": "menu-doctors-details-2",
             "title": "Doctor Details",
-            "route": "#/doctor-details"
+            "route": "/doctor-details"
           }
         ]
       },
@@ -52,37 +36,22 @@
           {
             "id": "menu-terms-of-service-1",
             "title": "Terms of Service",
-            "route": "#/terms-of-service"
+            "route": "/terms-of-service"
           },
           {
             "id": "menu-privacy-policy-2",
             "title": "Privacy Policy",
-            "route": "#/privacy-policy"
+            "route": "/privacy-policy"
           },
           {
             "id": "menu-404-error-3",
             "title": "404 Error",
-            "route": "#/not-found"
-          },
-          {
-            "id": "menu-categories-4",
-            "title": "Categories",
-            "route": "#/categories"
-          },
-          {
-            "id": "menu-tags-5",
-            "title": "Tags",
-            "route": "#/tags"
-          },
-          {
-            "id": "menu-search-page-6",
-            "title": "Search Page",
-            "route": "#/search-page"
+            "route": "/not-found"
           },
           {
             "id": "menu-coming-soon-7",
             "title": "Coming Soon",
-            "route": "#/coming-soon"
+            "route": "/coming-soon"
           }
         ]
       },
@@ -93,65 +62,45 @@
           {
             "id": "menu-login-1",
             "title": "Login",
-            "route": "#/login"
+            "route": "/login"
           },
           {
             "id": "menu-register-2",
             "title": "Register",
-            "route": "#/register"
+            "route": "/register"
           },
           {
             "id": "menu-forgot-password-3",
             "title": "Forgot Password",
-            "route": "#/forgot-password"
+            "route": "/forgot-password"
           }
         ]
       },
       {
-        "id": "menu-pricing",
-        "title": "Pricing",
-        "route": "#/pricing"
-      },
-      {
-        "id": "menu-gallery",
-        "title": "Gallery",
-        "route": "#/gallery"
-      },
-      {
         "id": "menu-appointment",
         "title": "Appointment",
-        "route": "#/appointment"
+        "route": "/appointment"
       },
       {
         "id": "menu-doctors-timetable",
         "title": "Doctors Timetable",
-        "route": "#/doctors-timetable"
+        "route": "/doctors-timetable"
       },
       {
         "id": "menu-emergency-services",
         "title": "Emergency Services",
-        "route": "#/emergency-services"
+        "route": "/emergency-services"
       },
       {
         "id": "menu-patients-and-visitors",
         "title": "Patients & Visitors",
-        "route": "#/patients-and-visitors"
+        "route": "/patients-and-visitors"
       },
       {
         "id": "menu-find-doctor",
         "title": "Find A Doctor",
-        "route": "#/find-doctor"
-      },
-      {
-        "id": "menu-testimonials",
-        "title": "Testimonials",
-        "route": "#/testimonials"
-      },
-      {
-        "id": "menu-faq",
-        "title": "FAQ",
-        "route": "#/faq"
-      }                                 
+        "route": "/find-doctor"
+      }                              
     ]
   },
   {
@@ -161,12 +110,7 @@
       {
         "id": "menu-departments-list-1",
         "title": "Departments List",
-        "route": "#/department"
-      },
-      {
-        "id": "menu-department-details-2",
-        "title": "Department Details",
-        "route": "#/department-details"
+        "route": "/our-departments"
       }
     ]
   },
@@ -177,59 +121,33 @@
       {
         "id": "menu-products-1",
         "title": "Products",
-        "route": "#/products"
+        "route": "/products"
       },
       {
         "id": "menu-cart-2",
         "title": "Cart",
-        "route": "#/cart"
+        "route": "/cart"
       },
       {
         "id": "menu-checkout-3",
         "title": "Checkout",
-        "route": "#/checkout"
+        "route": "/checkout"
       },
       {
         "id": "menu-my-account-4",
         "title": "My Account",
-        "route": "#/my-account"
+        "route": "/my-account"
       },
       {
         "id": "menu-products-details-5",
         "title": "Products Details",
-        "route": "#/products-details"
-      }
-    ]
-  },
-  {
-    "id": "menu-blog",
-    "title": "Blog",
-    "submenu": [
-      {
-        "id": "menu-blogs-1",
-        "title": "Blogs",
-        "route": "#/blogs"
-      },
-      {
-        "id": "menu-author-2",
-        "title": "Author",
-        "route": "#/author"
-      },
-      {
-        "id": "menu-blog-details-3",
-        "title": "Blog Details",
-        "route": "#/blog-details"
-      },
-      {
-        "id": "menu-blog-right-sidebar-4",
-        "title": "Blog Right Sidebar",
-        "route": "#/blog-right-sidebar"
+        "route": "/products-details"
       }
     ]
   },
   {
     "id": "menu-contact",
     "title": "Contact",
-    "route": "#/contact"
+    "route": "/contact"
   }
 ]

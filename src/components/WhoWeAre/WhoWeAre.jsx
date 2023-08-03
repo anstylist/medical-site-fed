@@ -1,6 +1,7 @@
 import { BsTelephoneFill } from 'react-icons/bs'
 import './WhoWeAre.scss'
-import React from 'react'
+import { React } from 'react'
+import { Link } from 'react-router-dom'
 
 const WhoWeAre = () => {
   const img1 =
@@ -31,9 +32,11 @@ const WhoWeAre = () => {
           </p>
         </div>
         <div className="content-about-btn">
+          <Link to="/about">
           <button type="button" className="content-about-btn__button">
             About us →
           </button>
+          </Link>
         </div>
       </div>
       <div className="whoweare-contact">

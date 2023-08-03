@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 import './Jumbotron.scss'
 
 const Jumbotron = ({ pageTitle, breadcrumb, backgroundClassName }) => {
@@ -13,7 +14,7 @@ const Jumbotron = ({ pageTitle, breadcrumb, backgroundClassName }) => {
               <li key={`item-${item.text}`} className='jumbotron__list-item'>
                 {item.route
                   ? (
-                  <a href={item.route}>{item.text}</a>
+                  <Link to={item.route}>{item.text}</Link>
                     )
                   : (
                   <span>{item.text}</span>

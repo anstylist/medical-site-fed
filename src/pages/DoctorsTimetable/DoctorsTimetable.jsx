@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import { dataDepartament, dataTimetable } from '../../components/data'
+import { Link } from 'react-router-dom'
 import './DoctorsTimetable.scss'
 
 const DoctorsTimetable = () => {
@@ -75,9 +76,9 @@ const DoctorsTimetable = () => {
                )
              })}
             </select>
-            <a className='doctors-timetable__header__button'>
+            <Link to="/appointment" className='doctors-timetable__header__button'>
               Book appointment
-            </a>
+            </Link>
         </header>
         <div className='doctors-timetable__table-container'>
           <table className='table'>
