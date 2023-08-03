@@ -3,7 +3,6 @@ import { BsLinkedin, BsGithub, BsArrowRight } from 'react-icons/bs'
 import { dataDepartament, dataLink } from '../data'
 import './Footer.scss'
 import ContactUs from '../ContactUs/ContactUs'
-import { Link } from 'react-router-dom'
 
 function Footer () {
   const departaments = [...dataDepartament()].slice(0, 6)
@@ -55,29 +54,29 @@ function Footer () {
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Andry Peña</h3>
                 <div className='section-redes'>
-                  <Link to='https://github.com/andrystylist'><BsLinkedin size={20} className='section-redes-option'/></Link>
-                  <Link to='https://www.linkedin.com/in/andrystylist/'><BsGithub size={20} className='section-redes-option'/></Link>
+                  <a href='https://github.com/andrystylist'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://www.linkedin.com/in/andrystylist/'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Carlos Mendoza</h3>
                 <div className='section-redes'>
-                  <Link to='https://github.com/Carlos-Mendoza10'><BsLinkedin size={20} className='section-redes-option'/></Link>
-                  <Link to='#'><BsGithub size={20} className='section-redes-option'/></Link>
+                  <a href='https://github.com/Carlos-Mendoza10'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Erick Carrasco</h3>
                 <div className='section-redes'>
-                  <Link to='https://github.com/erickfabiandev'><BsLinkedin size={20} className='section-redes-option'/></Link>
-                  <Link to='https://www.linkedin.com/in/erickfabiandev/'><BsGithub size={20} className='section-redes-option'/></Link>
+                  <a href='https://github.com/erickfabiandev'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://www.linkedin.com/in/erickfabiandev/'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Juan Villegas</h3>
                 <div className='section-redes'>
-                  <Link to='https://github.com/jlvillegas04'><BsLinkedin size={20} className='section-redes-option'/></Link>
-                  <Link to='https://www.linkedin.com/in/juan-luis-villegas-jim%C3%A9nez-90b5bb276/'><BsGithub size={20} className='section-redes-option'/></Link>
+                  <a href='https://github.com/jlvillegas04'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://www.linkedin.com/in/juan-luis-villegas-jim%C3%A9nez-90b5bb276/'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
             </ul>
