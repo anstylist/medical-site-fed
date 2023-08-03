@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { dataCountries, dataDepartament, dataDoctor } from '../../components/data'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import { FaRegCalendarAlt } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import './FindDoctor.scss'
 
 const FindDoctor = () => {
@@ -47,9 +48,9 @@ const FindDoctor = () => {
       <section className='find-doctor__container'>
         <div className='find-doctor__header'>
           <h3 className='find-doctor__header__text'>Find a doctor</h3>
-          <a className='find-doctor__header--appointment' href='#'>
+          <Link to='/appointment' className='find-doctor__header--appointment'>
            <FaRegCalendarAlt size={24}/>Appointment
-          </a>
+          </Link>
         </div>
         <form className='find-doctor__form' onSubmit={onSubmit}>
           <h3 className='find-doctor__form__title'>Type here to find a doctor by name or specialty</h3>

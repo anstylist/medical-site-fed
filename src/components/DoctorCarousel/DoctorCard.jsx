@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi'
+import { Link } from 'react-router-dom'
 import './DoctorCard.scss'
-
 
 const socialIcon = {
   facebook: <BiLogoFacebook className='doctor-card__social-icon'/>,
@@ -15,9 +15,9 @@ const DoctorCard = ({ id, name, specialty, image, socialLinks, externalClass }) 
   return (
     <section className={`doctor-card ${externalClass || ''}`}>
       <div className='doctor-card__pic'>
-        <a
+        <Link
+          to='/doctor-details'
           className='doctor-card__doctor'
-          href={`/doctors/${id}`}
           aria-label={`Dr. ${name}'s details`}
         >
           <img
@@ -25,7 +25,7 @@ const DoctorCard = ({ id, name, specialty, image, socialLinks, externalClass }) 
             src={image}
             alt={`Dr. ${name}'s picture`}
           />
-        </a>
+        </Link>
         <ul className='doctor-card__social-list'>
           {socialLinks.map((socialLink) => (
             <li key={socialLink.id} className='doctor-card__social-icon-li'>
