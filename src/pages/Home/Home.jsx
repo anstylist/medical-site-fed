@@ -10,7 +10,7 @@ import OurTestimonials from '../../components/OurTestimonials/OurTestimonials'
 import DoctorCarousel from '../../components/DoctorCarousel/DoctorCarousel'
 import OurPartners from '../../components/OurPartners/OurPartners'
 import LatestNews from '../../components/LatestNews/LatestNews'
-import Faq from '../../components/Faq/Faq'
+import Faq from '../../components/FAQ/Faq'
 // faq modification
 
 const Home = () => {
