@@ -37,16 +37,15 @@
     }
 
     .content-row2 {
-      display: flex;
       align-items: flex-start;
-      margin-top: 30px;
 
       &__p {
         color: #565656;
       }
 
       &__img {
-        width: 200px;
+        width: 500px;
+        padding: 20px 0px;
         margin-right: 20px;
       }
     }
@@ -73,9 +72,6 @@
       width: 100%;
       margin-left: 0;
       padding: 50px 30px;
-      .content-row2__img {
-        padding-top: 100px;
-      }
     }
   }
   .whoweare-contact {
@@ -184,6 +180,7 @@
     position: relative;
   }
 }
+
 
 @media (min-width:1024px){
   .whoweare-area{
