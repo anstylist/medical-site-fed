@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
@@ -19,10 +19,17 @@ import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
 import FindDoctor from '../pages/FindDoctor/FindDoctor'
 import OurDepartments from '../pages/OurDepartments/OurDepartments'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
+
 import './App.scss'
 
 function App () {
+  const location = useLocation()
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location])
+
   return (
     <>
       <Header />
