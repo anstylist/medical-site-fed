@@ -19,6 +19,7 @@ import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
 import FindDoctor from '../pages/FindDoctor/FindDoctor'
 import OurDepartments from '../pages/OurDepartments/OurDepartments'
+import Products from './Products/Products'
 import { Routes, Route } from 'react-router-dom'
 import './App.scss'
 
@@ -44,6 +45,7 @@ function App () {
           <Route path='/patients-and-visitors' Component={PatientsVisitors}/>
           <Route path='/find-doctor' Component={FindDoctor}/>
           <Route path='/our-departments' Component={OurDepartments}/>
+          <Route path='/products' Component={Products}/>
           <Route path='*' Component={Error404}/>
         </Routes>
       </Main>
