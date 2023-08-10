@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import './TotalSum.scss'
 import CartProductsContext from '../../context/CartProductsContext'
 
-function TotalSum () {
+function TotalSum ({ buttonType }) {
   const { productsList } = useContext(CartProductsContext)
   const shipping = 0
 
@@ -36,13 +36,13 @@ function TotalSum () {
             </div>
           </li>
           <li className='total-sum__list-item'>
-            <div>Payable Total</div>
-            <div className='total-div__payable'>
+            <div className='total-div__payable-label'>Payable Total</div>
+            <div className='total-div__payable-number'>
               ${Number(shipping + calculateTotal).toFixed(2)}
             </div>
           </li>
         </ul>
-        <button type='button' className='total-sum__btn'>Proceed to checkout</button>
+        <button type={`${buttonType || 'button'}`} className='total-sum__btn'>Proceed to checkout</button>
       </div>
     </section>
   )

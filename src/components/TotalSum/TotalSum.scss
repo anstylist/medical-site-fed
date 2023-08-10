@@ -1,6 +1,6 @@
 .total-sum {
   width: 300px;
-  margin-top: 70px;
+  margin-top: 40px;
 
 
   &__btn {
@@ -29,7 +29,7 @@
   &__list-item {
     display: flex;
     justify-content: space-between;
-    padding: 15px;
+    padding: 15px 0;
   }
 
   &__title {
@@ -41,16 +41,19 @@
 .total-div {
   font-size: 18px;
 
-  &__payable {
-    font-size: 22px;
-    font-weight: 400;
+  &__payable-label {
+    font-weight: bold;
+  }
 
+  &__payable-number {
+    font-size: 22px;
+    font-weight: bold;
   }
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .total-sum {
-    margin-top: o;
+    margin-top: 0;
   }  
 }
 

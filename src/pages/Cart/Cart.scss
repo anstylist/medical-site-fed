@@ -11,7 +11,6 @@
   &__section-total {
     display: flex;
     justify-content: center;
-
   }
 
   &__section-products {
@@ -27,7 +26,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-top: 3rem;
+    margin-top: 1rem;
   }
 
   &__quantity-input {
@@ -43,14 +42,55 @@
 
   &__products {
     min-height: 50vh;
+
+    &-table-container {
+      max-width: 100vw;
+      overflow: scroll;
+      overflow-y: auto;
+    } 
+
   }
 
   &__products-table {
-    width: 70%;
+    width: 100%;
+
+    th, td {
+      min-width: 100px;
+    }
+  
+    td:last-child {
+      min-width: 150px;
+    }
+
+    thead th:first-child {
+      width: 10%;
+    }
+  
+    thead th:nth-child(2) {
+      position: sticky;
+      left: 0;
+      background-color: white;
+    }
+  
+    tbody tr td:nth-child(2) {
+      position: sticky;
+      left: 0;
+      background-color: white;
+    }
   }
 
-  &__button {
+  &__delete-button {
     margin: auto;
+    cursor: pointer;
+    transition: 0.25s all ease;
+
+    &:hover {
+      color: variables.$color-button-hover;
+    }
+
+    &:active {
+      transform: translateY(2px);
+    }
   }
 
   &__td {
@@ -67,11 +107,13 @@
 
   &__th {
     padding: 30px 0 20px 0px;
+    th, td {
+      min-width: 110px;
+    }
   }
 
   &__thead {
     vertical-align: middle;
-    padding: 30px 30px;
     white-space: nowrap;
     font-family: variables.$font-poppins;
     font-weight: 600;
@@ -89,28 +131,29 @@
 @media screen and (min-width: 768px) {
   .cart {
     &__products-table {
-      width: 90%;}
-
-}}
-
-@media screen and (min-width: 768px) {
-  .cart {
-    &__products-table {
-      width: 90%;
+      padding-right: 2rem;
     }
-    &__section-total {
-      justify-content: space-between;
-  
-    }
-  }}
+  }
+}
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1280px) {
   .cart {
     &__container {
+      margin-top: 3rem;
       flex-direction: row;
     }
     &__section-total {
       justify-content: space-between;
     }
-}}
+    &__products {
+      min-height: 50vh;
+  
+      &-table-container {
+        width: 70%;
+        overflow: initial;
+        overflow-y: initial;
+      } 
+    }
+  }
+}
