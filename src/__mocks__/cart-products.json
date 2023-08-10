@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Face mask",
+    "code": "A1",
+    "price": 15,
+    "category": "Mask",
+    "stock": 94,
+    "quantity": 5,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393385/medical-site/shop-1_embziq.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Hand wash",
+    "code": "HW2",
+    "price": 30,
+    "category": "Wash",
+    "stock": 42,
+    "quantity": 2,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393384/medical-site/shop-2_yhtbqy.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Electronic thermometer",
+    "code": "ET8",
+    "price": 25,
+    "category": "Thermomether",
+    "stock": 19,
+    "quantity": 1,
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393385/medical-site/shop-3_lkfcx4.jpg"
+  }
+]

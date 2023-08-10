@@ -93,11 +93,16 @@ function MainMenu ({ onMenuOpen, mustHideMenu }) {
       <ul className={`menu__list ${isMainMenuVisible && 'menu__list--visible'}`}>
         {menu.map((item) => (
           <li key={item.id} className="menu__list-item">
-            <NavLink to={`${item.route || '#'}`} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
+            {item.route && (<NavLink to={item.route} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
               {item.title}
               {item.submenu && <FaChevronDown className='menu__list-icon menu__list-icon--chevron' />}
               {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
-            </NavLink>
+            </NavLink>)}
+            {!item.route && (<span className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
+              {item.title}
+              {item.submenu && <FaChevronDown className='menu__list-icon menu__list-icon--chevron' />}
+              {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
+            </span>)}
             {item.submenu && (
               <SubMenu className='' menuList={item.submenu} isSubMenuOpen={isSubMenuOpen(item.id)} />
             )}
