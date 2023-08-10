@@ -1,0 +1,116 @@
+@use '../../styles/mixins';
+@use '../../styles/variables';
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+
+  &__section-total {
+    display: flex;
+    justify-content: center;
+
+  }
+
+  &__section-products {
+    display: flex;
+  }
+
+  &__bg {
+    background-image: url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg");
+    background-attachment: fixed;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 3rem;
+  }
+
+  &__quantity-input {
+    height: 60px;
+    padding: 14px 10px 15px 15px;
+    border: 1px solid #DDDDDD;
+    background-color: var(--white-color);
+    color: #333333;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+    margin: auto;
+  }
+
+  &__products {
+    min-height: 50vh;
+  }
+
+  &__products-table {
+    width: 70%;
+  }
+
+  &__button {
+    margin: auto;
+  }
+
+  &__td {
+    max-width: 100%;
+    width: 180px;
+    padding: 20px;
+    text-align: center;
+    vertical-align: middle;
+
+    &-quantity {
+      text-align: center; 
+    }
+  }
+
+  &__th {
+    padding: 30px 0 20px 0px;
+  }
+
+  &__thead {
+    vertical-align: middle;
+    padding: 30px 30px;
+    white-space: nowrap;
+    font-family: variables.$font-poppins;
+    font-weight: 600;
+    border: none;
+  }
+
+  &__tr {
+    border: none;
+    border-bottom: 1px solid #e7e7e7;
+  }
+}
+
+@include mixins.set-container-width('.cart');
+
+@media screen and (min-width: 768px) {
+  .cart {
+    &__products-table {
+      width: 90%;}
+
+}}
+
+@media screen and (min-width: 768px) {
+  .cart {
+    &__products-table {
+      width: 90%;
+    }
+    &__section-total {
+      justify-content: space-between;
+  
+    }
+  }}
+
+
+@media screen and (min-width: 1024px) {
+  .cart {
+    &__container {
+      flex-direction: row;
+    }
+    &__section-total {
+      justify-content: space-between;
+    }
+}}

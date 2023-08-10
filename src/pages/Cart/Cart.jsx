@@ -1,0 +1,122 @@
+import React, { useContext } from 'react'
+import Jumbotron from '../../components/Jumbotron/Jumbotron'
+import './Cart.scss'
+import CartProductsContext from '../../context/CartProductsContext'
+import { FaTimes as RemoveIcon } from 'react-icons/fa'
+import TotalSum from '../../components/TotalSum/TotalSum'
+
+const breadcrumb = [
+  {
+    text: 'Home',
+    route: '/'
+  },
+  {
+    text: 'Cart'
+  }
+]
+
+function Cart () {
+  const { productsList, setProductsList } = useContext(CartProductsContext)
+  const isEmptyProductsList = productsList?.length === 0
+
+  const handleDeleteClick = (productToDelete) => {
+    const isConfirmedDelete = confirm(`Desea eliminar el producto ${productToDelete.name}?`)
+    if (!isConfirmedDelete) {
+      return -1
+    }
+    const newProducts = productsList.filter((product) => product.id !== productToDelete.id)
+    setProductsList(newProducts)
+    alert(`El producto ${productToDelete.name} fue eliminado exitosamente`)
+  }
+
+  const handleQuantity = (productToChange, event) => {
+    const newQuantity = Number.parseInt(event.target.value, 10)
+
+    const newProducts = productsList.map((product) => {
+      if (product.id === productToChange.id) {
+        return {
+          ...product,
+          quantity: newQuantity
+        }
+      }
+
+      return product
+    })
+
+    setProductsList(newProducts)
+  }
+  return (
+    <section className='cart'>
+      <Jumbotron
+        pageTitle={'Cart'}
+        backgroundClassName="cart__bg"
+        breadcrumb={breadcrumb}/>
+      <section className='cart__section-products'>
+        <section className='cart__products cart__container'>
+          <table className='cart__products-table'>
+            <thead className='cart__thead'>
+              <tr className='cart__tr'>
+                <th className='cart__th'>Remove</th>
+                <th className='cart__th'>Product</th>
+                <th className='cart__th'>Name</th>
+                <th className='cart__th'>Price</th>
+                <th className='cart__th'>Quantity</th>
+                <th className='cart__th'>Subtotal</th>
+              </tr>
+            </thead>
+            <tbody className='cart__tbody'>
+              {isEmptyProductsList && (
+                <tr className='cart__tr'>
+                  <td
+                  colSpan="6"
+                  className='cart__td'
+                  >
+                    The list of the cart products is empty
+                  </td>
+                </tr>
+              )}
+              {productsList?.map((item) => (
+                <tr key={item.id} className='cart__tr'>
+                  <td className='cart__td'>
+                    <button
+                      className='cart__button'
+                      type='button'
+                      onClick={() => handleDeleteClick(item)}
+                    >
+                      <RemoveIcon />
+                    </button>
+                  </td>
+                  <td className='cart__td'>
+                    <img src={item.image} alt="image Product" className='cart__image' />
+                  </td>
+                  <td className='cart__td'>{item.name}</td>
+                  <td className='cart__td'>
+                  ${Number(item.price).toFixed(2)}
+                  </td>
+                  <td className='cart__td cart__td-quantity'>
+                    <input
+                      className='cart__quantity-input'
+                      type="number"
+                      min={1}
+                      max={item.stock}
+                      value={item.quantity}
+                      onChange={ (event) => handleQuantity(item, event)}
+                      />
+                  </td>
+                  <td className='cart__td'>
+                  ${Number(item.price * item.quantity).toFixed(2)}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        <section className='cart__section-total'>
+          <TotalSum />
+        </section>
+        </section>
+      </section>
+    </section>
+  )
+}
+
+export default Cart

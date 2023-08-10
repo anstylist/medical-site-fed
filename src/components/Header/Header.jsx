@@ -3,7 +3,8 @@ import './Header.scss'
 import HeaderContact from './HeaderContact'
 import MainMenu from './MainMenu'
 import HeaderRight from './HeaderRight'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 
 const urlLogo = 'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393390/medical-site/logo_bcp977.png'
 const RIGHT_MENU = 'RIGHT_MENU'
@@ -18,13 +19,13 @@ function Header () {
       <header className='header'>
         <section className='header__container'>
           <section className='header__item header-section'>
-            <NavLink to="/">
+            <Link to="/">
               <img className="header-section__logo"
                 src={urlLogo}
                 alt="logo"
                 aria-label='Logo Medical Site'
               />
-            </NavLink>
+            </Link>
           </section>
           <MainMenu
             onMenuOpen={() => setOpenMenu(MAIN_MENU)}
