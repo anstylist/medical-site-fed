@@ -30,7 +30,7 @@ function Cart () {
   }
 
   const handleQuantity = (productToChange, event) => {
-    const inputValue = event.target.value || '0'
+    const inputValue = event.target.value || '1'
     let newQuantity = Number.parseInt(inputValue, 10)
 
     if (newQuantity > productToChange.stock) {
