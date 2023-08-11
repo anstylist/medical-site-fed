@@ -20,14 +20,13 @@ import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
 import FindDoctor from '../pages/FindDoctor/FindDoctor'
 import OurDepartments from '../pages/OurDepartments/OurDepartments'
+import Products from './Products/Products'
+import { Routes, Route } from 'react-router-dom'
 import Cart from '../pages/Cart/Cart'
-
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
-
 // Temporary
 import cartProducts from '../__mocks__/cart-products.json'
-
 import './App.scss'
 
 function App () {
@@ -64,6 +63,7 @@ function App () {
               <Route path='/patients-and-visitors' Component={PatientsVisitors}/>
               <Route path='/find-doctor' Component={FindDoctor}/>
               <Route path='/our-departments' Component={OurDepartments}/>
+              <Route path='/products' Component={Products}/>
               <Route path='/cart' Component={Cart} />
               <Route path='*' Component={Error404}/>
             </Routes>

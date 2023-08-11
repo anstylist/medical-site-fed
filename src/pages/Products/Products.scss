@@ -1,0 +1,129 @@
+@use '../../styles/variables';
+
+.product-shop_bg {
+    background-image: url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/banner-bg-4_mot6ce.jpg");
+}
+
+.shop-products {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .products-banner {
+        display: flex;
+        margin-top: 20px;
+        justify-content: space-between;
+        align-items: center;
+        width: 80%;
+        padding: 20px;
+        background-color: #EBF5F5;
+
+
+        .banner-results {
+            font-size: 16px;
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .banner-sort {
+            font-size: 14px;
+            padding: 10px 12px;
+            width: 100%;
+            max-width: 200px;
+            margin-top: 5px;
+        }
+    }
+  
+    .shop-products__product-list {
+      display: grid;
+      grid-gap: 20px;
+      padding: 40px;
+      margin-top: 20px;
+  
+      .product-list__product {
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        position: relative;
+        transition: transform 0.3s ease-in-out;
+  
+        .product__image {
+          max-width: 100%;
+          height: auto;
+          display: block;
+          margin: 0 auto;
+        }
+  
+        .product__name {
+          font-size: 18px;
+          margin-top: 10px;
+        }
+  
+        .product__price {
+          font-size: 25px;
+          margin-top: 25px;
+          font-weight: bold;
+        }
+  
+        &:hover {
+            transform: translateY(-5px);
+            .product__add-to-cart {
+              opacity: 1;
+            }
+  
+        }
+  
+        .product__add-to-cart {
+            position: absolute;
+            bottom: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            background-color: variables.$color-lightblue;
+            color: #fff;
+            padding: 8px 24px;
+            border: none;
+            cursor: pointer;
+
+          &:hover {
+            transition: 0.6s ease;
+            background-color: variables.$color-button-hover;
+          }
+        }
+      }
+    }
+}
+
+
+@media (min-width: 576px) {
+    .products-banner {
+        padding: 20px;
+        width: 80%;
+    }
+}
+
+@media (min-width: 676px) {
+    .products-banner {
+        flex-direction: row;
+    }
+
+    .shop-products__product-list {
+        grid-template-columns: repeat(2, minmax(280px, 1fr)); 
+    }
+
+    .product__add-to-cart {
+        padding: 20px 40px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .shop-products__product-list {
+        grid-template-columns: repeat(3, minmax(280px, 1fr)); 
+        margin: 40px 150px;
+    }
+
+    .product__add-to-cart {
+        padding: 40px 80px;
+    }
+}
