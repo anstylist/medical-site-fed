@@ -6,6 +6,7 @@
     "price": 15,
     "category": "Mask",
     "stock": 94,
+    "quantity": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393385/medical-site/shop-1_embziq.jpg"
   },
@@ -16,6 +17,7 @@
     "price": 30,
     "category": "Wash",
     "stock": 42,
+    "quantity": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393384/medical-site/shop-2_yhtbqy.jpg"
   },
@@ -26,6 +28,7 @@
     "price": 25,
     "category": "Thermomether",
     "stock": 19,
+    "quantity": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393385/medical-site/shop-3_lkfcx4.jpg"
   },
@@ -36,6 +39,7 @@
     "price": 55,
     "category": "Vaccine",
     "stock": 294,
+    "quantity": 1,
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393384/medical-site/shop-4_qkk9n5.jpg"
   },
@@ -45,6 +49,7 @@
     "code": "S12",
     "price": 45,
     "stock": 4,
+    "quantity": 1,
     "category": "Stethoscope",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393384/medical-site/shop-5_lmky5l.jpg"
@@ -55,6 +60,7 @@
     "code": "M75",
     "price": 299,
     "stock": 12,
+    "quantity": 1,
     "category": "Microscope",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393382/medical-site/shop-6_iwhfmg.jpg"
@@ -65,6 +71,7 @@
     "code": "EM02",
     "price": 150,
     "stock": 49,
+    "quantity": 1,
     "category": "Eyeglass",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393384/medical-site/shop-7_wyjxvh.jpg"
@@ -75,6 +82,7 @@
     "code": "ET23",
     "price": 450,
     "stock": 1,
+    "quantity": 1,
     "category": "Machine",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393381/medical-site/shop-8_r5xrsw.jpg"
@@ -85,6 +93,7 @@
     "code": "CTT1",
     "price": 35,
     "stock": 20,
+    "quantity": 1,
     "category": "Test tubes",
     "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393384/medical-site/shop-9_v8sog4.jpg"

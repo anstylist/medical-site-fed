@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Products.scss'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import products from './products.json'
+import CartProductsContext from '../../context/CartProductsContext'
+import products from '../../__mocks__/products.json'
 
 const Products = () => {
+  const { setProductsList } = useContext(CartProductsContext)
+
+  const handleAddToCart = (product) => {
+    setProductsList(prevProducts => [...prevProducts, product])
+  }
+
   const breadcrumb = [
     {
       text: 'Home',
@@ -37,7 +44,7 @@ const Products = () => {
                 <img src={product.image} alt={product.name} className="product__image" />
                 <h3 className="product__name">{product.name}</h3>
                 <p className="product__price">${product.price.toFixed(2)}</p>
-                <button className="product__add-to-cart">Add to Cart <AiOutlineShoppingCart className='.product__add-to-cart-icon'/></button>
+                <button className="product__add-to-cart" onClick={() => handleAddToCart(product)}>Add to Cart <AiOutlineShoppingCart className='.product__add-to-cart-icon'/></button>
             </div>
             ))}
         </div>
