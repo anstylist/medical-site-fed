@@ -20,8 +20,8 @@ import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
 import FindDoctor from '../pages/FindDoctor/FindDoctor'
 import OurDepartments from '../pages/OurDepartments/OurDepartments'
-import Products from './Products/Products'
-import { Routes, Route } from 'react-router-dom'
+import Products from '../pages/Products/Products'
+import ProductsDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
@@ -65,6 +65,7 @@ function App () {
               <Route path='/find-doctor' Component={FindDoctor}/>
               <Route path='/our-departments' Component={OurDepartments}/>
               <Route path='/products' Component={Products}/>
+              <Route path='/products/:productId' Component={ProductsDetails}/>
               <Route path='/cart' Component={Cart} />
               <Route path='/doctor/appointments' element={<Appointments type={true} />} />
               <Route path='/patient/appointments' element={<Appointments type={false} />} />
