@@ -21,30 +21,33 @@ import FindDoctor from '../pages/FindDoctor/FindDoctor'
 import OurDepartments from '../pages/OurDepartments/OurDepartments'
 import { Routes, Route } from 'react-router-dom'
 import './App.scss'
+import Appointments from './Appointments/Appointments'
 
-function App () {
+function App() {
   return (
     <>
       <Header />
       <Main>
         <Routes>
-          <Route path='/' Component={Home}/>
-          <Route path='/about' Component={About}/>
-          <Route path='/our-doctors' Component={OurDoctors}/>
-          <Route path='/doctor-details' Component={DoctorDetails}/>
-          <Route path='/terms-of-service' Component={Terms}/>
-          <Route path='/privacy-policy' Component={Privacy}/>
-          <Route path='/coming-soon' Component={ComingSoon}/>
-          <Route path='/login' Component={Login}/>
-          <Route path='/register' Component={Register}/>
-          <Route path='/forgot-password' Component={Forgot}/>
-          <Route path='/appointment' Component={Appointment}/>
-          <Route path='/doctors-timetable' Component={DoctorsTimetable}/>
-          <Route path='/emergency-services' Component={EmergencyServices}/>
-          <Route path='/patients-and-visitors' Component={PatientsVisitors}/>
-          <Route path='/find-doctor' Component={FindDoctor}/>
-          <Route path='/our-departments' Component={OurDepartments}/>
-          <Route path='*' Component={Error404}/>
+          <Route path='/' Component={Home} />
+          <Route path='/about' Component={About} />
+          <Route path='/our-doctors' Component={OurDoctors} />
+          <Route path='/doctor-details' Component={DoctorDetails} />
+          <Route path='/terms-of-service' Component={Terms} />
+          <Route path='/privacy-policy' Component={Privacy} />
+          <Route path='/coming-soon' Component={ComingSoon} />
+          <Route path='/login' Component={Login} />
+          <Route path='/register' Component={Register} />
+          <Route path='/forgot-password' Component={Forgot} />
+          <Route path='/appointment' Component={Appointment} />
+          <Route path='/doctors-timetable' Component={DoctorsTimetable} />
+          <Route path='/emergency-services' Component={EmergencyServices} />
+          <Route path='/patients-and-visitors' Component={PatientsVisitors} />
+          <Route path='/find-doctor' Component={FindDoctor} />
+          <Route path='/our-departments' Component={OurDepartments} />
+          <Route path='/doctor/appointments' element={<Appointments type={true} />} />
+          <Route path='/patient/appointments' element={<Appointments type={false} />} />
+          <Route path='*' Component={Error404} />
         </Routes>
       </Main>
       <Footer />
