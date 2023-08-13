@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState } from 'react'
+import { AiOutlineCloseCircle } from 'react-icons/ai'
 import './Modal.scss'
 
-function Modal ({ trigger, children, className }) {
+function Modal({ trigger, children, className }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const stopPropagation = (event) => {
@@ -49,8 +50,11 @@ function Modal ({ trigger, children, className }) {
         className={`modal-container ${isOpen && 'modal-container__open'}`}
         onClick={() => setIsOpen(false)}
       >
-        X
+
         <section className={`modal ${className || ''}`} onClick={stopPropagation}>
+          <a className='closed' onClick={() => setIsOpen(false)}>
+            <AiOutlineCloseCircle size={30} />
+          </a>
           {isOpen && children}
         </section>
       </div>

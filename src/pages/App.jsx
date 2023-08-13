@@ -28,6 +28,7 @@ import CartProductsContext from '../context/CartProductsContext'
 // Temporary
 import cartProducts from '../__mocks__/cart-products.json'
 import './App.scss'
+import Appointments from './Appointments/Appointments'
 
 function App () {
   // TODO: set the productList initial value to an empty [] array after implementing the Cart component
@@ -65,6 +66,8 @@ function App () {
               <Route path='/our-departments' Component={OurDepartments}/>
               <Route path='/products' Component={Products}/>
               <Route path='/cart' Component={Cart} />
+              <Route path='/doctor/appointments' element={<Appointments type={true} />} />
+              <Route path='/patient/appointments' element={<Appointments type={false} />} />
               <Route path='*' Component={Error404}/>
             </Routes>
           </Main>
