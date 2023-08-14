@@ -1,16 +1,13 @@
 import React, { useContext } from 'react'
 import './TotalSum.scss'
 import CartProductsContext from '../../context/CartProductsContext'
+import { getTotalToPay } from './shop.util'
 
-function TotalSum ({ buttonType }) {
+function TotalSum () {
   const { productsList } = useContext(CartProductsContext)
   const shipping = 0
 
-  const calculateSubtotal = (item) => {
-    return item.price * item.quantity
-  }
-
-  const calculateTotal = productsList.reduce((total, product) => total + calculateSubtotal(product), 0)
+  const calculatedTotal = getTotalToPay(productsList)
 
   return (
     <section className='total-sum'>
@@ -20,7 +17,7 @@ function TotalSum ({ buttonType }) {
           <li className='total-sum__list-item'>
             <div>Subtotal</div>
             <div className='total-div'>
-              ${Number(calculateTotal).toFixed(2)}
+              ${Number(calculatedTotal).toFixed(2)}
             </div>
           </li>
           <li className='total-sum__list-item'>
@@ -32,17 +29,17 @@ function TotalSum ({ buttonType }) {
           <li className='total-sum__list-item'>
             <div>Total</div>
             <div className='total-div'>
-            ${Number(shipping + calculateTotal).toFixed(2)}
+            ${Number(shipping + calculatedTotal).toFixed(2)}
             </div>
           </li>
           <li className='total-sum__list-item'>
             <div className='total-div__payable-label'>Payable Total</div>
             <div className='total-div__payable-number'>
-              ${Number(shipping + calculateTotal).toFixed(2)}
+              ${Number(shipping + calculatedTotal).toFixed(2)}
             </div>
           </li>
         </ul>
-        <button type={`${buttonType || 'button'}`} className='total-sum__btn'>Proceed to checkout</button>
+        <button type='submit' className='total-sum__btn'>Proceed to checkout</button>
       </div>
     </section>
   )

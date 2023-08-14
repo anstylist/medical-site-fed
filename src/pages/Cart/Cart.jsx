@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext} from 'react'
+import  {useNavigate} from 'react-router-dom'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Cart.scss'
 import CartProductsContext from '../../context/CartProductsContext'
@@ -16,6 +17,7 @@ const breadcrumb = [
 ]
 
 function Cart () {
+  const navigateTo = useNavigate()
   const { productsList, setProductsList } = useContext(CartProductsContext)
   const isEmptyProductsList = productsList?.length === 0
 
@@ -30,7 +32,7 @@ function Cart () {
   }
 
   const handleQuantity = (productToChange, event) => {
-    const inputValue = event.target.value || '0'
+    const inputValue = event.target.value || '1'
     let newQuantity = Number.parseInt(inputValue, 10)
 
     if (newQuantity > productToChange.stock) {
@@ -54,6 +56,7 @@ function Cart () {
   const handleSubmitOrder = (event) => {
     event.preventDefault()
     // TODO: Navegar programáticamente a Checkout si todo está bien
+    navigateTo('/checkout')
   }
 
   return (
@@ -130,7 +133,7 @@ function Cart () {
             </table>
           </section>
           <section className='cart__section-total'>
-            <TotalSum buttonType="submit" />
+            <TotalSum />
           </section>
         </form>
       </section>

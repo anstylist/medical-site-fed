@@ -14,7 +14,7 @@ function Register () {
   ]
 
   const [formData, setFormData] = useState({
-    username: '',
+    fullName: '',
     email: '',
     password: '',
     agreeTerms: false
@@ -39,7 +39,7 @@ function Register () {
 
     // Reset the form after submission (optional)
     setFormData({
-      username: '',
+      fullName: '',
       email: '',
       password: '',
       agreeTerms: false
@@ -57,14 +57,14 @@ function Register () {
         <h2 className="register__title">Register</h2>
         <div className="register__form">
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username" className="register__label">Username</label>
+            <label htmlFor="fullName" className="register__label">Full Name</label>
             <input
-              id='username'
+              id='fullName'
               type="text"
               className="register__input"
-              placeholder='Username'
-              name="username"
-              value={formData.username}
+              placeholder='Full Name'
+              name="fullName"
+              value={formData.fullName}
               onChange={handleChange}
               required
             />
