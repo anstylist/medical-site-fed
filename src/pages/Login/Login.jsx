@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Login.scss'
 
@@ -57,7 +58,7 @@ function Login () {
                             <label htmlFor="remember-me">Remember me</label>
                         </div>
 
-                        <a href="/forgot-password" className="login__forgot-password">Forgot password?</a>
+                        <Link to="/change-password" className="login__forgot-password">Forgot password?</Link>
 
                         <button className="login__button">Login →</button>
                     </form>
