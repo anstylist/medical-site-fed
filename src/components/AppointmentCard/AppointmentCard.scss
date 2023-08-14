@@ -1,0 +1,202 @@
+@use '../../styles/variables';
+
+.appointment-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid variables.$color-gray-light;
+  font-family: variables.$font-poppins;
+
+  &-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+  }
+
+  &-info {
+    .name {
+      font-size: variables.$font-size-x-small;
+      color: #808B96;
+    }
+
+    .specialty {
+      font-size: variables.$font-size-small;
+    }
+
+    .date,
+    .hour,
+    .details {
+      display: flex;
+      gap: 5px;
+      padding-top: 5px;
+      font-size: variables.$font-size-x-small;
+      align-items: center;
+      color: variables.$color-gray;
+
+      span {
+        display: flex;
+        justify-content: left;
+        color: variables.$color-lightblue;
+      }
+    }
+
+    .details {
+      color: variables.$color-lightblue;
+
+      &:hover {
+        cursor: pointer;
+        color: variables.$color-hover-icon;
+        letter-spacing: 1px;
+
+        span {
+          color: variables.$color-hover-icon;
+        }
+      }
+    }
+  }
+
+  .details__modal {
+    top: 4rem;
+    padding: 2rem 1rem;
+
+    &-title {
+      text-align: center;
+      font-size: variables.$font-size-medium;
+    }
+
+    &-content {
+      padding-inline: 1rem;
+      overflow-y: auto;
+      height: 400px;
+
+      .title {
+        padding-top: 1rem;
+        font-size: variables.$font-size-x-small;
+        color: #808B96;
+      }
+
+      .subtitle {
+        display: flex;
+        gap: 5px;
+        padding-top: 5px;
+        font-size: variables.$font-size-small;
+        align-items: center;
+        color: variables.$color-gray;
+
+        span {
+          display: flex;
+          justify-content: left;
+          color: variables.$color-lightblue;
+        }
+      }
+
+      .subtitle_2 {
+        padding-left: 1.5rem;
+        font-size: variables.$font-size-x-small;
+        color: variables.$color-gray;
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+
+      &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: variables.$color-lightblue;
+        border-radius: 10px;
+      }
+    }
+
+    &-buttons {
+      margin-top: 2rem;
+      justify-content: flex-end;
+      display: flex;
+      gap: 5px;
+
+      .done,
+      .cancel {
+        padding: 0.5rem 1rem;
+        color: variables.$bg-main-color;
+        font-size: variables.$font-size-x-small;
+        border-radius: 5px;
+
+        &:hover {
+          cursor: pointer;
+          background-color: variables.$color-hover-icon;
+        }
+      }
+
+      .done {
+        background-color: #239B56;
+      }
+
+      .cancel {
+        background-color: #CB4335;
+      }
+
+      .modal__message {
+        border-radius: 5px;
+        padding: 1rem;
+
+        &--content {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          .title {
+            padding: 1rem;
+          }
+
+          .confirmation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: variables.$font-size-x-small;
+            border-radius: 5px;
+            background-color: variables.$color-lightblue;
+            color: variables.$bg-main-color;
+            width: 60px;
+            height: 50px;
+
+            &:hover {
+              cursor: pointer;
+              background-color: variables.$color-hover-icon;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+@media (min-width:1024px) {
+  .appointment-card {
+    width: 40%;
+    gap: 2rem;
+
+    .details__modal {
+      top: 5rem;
+      width: 50%;
+
+      &-content {
+        height: 400px;
+      }
+    }
+  }
+
+}
+
+@media (min-width:1440px) {
+  .appointment-card {
+    width: 30%;
+  }
+
+}

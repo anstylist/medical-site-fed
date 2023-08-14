@@ -1,0 +1,59 @@
+.total-sum {
+  width: 300px;
+  margin-top: 40px;
+
+
+  &__btn {
+    padding: 15px 25px;
+    width: 100%;
+    background-color: #3DB6D6;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    margin-top: 12px;
+    font-size: 18px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+
+  &__div {
+    background-color: #eeeeee;
+    border: 1px solid #ebebeb;
+    padding: 25px;
+  }
+
+
+
+  &__list-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 900;
+  }
+}
+.total-div {
+  font-size: 18px;
+
+  &__payable-label {
+    font-weight: bold;
+  }
+
+  &__payable-number {
+    font-size: 22px;
+    font-weight: bold;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .total-sum {
+    margin-top: 0;
+  }  
+}
+

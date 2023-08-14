@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Appointment.scss'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import { dataCountries, dataDepartament, dataHospitals, dataDoctor } from '../../components/data'
+import { dataRh, dataCountries, dataDepartament, dataHospitals, dataDoctor } from '../../components/data'
 
 const Appointment = () => {
   const [appointment, setAppointment] = useState({
@@ -9,13 +9,13 @@ const Appointment = () => {
     email: '',
     phone: '',
     nationality: '',
-    date_barth: '',
-    country: '',
-    sex: '',
-    specialty: '',
+    date_birth: '',
+    rh: '',
+    gender: '',
+    speciality: '',
     doctor: '',
     hospital: '',
-    date_appointment: '',
+    datetime_appointment: '',
     message: ''
   })
   const breadcrumb = [
@@ -40,13 +40,13 @@ const Appointment = () => {
       email: '',
       phone: '',
       nationality: '',
-      date_barth: '',
-      country: '',
-      sex: '',
-      specialty: '',
+      date_birth: '',
+      rh: '',
+      gender: '',
+      speciality: '',
       doctor: '',
       hospital: '',
-      date_appointment: '',
+      datetime_appointment: '',
       message: ''
     })
   }
@@ -119,26 +119,26 @@ const Appointment = () => {
                   </select>
               </div>
               <div className='appointment__form__container--section'>
-                <label htmlFor='date_barth'>Date of barth</label>
+                <label htmlFor='date_birth'>Date of birth</label>
                 <input
-                  id='date_barth'
-                  name='date_barth'
+                  id='date_birth'
+                  name='date_birth'
                   type='date'
-                  value={appointment.date_barth}
+                  value={appointment.date_birth}
                   onChange={handlechange}
                   required
                   />
               </div>
               <div className='appointment__form__container--section'>
-                <label htmlFor='country'>Country of residence</label>
+                <label htmlFor='rh'>RH</label>
                   <select
-                   id ='country'
-                   name='country'
-                   value={appointment.country}
+                   id ='rh'
+                   name='rh'
+                   value={appointment.rh}
                    onChange={handlechange}
                    required>
-                    <option value=''>-- Select country --</option>
-                    {dataCountries().map((item) => {
+                    <option value=''>-- Select RH --</option>
+                    {dataRh().map((item) => {
                       return (
                         <option key={item.id} value={item.name}>{item.name}</option>
                       )
@@ -146,9 +146,9 @@ const Appointment = () => {
                   </select>
               </div>
                 <fieldset>
-                  <legend>Select sex</legend>
-                    <input type='radio' id='male' name='sex' value='0' onChange={handlechange} required/>Male
-                    <input type='radio' id='female' name='sex' value='1' onChange={handlechange}/> Female
+                  <legend>Select Gender</legend>
+                    <input type='radio' id='male' name='gender' value='0' onChange={handlechange} required/>Male
+                    <input type='radio' id='female' name='gender' value='1' onChange={handlechange}/> Female
                 </fieldset>
             </div>
           </div>
@@ -156,14 +156,14 @@ const Appointment = () => {
             <h3 className='appointment__form__title'>Appointment information</h3>
             <div className='appointment__form__container'>
             <div className='appointment__form__container--section'>
-              <label htmlFor='specialty'>Specialty</label>
+              <label htmlFor='specialty'>Speciality</label>
               <select
-               id ='specialty'
-               name='specialty'
-               value={appointment.specialty}
+               id ='speciality'
+               name='speciality'
+               value={appointment.speciality}
                onChange={handlechange}
                required>
-                <option value=''>-- Select specialty --</option>
+                <option value=''>-- Select speciality --</option>
                   {dataDepartament().map((item) => {
                     return (
                       <option key={item.id} value={item.name}>{item.name}</option>
@@ -204,17 +204,17 @@ const Appointment = () => {
               </select>
             </div>
             <div className='appointment__form__container--section'>
-              <label htmlFor='date_appointment'>Date of appointment</label>
+              <label htmlFor='datetime_appointment'>Date of appointment</label>
                <input
-                id='date_appointment'
-                name='date_appointment'
-                type='date'
-                value={appointment.date_appointment}
+                id='datetime_appointment'
+                name='datetime_appointment'
+                type='datetime-local'
+                value={appointment.datetime_appointment}
                 onChange={handlechange}
                 required
                 />
             </div>
-                <label htmlFor='message' id='label-textarea'>Reason of consultation</label>
+                <label htmlFor='message' id='label-textarea'>Reason for consult</label>
                 <textarea
                  placeholder="Your Message"
                  id='message'

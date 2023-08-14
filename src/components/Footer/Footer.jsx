@@ -54,29 +54,29 @@ function Footer () {
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Andry Peña</h3>
                 <div className='section-redes'>
-                  <a href='https://github.com/andrystylist'><BsLinkedin size={20} className='section-redes-option'/></a>
-                  <a href='https://www.linkedin.com/in/andrystylist/'><BsGithub size={20} className='section-redes-option'/></a>
+                  <a href='https://www.linkedin.com/in/andrystylist/'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://github.com/andrystylist/'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Carlos Mendoza</h3>
                 <div className='section-redes'>
-                  <a href='https://github.com/Carlos-Mendoza10'><BsLinkedin size={20} className='section-redes-option'/></a>
-                  <a href='#'><BsGithub size={20} className='section-redes-option'/></a>
+                  <a href='#'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://github.com/Carlos-Mendoza10'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Erick Carrasco</h3>
                 <div className='section-redes'>
-                  <a href='https://github.com/erickfabiandev'><BsLinkedin size={20} className='section-redes-option'/></a>
-                  <a href='https://www.linkedin.com/in/erickfabiandev/'><BsGithub size={20} className='section-redes-option'/></a>
+                  <a href='https://www.linkedin.com/in/erickfabiandev/'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://github.com/erickfabiandev'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
               <li className= 'section-develop'>
                 <h3 className='section-subtitle'>Juan Villegas</h3>
                 <div className='section-redes'>
-                  <a href='https://github.com/jlvillegas04'><BsLinkedin size={20} className='section-redes-option'/></a>
-                  <a href='https://www.linkedin.com/in/juan-luis-villegas-jim%C3%A9nez-90b5bb276/'><BsGithub size={20} className='section-redes-option'/></a>
+                  <a href='https://www.linkedin.com/in/juan-luis-villegas-jim%C3%A9nez-90b5bb276/'><BsLinkedin size={20} className='section-redes-option'/></a>
+                  <a href='https://github.com/jlvillegas04'><BsGithub size={20} className='section-redes-option'/></a>
                 </div>
               </li>
             </ul>

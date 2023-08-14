@@ -1,0 +1,71 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.appointments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 5rem;
+
+  &__bg {
+    background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg');
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    padding: 2rem 1rem;
+
+    &--title {
+      font-family: variables.$font-poppins;
+      font-size: variables.$font-size-small;
+      color: variables.$color-gray;
+      border-bottom: 2px solid variables.$color-gray-light;
+      padding-inline: 1rem;
+      padding-bottom: 0.5rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      color: variables.$color-hover-icon;
+      border-color: variables.$color-hover-icon ;
+    }
+  }
+
+  &__tab-content {
+    padding: 0rem 1rem;
+
+    .tab_panel {}
+  }
+
+}
+
+@include mixins.set-container-width(".appointments");
+
+@media (min-width:1024px) {
+  .appointments {
+    &__tabs {
+      padding-top: 3rem;
+
+      &--title {
+        padding-inline: 2rem;
+      }
+    }
+
+    &__tab-content {
+
+      .tab_panel {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+    }
+  }
+}
