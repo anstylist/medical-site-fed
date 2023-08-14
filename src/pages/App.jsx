@@ -24,6 +24,7 @@ import Products from '../pages/Products/Products'
 import ProductsDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
 import Appointments from './Appointments/Appointments'
+import ChangePassword from '../pages/ChangePassword/ChangePassword'
 
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
@@ -59,6 +60,7 @@ function App () {
               <Route path='/login' Component={Login}/>
               <Route path='/register' Component={Register}/>
               <Route path='/forgot-password' Component={Forgot}/>
+              <Route path='/change-password' Component={ChangePassword}/>
               <Route path='/appointment' Component={Appointment}/>
               <Route path='/doctors-timetable' Component={DoctorsTimetable}/>
               <Route path='/emergency-services' Component={EmergencyServices}/>
