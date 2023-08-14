@@ -3,7 +3,7 @@ import './TotalSum.scss'
 import CartProductsContext from '../../context/CartProductsContext'
 import { getTotalToPay } from './shop.util'
 
-function TotalSum ({ buttonType }) {
+function TotalSum () {
   const { productsList } = useContext(CartProductsContext)
   const shipping = 0
 
@@ -39,7 +39,7 @@ function TotalSum ({ buttonType }) {
             </div>
           </li>
         </ul>
-        <button type={`${buttonType || 'button'}`} className='total-sum__btn'>Proceed to checkout</button>
+        <button type='submit' className='total-sum__btn'>Proceed to checkout</button>
       </div>
     </section>
   )

@@ -23,6 +23,7 @@ import OurDepartments from '../pages/OurDepartments/OurDepartments'
 import Products from '../pages/Products/Products'
 import ProductsDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
+
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
 // Temporary
@@ -67,8 +68,6 @@ function App () {
               <Route path='/products' Component={Products}/>
               <Route path='/products/:productId' Component={ProductsDetails}/>
               <Route path='/cart' Component={Cart} />
-              <Route path='/doctor/appointments' element={<Appointments type={true} />} />
-              <Route path='/patient/appointments' element={<Appointments type={false} />} />
               <Route path='*' Component={Error404}/>
             </Routes>
           </Main>

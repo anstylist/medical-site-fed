@@ -6,7 +6,7 @@ const getTotalToPay = (productsList) => {
   return productsList.reduce((total, product) => total + calculateSubtotal(product), 0)
 }
 
-export default {
+export {
   calculateSubtotal,
   getTotalToPay
 }

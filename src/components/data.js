@@ -81,6 +81,20 @@ export const dataCountries = () => {
   return countries
 }
 
+export const dataRh = () => {
+  const rh = [
+    { id: 1, name: 'A+' },
+    { id: 2, name: 'A-' },
+    { id: 3, name: 'B+' },
+    { id: 4, name: 'B-' },
+    { id: 5, name: 'AB+' },
+    { id: 6, name: 'AB-' },
+    { id: 7, name: 'O+' },
+    { id: 8, name: 'O-' }
+  ]
+  return rh
+}
+
 export const dataHospitals = () => {
   const hospitals = [
     { id: 1, name: 'Augu Hospital' },
