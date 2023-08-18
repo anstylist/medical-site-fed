@@ -26,6 +26,8 @@ import Cart from '../pages/Cart/Cart'
 import Appointments from './Appointments/Appointments'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
 
+import FirstViewUnlogged from '../components/UnloggedMainView/FirstViewUnlogged'
+
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
 // Temporary
@@ -73,6 +75,7 @@ function App () {
               <Route path='*' Component={Error404}/>
               <Route path='/doctor/appointments' element={<Appointments type={true} />} />
               <Route path='/patient/appointments' element={<Appointments type={false} />} />
+              <Route path='/unlogged' element={<FirstViewUnlogged/>}/>
             </Routes>
           </Main>
           <Footer />
