@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { FaAmbulance, FaHandHoldingMedical } from 'react-icons/fa'
-import mockUser from './mockUser.json'
+import mockUser from '../../__mocks__/mockUser.json'
 import './AppointmentForm.scss'
 
 const AppointmentForm = () => {

@@ -27,6 +27,7 @@ import Appointments from './Appointments/Appointments'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
 
 import FirstViewUnlogged from '../components/UnloggedMainView/FirstViewUnlogged'
+import UserProfile from './UserProfile/UserProfile'
 
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
@@ -76,6 +77,7 @@ function App () {
               <Route path='/doctor/appointments' element={<Appointments type={true} />} />
               <Route path='/patient/appointments' element={<Appointments type={false} />} />
               <Route path='/unlogged' element={<FirstViewUnlogged/>}/>
+              <Route path='/user-profile' element={<UserProfile/>}/>
             </Routes>
           </Main>
           <Footer />
