@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FaAmbulance, FaHandHoldingMedical } from 'react-icons/fa'
+import mockUser from './mockUser.json'
 import './AppointmentForm.scss'
 
 const AppointmentForm = () => {
@@ -19,7 +20,7 @@ const AppointmentForm = () => {
   return (
     <div className="main-banner-area">
       <div className="main-banner-container">
-        <span className="main-banner-container__span">Welcome to Mebid</span>
+        <span className="main-banner-container__span">Welcome to Mebid, {mockUser.fullName}</span>
         <h1 className="main-banner-container__h1">
           We are by your side in any services
         </h1>
