@@ -58,13 +58,13 @@ function Login () {
                             <label htmlFor="remember-me">Remember me</label>
                         </div>
 
-                        <Link to="/change-password" className="login__forgot-password">Forgot password?</Link>
+                        <Link to="/forgot-password" className="login__forgot-password">Forgot password?</Link>
 
                         <button className="login__button">Login →</button>
                     </form>
 
                     <p className="login__register-now">
-                        Don't have an account? <a href="/registe">Register now</a>
+                        Don't have an account? <Link to="/register">Register now</Link>
                     </p>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
+import { Link } from 'react-router-dom'
 import './Register.scss'
 
 function Register () {
@@ -102,7 +103,7 @@ function Register () {
                 onChange={handleChange}
                 required
               />
-              <label htmlFor="agree-terms">I agree with the <a href='/terms' className='agree-terms'>Terms & conditions</a></label>
+              <label htmlFor="agree-terms">I agree with the <Link to="/terms-of-service" className='agree-terms'>Terms & conditions</Link></label>
             </div>
 
             <button type="submit" className="register__button">Register now →</button>
