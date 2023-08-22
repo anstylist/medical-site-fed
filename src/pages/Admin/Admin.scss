@@ -1,0 +1,70 @@
+@use '../../styles/variables';
+@use '../../styles/mixins';
+
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: variables.$bg-main-color;
+  width: 100%;
+
+  &__bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.30), rgba(0, 0, 0, 0.60)), url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/banner-bg-2_qhpmwi.jpg');
+  }
+
+  &__tabs {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    padding-top: 1rem;
+    padding-left: 8rem;
+    background-color: variables.$optional-color;
+    position: sticky;
+    z-index: 100;
+    top: 0;
+
+    &--title {
+      font-family: variables.$font-poppins;
+      font-size: variables.$font-size-x-small;
+      color: variables.$bg-main-color;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding: 0.8rem 2rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .active {
+      color: variables.$optional-color;
+      background-color: variables.$bg-main-color;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+  }
+
+  &__tab-content {
+    padding: 1rem;
+
+    .tab_panel {
+      padding: 2rem;
+      font-family: variables.$font-poppins;
+
+      .title {
+        padding: 0.5rem 0rem;
+        font-size: variables.$font-size-large;
+      }
+
+      .subtitle {
+        padding-bottom: 0.5rem;
+        font-size: 14px;
+        color: #BDC3C7;
+      }
+    }
+  }
+
+}
+
+@include mixins.set-container-width(".admin");

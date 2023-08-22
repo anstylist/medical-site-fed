@@ -1,0 +1,141 @@
+@use '../../../styles/variables';
+
+.admin-doctors {
+
+  &-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: variables.$font-poppins;
+    position: relative;
+
+    .addButton {
+      background-color: variables.$color-hover-icon;
+      color: variables.$bg-main-color;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: left;
+      width: 200px;
+      gap: 10px;
+      padding: 1rem;
+
+      svg {
+        width: auto;
+      }
+
+      &:hover {
+        background-color: variables.$color-lightblue;
+        cursor: pointer;
+      }
+    }
+
+    .filterName {
+      font-family: variables.$font-poppins;
+      font-weight: 300;
+      border: 1px solid #CACFD2;
+      border-radius: 5px;
+      padding: 0.5rem;
+      padding-left: 2rem;
+      margin-right: 10px;
+      width: 350px;
+    }
+
+    .icon {
+      position: absolute;
+      width: auto;
+      top: 15px;
+      left: 8px;
+    }
+  }
+
+  &-content {
+    margin-top: 2rem;
+
+    .table {
+      width: 100%;
+      box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
+
+      thead {
+        th {
+          font-family: variables.$font-poppins;
+          font-weight: 400;
+          background-color: #F4F6F6;
+          text-align: left;
+          padding: 1rem;
+        }
+
+      }
+
+      tbody {
+        font-family: variables.$font-poppins;
+        font-weight: 400;
+        font-size: 13px;
+
+        tr {
+          border-bottom: 1px solid variables.$color-gray-light;
+
+          .name {
+            margin-top: 0.5rem;
+            margin-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 10px;
+
+            .img {
+              width: 80px;
+              height: 80px;
+              border-radius: 2px;
+            }
+
+            .text {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+          }
+
+          .email,
+          .phone,
+          .phone,
+          .status,
+          .actions {
+            vertical-align: middle;
+          }
+
+          .social {
+            vertical-align: middle;
+
+            .icon {
+              width: 18px;
+              color: variables.$color-gray;
+            }
+
+            h3 {
+              padding-top: 2px;
+              font-size: 12px;
+              display: flex;
+              align-items: center;
+              gap: 2px;
+            }
+          }
+
+          .actions {
+            .icon {
+              margin-left: 1.5rem;
+              margin-top: 8px;
+              width: 20px;
+
+              &:hover {
+                color: variables.$color-button-hover;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
