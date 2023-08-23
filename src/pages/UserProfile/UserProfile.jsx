@@ -66,7 +66,7 @@ const UserProfile = () => {
             className="user-profile__field-button user-profile__field-button--save"
             onClick={() => saveChanges(fieldName)}
           >
-            Save Changes
+            Save
           </button>
             )
           : (

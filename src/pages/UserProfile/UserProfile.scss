@@ -1,14 +1,20 @@
+@use '../../styles/variables';
+
 .user-profile {
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   
     &__title {
       font-size: 24px;
       margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
     }
   
     &__fields {
@@ -19,6 +25,7 @@
     &__field {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 10px;
       padding: 10px;
       border: 1px solid #ddd;
@@ -27,10 +34,6 @@
   
       &-label {
         font-weight: bold;
-      }
-  
-      &-value {
-        margin: 0;
       }
   
       &-input {
@@ -42,11 +45,12 @@
   
       &-button {
         padding: 5px 10px;
-        border: none;
+        background-color: lightblue;
         border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.2s ease-in-out;
-  
+        display: flex;
+        
         &--save {
           background-color: #3cba54;
           color: #fff;
