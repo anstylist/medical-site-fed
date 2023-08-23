@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Appointment.scss'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import { dataRh, dataCountries, dataDepartament, dataHospitals, dataDoctor } from '../../components/data'
+import TotalSum from '../../components/TotalSum/TotalSum'
 
 const Appointment = () => {
   const [appointment, setAppointment] = useState({
@@ -228,6 +229,7 @@ const Appointment = () => {
           <button type='submit' name='submit' className='appointment__form--button'>
             Submit →
           </button>
+          <TotalSum />
         </form>
       </section>
     </section>

@@ -25,6 +25,7 @@ import ProductsDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
 import Appointments from './Appointments/Appointments'
 
+import Checkout from '../pages/Checkout/Checkout'
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
 // Temporary
@@ -49,28 +50,29 @@ function App () {
           <Header />
           <Main>
             <Routes>
-              <Route path='/' Component={Home}/>
-              <Route path='/about' Component={About}/>
-              <Route path='/our-doctors' Component={OurDoctors}/>
-              <Route path='/doctor-details' Component={DoctorDetails}/>
-              <Route path='/terms-of-service' Component={Terms}/>
-              <Route path='/privacy-policy' Component={Privacy}/>
-              <Route path='/coming-soon' Component={ComingSoon}/>
-              <Route path='/login' Component={Login}/>
-              <Route path='/register' Component={Register}/>
-              <Route path='/forgot-password' Component={Forgot}/>
-              <Route path='/appointment' Component={Appointment}/>
-              <Route path='/doctors-timetable' Component={DoctorsTimetable}/>
-              <Route path='/emergency-services' Component={EmergencyServices}/>
-              <Route path='/patients-and-visitors' Component={PatientsVisitors}/>
-              <Route path='/find-doctor' Component={FindDoctor}/>
-              <Route path='/our-departments' Component={OurDepartments}/>
-              <Route path='/products' Component={Products}/>
-              <Route path='/products/:productId' Component={ProductsDetails}/>
-              <Route path='/cart' Component={Cart} />
-              <Route path='*' Component={Error404}/>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/about' element={<About/>}/>
+              <Route path='/our-doctors' element={<OurDoctors/>}/>
+              <Route path='/doctor-details' element={<DoctorDetails/>}/>
+              <Route path='/terms-of-service' element={<Terms/>}/>
+              <Route path='/privacy-policy' element={<Privacy/>}/>
+              <Route path='/coming-soon' element={<ComingSoon/>}/>
+              <Route path='/login' element={<Login/>}/>
+              <Route path='/register' element={<Register/>}/>
+              <Route path='/forgot-password' element={<Forgot/>}/>
+              <Route path='/appointment' element={<Appointment/>}/>
+              <Route path='/doctors-timetable' element={<DoctorsTimetable/>}/>
+              <Route path='/emergency-services' element={<EmergencyServices/>}/>
+              <Route path='/patients-and-visitors' element={<PatientsVisitors/>}/>
+              <Route path='/find-doctor' element={<FindDoctor/>}/>
+              <Route path='/our-departments' element={<OurDepartments/>}/>
+              <Route path='/products' element={<Products/>}/>
+              <Route path='/products/:productId' element={<ProductsDetails/>}/>
+              <Route path='/cart' element={<Cart/>} />
+              <Route path="/checkout" element={<Checkout/>} />
               <Route path='/doctor/appointments' element={<Appointments type={true} />} />
               <Route path='/patient/appointments' element={<Appointments type={false} />} />
+              <Route path='*' element={<Error404/>}/>
             </Routes>
           </Main>
           <Footer />
