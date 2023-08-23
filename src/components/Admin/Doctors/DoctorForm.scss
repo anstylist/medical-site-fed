@@ -1,0 +1,62 @@
+@use '../../../styles/variables';
+
+.doctor-form {
+  overflow-y: auto;
+  height: 520px;
+
+  form {
+    font-family: variables.$font-poppins;
+    font-size: 14px;
+    padding: 1rem;
+
+    h3 {
+      color: variables.$color-lightblue;
+      font-size: variables.$font-size-medium;
+      padding-top: 1.5rem;
+    }
+
+    label {
+      padding-top: 1.5rem;
+      padding-bottom: 0.5rem;
+
+    }
+
+    input {
+      border: 1px solid #DDDDDD;
+      width: 100%;
+      padding: 0.5rem;
+      width: 600px;
+      border-radius: 5px;
+    }
+
+    select {
+      font-family: variables.$font-open-sans;
+      font-size: variables.$font-size-x-small;
+      border: 1px solid #DDDDDD;
+      color: variables.$color-gray;
+      padding: 1rem 1rem;
+      width: 100%;
+    }
+
+    .iconSocial {
+      position: relative;
+      top: 2rem;
+      left: 0.5rem;
+      width: auto;
+      color: #D7DBDD;
+      z-index: 100;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: variables.$optional-color;
+  }
+}
