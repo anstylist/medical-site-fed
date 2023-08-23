@@ -10,6 +10,19 @@
     font-family: variables.$font-poppins;
     position: relative;
 
+    .modal_addUsers {
+      top: 4rem;
+      font-family: variables.$font-poppins;
+
+      &-title {
+        padding: 2rem 1rem;
+        background-color: variables.$optional-color;
+        font-size: variables.$font-size-large;
+        font-weight: bold;
+        color: variables.$bg-main-color;
+      }
+    }
+
     .addButton {
       background-color: variables.$color-hover-icon;
       color: variables.$bg-main-color;
@@ -59,11 +72,13 @@
       box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
 
       thead {
+
         th {
           font-family: variables.$font-poppins;
           font-weight: 400;
           background-color: #F4F6F6;
           text-align: left;
+          color: #7F8C8D;
           padding: 1rem;
         }
 
@@ -77,7 +92,11 @@
         tr {
           border-bottom: 1px solid variables.$color-gray-light;
 
-          .name {
+          td {
+            vertical-align: middle;
+          }
+
+          .card {
             margin-top: 0.5rem;
             margin-left: 0.5rem;
             margin-bottom: 0.5rem;
@@ -90,46 +109,35 @@
               border-radius: 2px;
             }
 
-            .text {
+            .name {
               display: flex;
               flex-direction: column;
               justify-content: center;
             }
           }
 
-          .email,
-          .phone,
-          .phone,
-          .status,
-          .actions {
-            vertical-align: middle;
-          }
 
           .social {
-            vertical-align: middle;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
 
-            .icon {
-              width: 18px;
-              color: variables.$color-gray;
+            svg {
+              width: auto;
             }
+          }
 
-            h3 {
-              padding-top: 2px;
-              font-size: 12px;
-              display: flex;
-              align-items: center;
-              gap: 2px;
-            }
+          .text {
+            padding-left: 1rem;
           }
 
           .actions {
             .icon {
-              margin-left: 1.5rem;
               margin-top: 8px;
-              width: 20px;
+              height: 15px;
 
               &:hover {
-                color: variables.$color-button-hover;
+                color: variables.$color-button-hover !important;
                 cursor: pointer;
               }
             }

@@ -2,6 +2,7 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useJwt } from 'react-jwt'
+import Swal from 'sweetalert2'
 
 export const ProtectedRoute = (
   {

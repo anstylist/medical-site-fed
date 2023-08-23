@@ -24,7 +24,7 @@ import Cart from '../pages/Cart/Cart'
 import Appointments from '../pages/Appointments/Appointments'
 import FirstViewUnlogged from '../components/UnloggedMainView/FirstViewUnlogged'
 import UserProfile from '../pages/UserProfile/UserProfile'
-import Admin, { loaderDataUsers } from '../pages/Admin/Admin'
+import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
 
@@ -148,8 +148,7 @@ const router = createBrowserRouter([
         redirectTo={'/login'}
       >
         <Admin />
-      </ProtectedRoute>,
-    loader: loaderDataUsers
+      </ProtectedRoute>
   }
 ])
 

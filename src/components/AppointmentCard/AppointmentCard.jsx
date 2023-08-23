@@ -88,7 +88,7 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
             </label>
             <label className='subtitle_2' >
               {
-                `Sex: ${appointment.patient.sex} 
+                `Gender: ${appointment.patient.sex} 
                  Age: ${new Date().getFullYear() - new Date(appointment.patient.date_birth).getFullYear()}`
               }
             </label>

@@ -4,13 +4,9 @@ import './Admin.scss'
 import Doctors from '../../components/Admin/Doctors/Doctors'
 import axios from 'axios'
 import host from '../../services/host'
-import { useLoaderData } from 'react-router'
 
 const Admin = () => {
   const fullName = localStorage.getItem('fullName')
-  const { usersData } = useLoaderData()
-  const doctorsData = usersData.filter((item) => { return item.doctor })
-  console.log(doctorsData)
   const [activeTab, setActiveTab] = useState(0)
   const statePanels = ['Doctors', 'Patients', 'Not Patients', 'Appointments', 'Products', 'Orders']
   const breadcrumb = [
@@ -46,9 +42,7 @@ const Admin = () => {
           {
             activeTab === 0 &&
             <div className="tab_panel">
-              <h2 className='title'> List of doctors </h2>
-              <h2 className='subtitle'>{`${doctorsData.length} registered doctors`}</h2>
-              <Doctors doctorsData={doctorsData} />
+              <Doctors />
             </div>
           }
           {
@@ -88,19 +82,3 @@ const Admin = () => {
 }
 
 export default Admin
-
-export const loaderDataUsers = async () => {
-  try {
-    const accessToken = localStorage.getItem('token')
-    const config = {
-      headers: {
-        Authorization: `Bearer ${accessToken}`
-      }
-    }
-    const { data } = await axios.get(`${host}/api/users`, config)
-
-    return { usersData: data }
-  } catch (error) {
-    console.log(error)
-  }
-}

@@ -3,10 +3,11 @@ import { FaAmbulance, FaHandHoldingMedical } from 'react-icons/fa'
 import './FirstViewUnlogged.scss'
 
 const FirstViewUnlogged = () => {
+  const fullName = localStorage.getItem('fullName')
   return (
     <div className="main-banner-area-unlog">
       <div className="main-banner-container-unlog">
-        <span className="main-banner-container__span-unlog">Welcome to Mebid</span>
+        <span className="main-banner-container__span-unlog">{`Welcome to Mebid ${fullName !== null ? fullName : ''}`}</span>
         <h1 className="main-banner-container__h1-unlog">
           We are by your side in any services
         </h1>

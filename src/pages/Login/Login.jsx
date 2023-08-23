@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import './Login.scss'
 import 'sweetalert2/src/sweetalert2.scss'
 import host from '../../services/host'
-import { CgEnter } from 'react-icons/cg'
+import Loading from '../../components/Loading/Loading'
 
 function Login() {
   const [email, setEmail] = useState('')
@@ -23,14 +23,10 @@ function Login() {
   }
 
   const hasRole = (user) => {
-    const rolesMap = {
-      admin: 'ADMIN',
-      patient: 'PATIENT',
-      doctor: 'DOCTOR',
-      user: 'USER'
-    }
-    const role = rolesMap[user.admin ? 'admin' : user.patient ? 'patient' : user.doctor ? 'doctor' : 'user']
-    return role
+    if (user.admin) return 'ADMIN'
+    if (user.patient) return 'PATIENT'
+    if (user.doctor) return 'DOCTOR'
+    return 'USER'
   }
 
   const handleLogin = async (event) => {
@@ -41,13 +37,21 @@ function Login() {
         email,
         password
       })
-      const role = hasRole(data.profile)
-      localStorage.setItem('fullName', data.profile.fullName)
-      localStorage.setItem('email', data.profile.email)
-      localStorage.setItem('status', data.profile.status)
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('role', role)
-      role === 'ADMIN' ? navigate('/admin') : navigate('/')
+      if (data.profile.status) {
+        const role = hasRole(data.profile)
+        localStorage.setItem('fullName', data.profile.fullName)
+        localStorage.setItem('email', data.profile.email)
+        localStorage.setItem('status', data.profile.status)
+        localStorage.setItem('token', data.token)
+        localStorage.setItem('role', role)
+        role === 'ADMIN' ? navigate('/admin') : navigate('/')
+      } else {
+        Swal.fire({
+          title: 'Account deactivated!',
+          text: 'Please contact the administrator for more information.',
+          icon: 'warning'
+        })
+      }
     } catch (error) {
       Swal.fire({
         title: 'Error!',
@@ -78,15 +82,11 @@ function Login() {
         breadcrumb={breadcrumb}
       />
       <div className="login-container">
-        {
-          loading &&
-          <img
-            src='https://res.cloudinary.com/dzmkilinu/image/upload/v1692693479/medical-site/loading_xcwewp.gif'
-            style={{ width: '200px', height: '200px', textAlign: 'center' }}
-          />
-        }
-        {
-          !loading && <>
+        {loading && (
+          <Loading />
+        )}
+        {!loading && (
+          <>
             <h2 className="login__title">Login</h2><div className="login__form">
               <form onSubmit={handleLogin}>
                 <label htmlFor="email" className="login__label">Email</label>
@@ -109,7 +109,7 @@ function Login() {
               </p>
             </div>
           </>
-        }
+        )}
       </div>
 
     </div>
