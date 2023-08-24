@@ -4,6 +4,7 @@ import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 
+import Checkout from '../pages/Checkout/Checkout'
 import UserContext from '../context/UserContext'
 import CartProductsContext from '../context/CartProductsContext'
 // Temporary
