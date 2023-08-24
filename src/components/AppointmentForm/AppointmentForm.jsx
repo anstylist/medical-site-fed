@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { FaAmbulance, FaHandHoldingMedical } from 'react-icons/fa'
 import './AppointmentForm.scss'
+import { AuthContext } from '../../context/AuthContext'
 
 const AppointmentForm = () => {
   const [fullName, setFullName] = useState('')
@@ -9,6 +10,7 @@ const AppointmentForm = () => {
   const [department, setDepartment] = useState('')
   const [selectedDoctor, setSelectedDoctor] = useState('')
   const [message, setMessage] = useState('')
+  const { authData } = useContext(AuthContext)
 
 
   const handleFormSubmit = (e) => {
@@ -20,7 +22,7 @@ const AppointmentForm = () => {
   return (
     <div className="main-banner-area">
       <div className="main-banner-container">
-        <span className="main-banner-container__span">Welcome to Mebid, {localStorage.getItem('fullName')}</span>
+        <span className="main-banner-container__span">Welcome to Mebid, {authData.fullName}</span>
         <h1 className="main-banner-container__h1">
           We are by your side in any services
         </h1>

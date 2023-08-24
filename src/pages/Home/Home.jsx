@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import AppointmentForm from '../../components/AppointmentForm/AppointmentForm'
 import WhoWeAre from '../../components/WhoWeAre/WhoWeAre'
 import Statistics from '../../components/Statistics/Statistics'
@@ -12,13 +12,13 @@ import OurPartners from '../../components/OurPartners/OurPartners'
 import LatestNews from '../../components/LatestNews/LatestNews'
 import Faq from '../../components/FAQ/Faq'
 import FirstViewUnlogged from '../../components/UnloggedMainView/FirstViewUnlogged'
-// faq modification
+import { AuthContext } from '../../context/AuthContext'
 
 const Home = () => {
-  const ROLE = localStorage.getItem('role')
+  const { authData } = useContext(AuthContext)
   return (
     <div>
-      {(ROLE === 'PATIENT' || ROLE === 'USER') ? <AppointmentForm /> : <FirstViewUnlogged />}
+      {(authData.token) ? <AppointmentForm /> : <FirstViewUnlogged />}
       <WhoWeAre />
       <Statistics />
       <OurDepartment />
