@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable indent */
 import React, { useState } from 'react'
 import { BiTime } from 'react-icons/bi'
@@ -59,7 +60,7 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
         className='appointment-card-image'
         src={!type
           ? appointment.doctor.image
-          : appointment.patient.sex === 'Male'
+          : appointment.patient.sex === 'MALE'
             ? 'https://res.cloudinary.com/dzmkilinu/image/upload/v1691739544/medical-site/avatar-male_kezpkj.svg'
             : 'https://res.cloudinary.com/dzmkilinu/image/upload/v1691739544/medical-site/avatar-female_erjtsk.svg'
         } />
@@ -87,7 +88,7 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
             </label>
             <label className='subtitle_2' >
               {
-                `Sex: ${appointment.patient.sex} 
+                `Gender: ${appointment.patient.sex} 
                  Age: ${new Date().getFullYear() - new Date(appointment.patient.date_birth).getFullYear()}`
               }
             </label>

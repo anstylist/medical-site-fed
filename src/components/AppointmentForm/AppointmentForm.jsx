@@ -10,6 +10,7 @@ const AppointmentForm = () => {
   const [selectedDoctor, setSelectedDoctor] = useState('')
   const [message, setMessage] = useState('')
 
+
   const handleFormSubmit = (e) => {
     e.preventDefault()
     // Logic to handle the form submission goes here
@@ -19,7 +20,7 @@ const AppointmentForm = () => {
   return (
     <div className="main-banner-area">
       <div className="main-banner-container">
-        <span className="main-banner-container__span">Welcome to Mebid</span>
+        <span className="main-banner-container__span">Welcome to Mebid, {localStorage.getItem('fullName')}</span>
         <h1 className="main-banner-container__h1">
           We are by your side in any services
         </h1>
