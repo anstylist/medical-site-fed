@@ -1,18 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import axios from 'axios'
 import Swal from 'sweetalert2'
 import './Login.scss'
 import 'sweetalert2/src/sweetalert2.scss'
-import host from '../../services/host'
 import Loading from '../../components/Loading/Loading'
+import { loginService } from '../../services/AuthService'
+import { AuthContext } from '../../context/AuthContext'
 
 function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
+  const { setAuthData } = useContext(AuthContext)
+
+  const hasRole = (user) => {
+    if (user.admin) return 'ADMIN'
+    if (user.patient) return 'PATIENT'
+    if (user.doctor) return 'DOCTOR'
+    return 'USER'
+  }
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -22,28 +30,22 @@ function Login() {
     setPassword(event.target.value)
   }
 
-  const hasRole = (user) => {
-    if (user.admin) return 'ADMIN'
-    if (user.patient) return 'PATIENT'
-    if (user.doctor) return 'DOCTOR'
-    return 'USER'
-  }
-
   const handleLogin = async (event) => {
     setLoading(true)
     event.preventDefault()
     try {
-      const { data } = await axios.post(`${host}/api/auth/login`, {
-        email,
-        password
-      })
-      if (data.profile.status) {
-        const role = hasRole(data.profile)
-        localStorage.setItem('fullName', data.profile.fullName)
-        localStorage.setItem('email', data.profile.email)
-        localStorage.setItem('status', data.profile.status)
-        localStorage.setItem('token', data.token)
-        localStorage.setItem('role', role)
+      const user = await loginService(email, password)
+
+      if (user.profile.status) {
+        const role = hasRole(user.profile)
+        // We update the context data with a new login
+        setAuthData({
+          fullName: user.profile.fullName,
+          email: user.profile.email,
+          status: user.profile.status,
+          token: user.token,
+          role
+        })
         role === 'ADMIN' ? navigate('/admin') : navigate('/')
       } else {
         Swal.fire({
@@ -55,7 +57,7 @@ function Login() {
     } catch (error) {
       Swal.fire({
         title: 'Error!',
-        text: error.response.data,
+        text: error,
         icon: 'error'
       })
     } finally {

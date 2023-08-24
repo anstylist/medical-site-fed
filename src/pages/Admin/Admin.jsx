@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Admin.scss'
 import Doctors from '../../components/Admin/Doctors/Doctors'
-import axios from 'axios'
-import host from '../../services/host'
+import { AuthContext } from '../../context/AuthContext'
 
 const Admin = () => {
-  const fullName = localStorage.getItem('fullName')
+  const { authData } = useContext(AuthContext)
+  const fullName = authData.fullName
   const [activeTab, setActiveTab] = useState(0)
   const statePanels = ['Doctors', 'Patients', 'Not Patients', 'Appointments', 'Products', 'Orders']
   const breadcrumb = [
