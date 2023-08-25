@@ -8,7 +8,7 @@ import Loading from '../../components/Loading/Loading'
 import { loginService } from '../../services/AuthService'
 import { AuthContext } from '../../context/AuthContext'
 
-function Login() {
+function Login () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
