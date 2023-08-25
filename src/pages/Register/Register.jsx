@@ -40,9 +40,7 @@ function Register () {
     setLoading(true)
     event.preventDefault()
     try {
-      const response = await registerService(user)
-
-      console.log('User registered:', response)
+      await registerService(user)
 
       navigate('/login')
     } catch (error) {
