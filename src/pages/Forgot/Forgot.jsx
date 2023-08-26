@@ -22,7 +22,7 @@ function Forgot () {
       <div className='forgot__content'>
         <h1>Forgot Password</h1>
         <input type="text" name="Email" id="" placeholder='Enter your email'/>
-        <a href="">Submit now</a>
+        <button type='submit' className="submit__button">Submit now →</button>
       </div>
     </div>
   )

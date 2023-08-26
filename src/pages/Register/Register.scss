@@ -77,9 +77,13 @@
     font-size: 14px;
     margin-top: 15px;
     padding-bottom: 50px;
+  }
 
-    a {
-        color: variables.$color-gray;
+  .login-now-link {
+    color: variables.$color-gray;
+    transition: background-color 0.6s ease-in-out;
+    &:hover {
+      color: variables.$color-lightblue;
     }
   }
 
