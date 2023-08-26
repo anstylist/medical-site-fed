@@ -264,7 +264,6 @@ const Appointment = () => {
           <button type='submit' name='submit' className='appointment__form--button'>
             Submit →
           </button>
-          <TotalSum />
         </form>
       </section>
       {isMessage &&

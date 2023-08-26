@@ -11,8 +11,8 @@ const Admin = () => {
   const statePanels = ['Doctors', 'Patients', 'Not Patients', 'Appointments', 'Products', 'Orders']
   const breadcrumb = [
     {
-      text: 'Welcome',
-      route: ''
+      text: 'Go to home',
+      route: '/'
     },
     {
       text: fullName

@@ -1,10 +1,12 @@
 import { http } from './http'
 
 const hasRole = (user) => {
-  if (user.admin) return 'ADMIN'
-  if (user.patient) return 'PATIENT'
-  if (user.doctor) return 'DOCTOR'
-  return 'USER'
+  const roles = []
+  if (user.admin) roles.push('ADMIN')
+  if (user.patient) roles.push('PATIENT')
+  if (user.doctor) roles.push('DOCTOR')
+  if (!roles.length) roles.push('USER')
+  return roles
 }
 
 export const loginService = async (email, password) => {
@@ -16,7 +18,7 @@ export const loginService = async (email, password) => {
     localStorage.setItem('email', data.profile.email)
     localStorage.setItem('status', data.profile.status)
     localStorage.setItem('token', data.token)
-    localStorage.setItem('role', hasRole(data.profile))
+    localStorage.setItem('roles', JSON.stringify(hasRole(data.profile)))
 
     return data
   } catch (error) {

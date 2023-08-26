@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     email: localStorage.getItem('email') || '',
     status: localStorage.getItem('status') || '',
     token: localStorage.getItem('token') || '',
-    role: localStorage.getItem('role') || ''
+    roles: JSON.parse(localStorage.getItem('roles')) || []
   })
 
   return (

@@ -15,7 +15,6 @@ http.interceptors.request.use(
       ...config.headers,
       Authorization: token ? `Bearer ${token}` : undefined
     }
-    console.log(config)
     return config
   },
   function (error) {
