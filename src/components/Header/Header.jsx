@@ -5,7 +5,6 @@ import MainMenu from './MainMenu'
 import HeaderRight from './HeaderRight'
 import { Link } from 'react-router-dom'
 
-
 const urlLogo = 'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393390/medical-site/logo_bcp977.png'
 const RIGHT_MENU = 'RIGHT_MENU'
 const MAIN_MENU = 'MAIN_MENU'
