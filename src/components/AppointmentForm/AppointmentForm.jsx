@@ -51,15 +51,15 @@ const AppointmentForm = () => {
         <input
           type="text"
           placeholder="Full Name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
+          value={authData.fullName}
+          // onChange={(e) => setFullName(e.target.value)}
           className="main-form-container__input"
         />
         <input
           type="email"
           placeholder="Email Address"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={authData.email}
+          // onChange={(e) => setEmail(e.target.value)}
           className="main-form-container__input"
         />
         <input
