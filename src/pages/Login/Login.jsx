@@ -13,7 +13,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
-  const { setAuthData } = useContext(AuthContext)
+  const { updateAuthData } = useContext(AuthContext)
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -24,14 +24,14 @@ function Login() {
   }
 
   const handleLogin = async (event) => {
-    setLoading(true)
     event.preventDefault()
+    setLoading(true)
     try {
       const user = await loginService(email, password)
 
       if (user.profile.status) {
         // We update the context data with a new login
-        setAuthData({
+        updateAuthData({
           fullName: user.profile.fullName,
           email: user.profile.email,
           status: user.profile.status,

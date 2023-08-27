@@ -71,6 +71,25 @@
       background-color: variables.$header-menu-bg-color;
       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     }
+
+    &__my-account {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__user-avatar {
+      &-container {
+        border: 1px solid variables.$border-avatar-color;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+        width: 32px;
+      }
+
+      border-radius: 50%;
+      width: 32px;
+      border: 1px solid white;
+    }
   }
 
   &-menu__item {

@@ -1,17 +1,21 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useState, useContext } from 'react'
 import CartProductsContext from '../../context/CartProductsContext'
+import { AuthContext } from '../../context/AuthContext'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { HiOutlineShoppingCart } from 'react-icons/hi2'
 import { BiSearch } from 'react-icons/bi'
 import { BsThreeDotsVertical } from 'react-icons/bs'
-import { NavLink } from 'react-router-dom'
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
+import { isExpired } from 'react-jwt'
 import './HeaderRight.scss'
 
 function HeaderRight ({ onMenuOpen, mustHideMenu }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   const { productsList, setProductsList } = useContext(CartProductsContext)
+  const { authData, updateAuthData } = useContext(AuthContext)
+
+  const isLoggedIn = authData.token && !isExpired(authData.token)
 
   const handleMenuVisible = () => {
     setIsMenuVisible((isVisible) => !isVisible)
@@ -24,8 +28,6 @@ function HeaderRight ({ onMenuOpen, mustHideMenu }) {
   useEffect(() => {
     mustHideMenu && setIsMenuVisible(false)
   }, [mustHideMenu])
-
-
 
   return (
     <nav className='header__item header__nav-right'>
@@ -54,6 +56,42 @@ function HeaderRight ({ onMenuOpen, mustHideMenu }) {
             Appointment
           </NavLink>
         </li>
+          {isLoggedIn && (
+            <>
+              <li className='header__nav-right-menu__item'>
+                <NavLink to='/my-account' className='header__nav-right-link header__nav-right-menu__my-account'>
+                  <div className='header__nav-right-menu__user-avatar-container'>
+                    <img
+                      className='header__nav-right-menu__user-avatar'
+                      src={`https://robohash.org/${authData.fullName}`}
+                      alt={authData.fullName}
+                    />
+                  </div>
+                  My Account
+                </NavLink>
+              </li>
+              <li className='header__nav-right-menu__item'>
+                <NavLink to='/unlogged' className='header__nav-right-link '>
+                  Logout
+                </NavLink>
+              </li>
+            </>
+          )}
+            {!isLoggedIn && (
+              <>
+                <li className='header__nav-right-menu__item'>
+                  <NavLink to='/login' className='header__nav-right-link '>
+                    Sign In
+                  </NavLink>
+                </li>
+                <li className='header__nav-right-menu__item'>
+                  <NavLink to='/register' className='header__nav-right-link '>
+                    Sign Up
+                  </NavLink>
+                </li>
+              </>
+            )}
+
       </ul>
     </nav>
   )

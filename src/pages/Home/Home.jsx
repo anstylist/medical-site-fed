@@ -13,12 +13,15 @@ import LatestNews from '../../components/LatestNews/LatestNews'
 import Faq from '../../components/FAQ/Faq'
 import FirstViewUnlogged from '../../components/UnloggedMainView/FirstViewUnlogged'
 import { AuthContext } from '../../context/AuthContext'
+import { isExpired } from 'react-jwt'
 
 const Home = () => {
   const { authData } = useContext(AuthContext)
+  const isLoggedIn = authData.token && !isExpired(authData.token)
+
   return (
     <div>
-      {(authData.token) ? <AppointmentForm /> : <FirstViewUnlogged />}
+      {(isLoggedIn) ? <AppointmentForm /> : <FirstViewUnlogged />}
       <WhoWeAre />
       <Statistics />
       <OurDepartment />
