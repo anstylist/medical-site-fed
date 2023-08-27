@@ -8,19 +8,12 @@ import Loading from '../../components/Loading/Loading'
 import { loginService } from '../../services/AuthService'
 import { AuthContext } from '../../context/AuthContext'
 
-function Login () {
+function Login() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
   const { setAuthData } = useContext(AuthContext)
-
-  const hasRole = (user) => {
-    if (user.admin) return 'ADMIN'
-    if (user.patient) return 'PATIENT'
-    if (user.doctor) return 'DOCTOR'
-    return 'USER'
-  }
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value)
@@ -37,16 +30,15 @@ function Login () {
       const user = await loginService(email, password)
 
       if (user.profile.status) {
-        const role = hasRole(user.profile)
         // We update the context data with a new login
         setAuthData({
           fullName: user.profile.fullName,
           email: user.profile.email,
           status: user.profile.status,
           token: user.token,
-          role
+          roles: user.profile.roles
         })
-        role === 'ADMIN' ? navigate('/admin') : navigate('/')
+        user.profile.roles.includes('ADMIN') ? navigate('/admin') : navigate('/')
       } else {
         Swal.fire({
           title: 'Account deactivated!',

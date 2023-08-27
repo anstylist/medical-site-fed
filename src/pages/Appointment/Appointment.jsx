@@ -5,6 +5,8 @@ import { BsEmojiWink } from 'react-icons/bs'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import emailjs from '@emailjs/browser'
 import './Appointment.scss'
+import { getPatientProfile } from '../../services/PatientService'
+import { useLoaderData } from 'react-router'
 
 const Appointment = () => {
   const [appointment, setAppointment] = useState({
@@ -21,6 +23,8 @@ const Appointment = () => {
     datetime_appointment: '',
     message: ''
   })
+  const dataPatient = useLoaderData()
+  console.log(dataPatient)
   const [isMessage, setIsMessage] = useState(false)
   const breadcrumb = [
     {
@@ -31,7 +35,6 @@ const Appointment = () => {
       text: 'Appointment'
     }
   ]
-
   const handlechange = (event) => {
     setAppointment({ ...appointment, [event.target.name]: event.target.value })
   }
@@ -264,7 +267,6 @@ const Appointment = () => {
           <button type='submit' name='submit' className='appointment__form--button'>
             Submit →
           </button>
-          <TotalSum />
         </form>
       </section>
       {isMessage &&
@@ -281,3 +283,8 @@ const Appointment = () => {
 }
 
 export default Appointment
+
+export const loaderPatientProfile = async () => {
+  const data = await getPatientProfile()
+  return data
+}

@@ -12,12 +12,12 @@ export const ProtectedRoute = (
   }
 ) => {
   const { authData } = useContext(AuthContext)
-  const ROLE = authData.role
-  const TOKEN = authData.token
-  const STATUS = authData.status
-  const { isExpired } = useJwt(TOKEN)
+  const { roles, token, status } = authData
+  const { isExpired } = useJwt(token)
 
-  if (!authorizedRoles.includes(ROLE) || isExpired || !STATUS) {
+  const hasValidRole = roles.some(role => authorizedRoles.includes(role))
+
+  if (!hasValidRole || isExpired || !status) {
     return <Navigate to={redirectTo} replace />
   }
 
