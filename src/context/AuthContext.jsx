@@ -8,24 +8,26 @@ export const AuthProvider = ({ children }) => {
     email: localStorage.getItem('email') || '',
     status: localStorage.getItem('status') || '',
     token: localStorage.getItem('token') || '',
-    role: localStorage.getItem('role') || ''
+    roles: JSON.parse(localStorage.getItem('roles')) || []
   })
 
-  const updateAuthData = ({ fullName = '', email = '', status = '', token = '', role = '' } = {}) => {
+
+  const updateAuthData = ({ fullName = '', email = '', status = '', token = '', roles = [] } = {}) => {
     setAuthData({
       fullName,
       email,
       status,
       token,
-      role
+      roles
     })
 
     localStorage.setItem('fullName', fullName)
     localStorage.setItem('email', email)
     localStorage.setItem('status', status)
     localStorage.setItem('token', token)
-    localStorage.setItem('role', role)
+    localStorage.setItem('roles', roles)
   }
+
 
   return (
     <AuthContext.Provider
