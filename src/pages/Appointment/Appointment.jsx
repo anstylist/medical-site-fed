@@ -1,31 +1,44 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import { dataRh, dataCountries, dataDepartament, dataHospitals, dataDoctor } from '../../components/data'
-import { BsEmojiWink } from 'react-icons/bs'
-import { AiOutlineCloseCircle } from 'react-icons/ai'
 import emailjs from '@emailjs/browser'
-import './Appointment.scss'
+import { dataRh, dataHospitals } from '../../components/data'
 import { getPatientProfile } from '../../services/PatientService'
 import { useLoaderData } from 'react-router'
+import { AuthContext } from '../../context/AuthContext'
+import { getCountry } from '../../services/CountryService'
+import { getAllSpeciality } from '../../services/Speciality'
+import { getAllDoctor } from '../../services/DoctorService'
+import { createAppointment } from '../../services/AppointmentService'
+import './Appointment.scss'
+import Swal from 'sweetalert2'
 
 const Appointment = () => {
+  const { authData } = useContext(AuthContext)
+  const { patientData, countryData, specialities, doctorsData } = useLoaderData()
   const [appointment, setAppointment] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    nationality: '',
-    date_birth: '',
-    rh: '',
-    gender: '',
-    speciality: '',
-    doctor: '',
+    name: authData.fullName,
+    email: authData.email,
+    phone: (patientData && patientData.phone) || '',
+    birthDate: (patientData && new Date(patientData.birthDate).toISOString().split('T')[0]) || '',
+    rh: (patientData && patientData.rh) || '',
+    gender: (patientData && patientData.gender) || '',
     hospital: '',
-    datetime_appointment: '',
-    message: ''
+    appointmentDataTime: '',
+    message: '',
+    nationality: {
+      id: (patientData && countryData.filter((country) => country.id === patientData.countryId)[0].id) || '',
+      name: (patientData && countryData.filter((country) => country.id === patientData.countryId)[0].name) || ''
+    },
+    speciality: {
+      id: '',
+      name: ''
+    },
+    doctor: {
+      id: '',
+      name: ''
+    }
   })
-  const dataPatient = useLoaderData()
-  console.log(dataPatient)
-  const [isMessage, setIsMessage] = useState(false)
+
   const breadcrumb = [
     {
       text: 'Home',
@@ -35,59 +48,113 @@ const Appointment = () => {
       text: 'Appointment'
     }
   ]
-  const handlechange = (event) => {
-    setAppointment({ ...appointment, [event.target.name]: event.target.value })
+
+  const doctorFilter = doctorsData.filter((doctor) => doctor.specialities.includes(appointment.speciality.name))
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setAppointment({ ...appointment, [name]: value })
   }
+
+  const selectHandleChange = (event) => {
+    const { name, value } = event.target
+    setAppointment({ ...appointment, [name]: JSON.parse(value) })
+  }
+
   const handleSendMail = () => {
-    const date = new Date(appointment.datetime_appointment)
-    const templateParams = {
-      to_name: appointment.name,
-      message:
-        ` 👤 Patient information
+    try {
+      const date = new Date(appointment.appointmentDataTime)
+      const templateParams = {
+        to_name: appointment.name,
+        message:
+          `Patient information
       Patient: ${appointment.name}
       Email address: ${appointment.email}
       Phone number: ${appointment.phone}
-      Nationality: ${appointment.nationality}
-      Date of birth: ${appointment.date_birth}
+      Nationality: ${appointment.nationality.name}
+      Date of birth: ${appointment.birthDate}
       RH: ${appointment.rh}
       Gender: ${appointment.gender}
-      🛈 Appointment information
-      Speciality: ${appointment.speciality}
-      Doctor: ${appointment.doctor}
+
+      Appointment information   
+      Speciality: ${appointment.speciality.name}
+      Doctor: ${appointment.doctor.name}
       Hospital: ${appointment.hospital}
       Date of appointment: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} 
       Hour of appontment: ${date.getHours()}:${date.getMinutes()}
       Reason for consult: ${appointment.message}
       `,
-      to_email: appointment.email
+        to_email: appointment.email
+      }
+      emailjs.send('service_2rz54gq', 'template_la3gleh', templateParams, 'wolwL4XHVd6GZeMxQ')
+    } catch (error) {
+      throw error.message
     }
-    emailjs.send('service_2rz54gq', 'template_la3gleh', templateParams, 'wolwL4XHVd6GZeMxQ')
-      .then((response) => {
-        console.log('Correo enviado correctamente:', response)
-      })
-      .catch((error) => {
-        console.error('Error al enviar el correo:', error)
-      })
   }
 
-  const onSubmit = (event) => {
+  const resetForm = (event) => {
+    setAppointment(
+      {
+        ...appointment,
+        hospital: '',
+        appointmentDataTime: '',
+        message: '',
+        speciality: {
+          id: '',
+          name: ''
+        },
+        doctor: {
+          id: '',
+          name: ''
+        }
+      }
+    )
+  }
+
+  const onCreateAppointment = async () => {
+    try {
+      const config = {
+        patientData: {
+          rh: appointment.rh,
+          gender: appointment.gender,
+          birthDate: new Date(appointment.birthDate),
+          phone: appointment.phone,
+          countryId: appointment.nationality.id
+        },
+        appointmentData: {
+          appointmentDataTime: new Date(appointment.appointmentDataTime),
+          hospital: appointment.hospital,
+          reason: appointment.message,
+          status: 'PENDING',
+          doctorId: appointment.doctor.id
+        }
+      }
+      await createAppointment(config)
+      handleSendMail()
+      Swal.fire({
+        title: 'Medical Appointment Scheduled',
+        html: `
+          <p>Your medical appointment has been successfully scheduled.</p>
+          <p>We've sent an email with all the appointment details.</p>
+          <p>Please check your inbox and make sure you're prepared for the scheduled date.</p>
+          <p>We look forward to seeing you soon, and we wish you a speedy recovery!</p>
+        `,
+        icon: 'success',
+        confirmButtonText: 'Got It'
+      })
+    } catch (error) {
+      Swal.fire(
+        'Error!',
+        error,
+        'error'
+      )
+    }
+  }
+
+  const onSubmit = async (event) => {
     event.preventDefault()
-    setIsMessage(true)
-    handleSendMail()
-    setAppointment({
-      name: '',
-      email: '',
-      phone: '',
-      nationality: '',
-      date_birth: '',
-      rh: '',
-      gender: '',
-      speciality: '',
-      doctor: '',
-      hospital: '',
-      datetime_appointment: '',
-      message: ''
-    })
+    await onCreateAppointment()
+    resetForm()
   }
 
   return (
@@ -113,7 +180,7 @@ const Appointment = () => {
                   placeholder='Christian foreman'
                   type='text'
                   value={appointment.name}
-                  onChange={handlechange}
+                  disabled
                   required
                 />
               </div>
@@ -125,7 +192,7 @@ const Appointment = () => {
                   type='email'
                   placeholder='Email address'
                   value={appointment.email}
-                  onChange={handlechange}
+                  disabled
                   required
                 />
               </div>
@@ -137,7 +204,8 @@ const Appointment = () => {
                   type='number'
                   placeholder='Phone number'
                   value={appointment.phone}
-                  onChange={handlechange}
+                  onChange={handleChange}
+                  disabled={!!patientData}
                   required
                 />
               </div>
@@ -146,25 +214,31 @@ const Appointment = () => {
                 <select
                   id='nationality'
                   name='nationality'
-                  value={appointment.nationality}
-                  onChange={handlechange}
+                  value={JSON.stringify(appointment.nationality)}
+                  onChange={selectHandleChange}
+                  disabled={!!patientData}
                   required>
                   <option value=''>-- Select nationality --</option>
-                  {dataCountries().map((item) => {
+                  {countryData.map((item) => {
                     return (
-                      <option key={item.id} value={item.name}>{item.name}</option>
+                      <option
+                        key={item.id}
+                        value={JSON.stringify({ id: item.id, name: item.name })}
+                      >{item.name}
+                      </option>
                     )
                   })}
                 </select>
               </div>
               <div className='appointment__form__container--section'>
-                <label htmlFor='date_birth'>Date of birth</label>
+                <label htmlFor='birthDate'>Date of birth</label>
                 <input
-                  id='date_birth'
-                  name='date_birth'
+                  id='birthDate'
+                  name='birthDate'
                   type='date'
-                  value={appointment.date_birth}
-                  onChange={handlechange}
+                  value={appointment.birthDate}
+                  onChange={handleChange}
+                  disabled={!!patientData}
                   required
                 />
               </div>
@@ -174,7 +248,8 @@ const Appointment = () => {
                   id='rh'
                   name='rh'
                   value={appointment.rh}
-                  onChange={handlechange}
+                  onChange={handleChange}
+                  disabled={!!patientData}
                   required>
                   <option value=''>-- Select RH --</option>
                   {dataRh().map((item) => {
@@ -186,8 +261,27 @@ const Appointment = () => {
               </div>
               <fieldset>
                 <legend>Select Gender</legend>
-                <input type='radio' id='male' name='gender' value='Male' onChange={handlechange} required />Male
-                <input type='radio' id='female' name='gender' value='Female' onChange={handlechange} /> Female
+                <input
+                  type='radio'
+                  id='male'
+                  name='gender'
+                  value='MALE'
+                  onChange={handleChange}
+                  disabled={!!patientData}
+                  required
+                  checked={patientData && patientData.gender === 'MALE'}
+                />
+                Male
+                <input
+                  type='radio'
+                  id='female'
+                  name='gender'
+                  value='FEMALE'
+                  onChange={handleChange}
+                  disabled={!!patientData}
+                  checked={patientData && patientData.gender === 'FEMALE'}
+                />
+                Female
               </fieldset>
             </div>
           </div>
@@ -199,13 +293,17 @@ const Appointment = () => {
                 <select
                   id='speciality'
                   name='speciality'
-                  value={appointment.speciality}
-                  onChange={handlechange}
+                  value={JSON.stringify(appointment.speciality)}
+                  onChange={selectHandleChange}
                   required>
                   <option value=''>-- Select speciality --</option>
-                  {dataDepartament().map((item) => {
+                  {specialities.map((item) => {
                     return (
-                      <option key={item.id} value={item.name}>{item.name}</option>
+                      <option
+                        key={item.id}
+                        value={JSON.stringify({ id: item.id, name: item.name })}
+                      >{item.name
+                        }</option>
                     )
                   })}
                 </select>
@@ -215,15 +313,21 @@ const Appointment = () => {
                 <select
                   id='doctor'
                   name='doctor'
-                  value={appointment.doctor}
-                  onChange={handlechange}
+                  value={JSON.stringify(appointment.doctor)}
+                  onChange={selectHandleChange}
                   required>
                   <option value=''>-- Select doctor --</option>
-                  {dataDoctor().map((item) => {
-                    return (
-                      <option key={item.id} value={item.name}>{item.name}</option>
-                    )
-                  })}
+                  {
+                    doctorFilter.map((item) => {
+                      return (
+                        <option
+                          key={item.id}
+                          value={JSON.stringify({ id: item.id, name: item.fullName })}
+                        >{item.fullName}
+                        </option>
+                      )
+                    })
+                  }
                 </select>
               </div>
               <div className='appointment__form__container--section'>
@@ -232,7 +336,7 @@ const Appointment = () => {
                   id='hospital'
                   name='hospital'
                   value={appointment.hospital}
-                  onChange={handlechange}
+                  onChange={handleChange}
                   required>
                   <option value=''>-- Select hospital --</option>
                   {dataHospitals().map((item) => {
@@ -243,13 +347,13 @@ const Appointment = () => {
                 </select>
               </div>
               <div className='appointment__form__container--section'>
-                <label htmlFor='datetime_appointment'>Date of appointment</label>
+                <label htmlFor='appointmentDataTime'>Date of appointment</label>
                 <input
-                  id='datetime_appointment'
-                  name='datetime_appointment'
+                  id='appointmentDataTime'
+                  name='appointmentDataTime'
                   type='datetime-local'
-                  value={appointment.datetime_appointment}
-                  onChange={handlechange}
+                  value={appointment.appointmentDataTime}
+                  onChange={handleChange}
                   required
                 />
               </div>
@@ -259,7 +363,7 @@ const Appointment = () => {
                 id='message'
                 name='message'
                 value={appointment.message}
-                onChange={handlechange}
+                onChange={handleChange}
                 required
               />
             </div>
@@ -269,22 +373,18 @@ const Appointment = () => {
           </button>
         </form>
       </section>
-      {isMessage &&
-        <div className='modal_message'>
-          <div className='modal_message--content'>
-            <AiOutlineCloseCircle className='closed' size={30} style={{ color: '#3FB6D6' }} onClick={() => setIsMessage(false)} />
-            <BsEmojiWink size={70} style={{ color: '#3FB6D6' }} />
-            <p>Appointment registered successfully.<br />
-              📧 An email has been sent with the details.</p>
-          </div>
-        </div>}
     </section>
   )
 }
 
 export default Appointment
 
-export const loaderPatientProfile = async () => {
-  const data = await getPatientProfile()
-  return data
+export const loaderAppointmentData = async () => {
+  try {
+    const [patientData, countryData, specialities, doctorsData] = await Promise.all([getPatientProfile(), getCountry(), getAllSpeciality(), getAllDoctor()])
+    return { patientData, countryData, specialities, doctorsData }
+  } catch (error) {
+    console.error('Error loading data:', error)
+    throw error
+  }
 }

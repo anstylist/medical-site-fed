@@ -12,7 +12,7 @@ import ComingSoon from '../pages/ComingSoon/ComingSoon'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import Forgot from '../pages/Forgot/Forgot'
-import Appointment, { loaderPatientProfile } from '../pages/Appointment/Appointment'
+import Appointment, { loaderAppointmentData } from '../pages/Appointment/Appointment'
 import DoctorsTimetable from '../pages/DoctorsTimetable/DoctorsTimetable'
 import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
@@ -81,7 +81,7 @@ const router = createBrowserRouter([
       {
         path: '/appointment',
         element: <Appointment />,
-        loader: loaderPatientProfile
+        loader: loaderAppointmentData
       },
       {
         path: '/doctors-timetable',
