@@ -21,7 +21,7 @@ import OurDepartments from '../pages/OurDepartments/OurDepartments'
 import Products from '../pages/Products/Products'
 import ProductDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
-import Appointments from '../pages/Appointments/Appointments'
+import Appointments, { loaderAppointmentByType } from '../pages/Appointments/Appointments'
 import UserProfile from '../pages/UserProfile/UserProfile'
 import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
@@ -121,7 +121,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/patient/appointments',
-        element: <Appointments type={false} />
+        element: <Appointments type={false} />,
+        loader: () => loaderAppointmentByType(false)
       },
       {
         path: '/user-profile',

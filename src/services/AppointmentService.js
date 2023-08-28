@@ -1,10 +1,19 @@
 import { http } from './http'
 
-export function createAppointment(config) {
+export async function createAppointment(config) {
   try {
-    const { data } = http.post('/appointments', config)
+    const { data } = await http.post('/appointments', config)
     return data
   } catch (error) {
-    return error.message
+    throw error.message
+  }
+}
+
+export async function getAppointmentsByPatient() {
+  try {
+    const { data } = await http.get('/appointments/patient')
+    return data
+  } catch (error) {
+    throw error.message
   }
 }

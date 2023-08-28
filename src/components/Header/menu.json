@@ -60,19 +60,9 @@
         "title": "User Pages",
         "submenu": [
           {
-            "id": "menu-login-1",
-            "title": "Login",
-            "route": "/login"
-          },
-          {
-            "id": "menu-register-2",
-            "title": "Register",
-            "route": "/register"
-          },
-          {
-            "id": "menu-forgot-password-3",
-            "title": "Forgot Password",
-            "route": "/forgot-password"
+            "id": "menu-my-appointments",
+            "title": "My Appointments",
+            "route": "/patient/appointments"
           }
         ]
       },
@@ -100,7 +90,7 @@
         "id": "menu-find-doctor",
         "title": "Find A Doctor",
         "route": "/find-doctor"
-      }                              
+      }
     ]
   },
   {
