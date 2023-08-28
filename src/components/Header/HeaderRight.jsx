@@ -64,7 +64,7 @@ function HeaderRight({ onMenuOpen, mustHideMenu }) {
         {isLoggedIn && (
           <>
             <li className='header__nav-right-menu__item'>
-              <NavLink to='/my-account' className='header__nav-right-link header__nav-right-menu__my-account'>
+              <NavLink to='/user-profile' className='header__nav-right-link header__nav-right-menu__my-account'>
                 <div className='header__nav-right-menu__user-avatar-container'>
                   <img
                     className='header__nav-right-menu__user-avatar'

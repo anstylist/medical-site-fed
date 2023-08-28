@@ -8,16 +8,25 @@ export const AuthProvider = ({ children }) => {
     email: localStorage.getItem('email') || '',
     status: localStorage.getItem('status') || '',
     token: localStorage.getItem('token') || '',
-    role: localStorage.getItem('role') || []
+    role: localStorage.getItem('role') || [],
+    password: localStorage.getItem('password') || '',
+    country: localStorage.getItem('country') || '',
+    city: localStorage.getItem('city') || '',
+    bloodType: localStorage.getItem('bloodType') || '',
+    phoneNumber: localStorage.getItem('phoneNumber') || ''
   })
 
-  const updateAuthData = ({ fullName = '', email = '', status = '', token = '', roles = [] } = {}) => {
+  const updateAuthData = ({ fullName = '', email = '', status = '', token = '', roles = [], country = '', city = '', bloodType = '', phoneNumber = '' } = {}) => {
     setAuthData({
       fullName,
       email,
       status,
       token,
-      roles
+      roles,
+      country,
+      city,
+      bloodType,
+      phoneNumber
     })
 
     localStorage.setItem('fullName', fullName)
@@ -25,6 +34,10 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('status', status)
     localStorage.setItem('token', token)
     localStorage.setItem('role', roles)
+    localStorage.setItem('country', country)
+    localStorage.setItem('city', city)
+    localStorage.setItem('bloodType', bloodType)
+    localStorage.setItem('phoneNumber', phoneNumber)
   }
 
   return (
