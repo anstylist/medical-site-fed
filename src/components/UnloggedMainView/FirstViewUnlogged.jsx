@@ -1,15 +1,8 @@
-import React, { useContext, useEffect } from 'react'
+import React from 'react'
 import { FaAmbulance, FaHandHoldingMedical } from 'react-icons/fa'
 import './FirstViewUnlogged.scss'
-import { AuthContext } from '../../context/AuthContext'
 
 const FirstViewUnlogged = () => {
-  const { updateAuthData } = useContext(AuthContext)
-
-  useEffect(() => {
-    updateAuthData()
-  }, [])
-
   return (
     <div className="main-banner-area-unlog">
       <div className="main-banner-container-unlog">

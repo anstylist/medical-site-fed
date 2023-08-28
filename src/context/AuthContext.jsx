@@ -11,27 +11,9 @@ export const AuthProvider = ({ children }) => {
     roles: JSON.parse(localStorage.getItem('roles')) || []
   })
 
-
-  const updateAuthData = ({ fullName = '', email = '', status = '', token = '', roles = [] } = {}) => {
-    setAuthData({
-      fullName,
-      email,
-      status,
-      token,
-      roles
-    })
-
-    localStorage.setItem('fullName', fullName)
-    localStorage.setItem('email', email)
-    localStorage.setItem('status', status)
-    localStorage.setItem('token', token)
-    localStorage.setItem('roles', roles)
-  }
-
-
   return (
     <AuthContext.Provider
-      value={{ authData, updateAuthData }}
+      value={{ authData, setAuthData }}
     >
       {children}
     </AuthContext.Provider>
