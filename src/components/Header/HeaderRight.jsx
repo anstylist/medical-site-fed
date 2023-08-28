@@ -13,9 +13,14 @@ import './HeaderRight.scss'
 function HeaderRight({ onMenuOpen, mustHideMenu }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
   const { productsList, setProductsList } = useContext(CartProductsContext)
-  const { authData } = useContext(AuthContext)
+  const { authData, updateAuthData } = useContext(AuthContext)
 
   const isLoggedIn = authData.token && !isExpired(authData.token)
+
+  const handleLogout = () => {
+    updateAuthData()
+    localStorage.clear()
+  }
 
   const handleMenuVisible = () => {
     setIsMenuVisible((isVisible) => !isVisible)
@@ -70,7 +75,7 @@ function HeaderRight({ onMenuOpen, mustHideMenu }) {
                 My Account
               </NavLink>
             </li>
-            <li className='header__nav-right-menu__item' onClick={() => { localStorage.clear() }}>
+            <li className='header__nav-right-menu__item' onClick={handleLogout}>
               <NavLink to='/' className='header__nav-right-link '>
                 Logout
               </NavLink>
