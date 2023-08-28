@@ -1,0 +1,149 @@
+@use '../../../styles/variables';
+
+.admin-doctors {
+
+  &-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: variables.$font-poppins;
+    position: relative;
+
+    .modal_addUsers {
+      top: 4rem;
+      font-family: variables.$font-poppins;
+
+      &-title {
+        padding: 2rem 1rem;
+        background-color: variables.$optional-color;
+        font-size: variables.$font-size-large;
+        font-weight: bold;
+        color: variables.$bg-main-color;
+      }
+    }
+
+    .addButton {
+      background-color: variables.$color-hover-icon;
+      color: variables.$bg-main-color;
+      border-radius: 10px;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: left;
+      width: 200px;
+      gap: 10px;
+      padding: 1rem;
+
+      svg {
+        width: auto;
+      }
+
+      &:hover {
+        background-color: variables.$color-lightblue;
+        cursor: pointer;
+      }
+    }
+
+    .filterName {
+      font-family: variables.$font-poppins;
+      font-weight: 300;
+      border: 1px solid #CACFD2;
+      border-radius: 5px;
+      padding: 0.5rem;
+      padding-left: 2rem;
+      margin-right: 10px;
+      width: 350px;
+    }
+
+    .icon {
+      position: absolute;
+      width: auto;
+      top: 15px;
+      left: 8px;
+    }
+  }
+
+  &-content {
+    margin-top: 2rem;
+
+    .table {
+      width: 100%;
+      box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
+
+      thead {
+
+        th {
+          font-family: variables.$font-poppins;
+          font-weight: 400;
+          background-color: #F4F6F6;
+          text-align: left;
+          color: #7F8C8D;
+          padding: 1rem;
+        }
+
+      }
+
+      tbody {
+        font-family: variables.$font-poppins;
+        font-weight: 400;
+        font-size: 13px;
+
+        tr {
+          border-bottom: 1px solid variables.$color-gray-light;
+
+          td {
+            vertical-align: middle;
+          }
+
+          .card {
+            margin-top: 0.5rem;
+            margin-left: 0.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 10px;
+
+            .img {
+              width: 80px;
+              height: 80px;
+              border-radius: 2px;
+            }
+
+            .name {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+            }
+          }
+
+
+          .social {
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+
+            svg {
+              width: auto;
+            }
+          }
+
+          .text {
+            padding-left: 1rem;
+          }
+
+          .actions {
+            .icon {
+              margin-top: 8px;
+              height: 15px;
+
+              &:hover {
+                color: variables.$color-button-hover !important;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

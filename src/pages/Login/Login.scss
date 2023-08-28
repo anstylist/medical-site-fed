@@ -58,6 +58,10 @@
       text-align: right;
       color: variables.$color-gray;
       margin-bottom: 10px;
+      transition: background-color 0.6s ease-in-out;
+        &:hover {
+          color: variables.$color-button-hover;
+        }
     }
   
     &__button {
@@ -81,6 +85,10 @@
   
       a {
         color: variables.$color-gray;
+        transition: background-color 0.6s ease-in-out;
+        &:hover {
+          color: variables.$color-button-hover;
+        }
       }
     }
 

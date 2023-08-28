@@ -1,0 +1,9 @@
+{
+    "fullName": "Ewan McGregor",
+    "email": "emg@example.com",
+    "password": "1234",
+    "country": "United States",
+    "city": "New York",
+    "bloodType": "A+",
+    "phoneNumber": "+1 123-456-7890"
+}

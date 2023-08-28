@@ -3,16 +3,26 @@ import './TotalSum.scss'
 import CartProductsContext from '../../context/CartProductsContext'
 import { getTotalToPay } from './shop.util'
 
-function TotalSum () {
+function TotalSum ({ inCheckout }) {
   const { productsList } = useContext(CartProductsContext)
   const shipping = 0
-
   const calculatedTotal = getTotalToPay(productsList)
 
   return (
     <section className='total-sum'>
-      <div className='total-sum__div'>
+      <div className='total-sum__div'> 
         <h3 className='total-sum__title'>Cart totals</h3>
+        {inCheckout && (
+          <ul>
+          {productsList.map((item) => (
+            <li className='total-sum__list-item' key={item.id}>{item.name}
+              <div className='total-div'>
+                ${item.price.toFixed(2)}
+              </div>
+            </li>
+          ))}
+        </ul>
+        )}
         <ul className='total-sum__list'>
           <li className='total-sum__list-item'>
             <div>Subtotal</div>
