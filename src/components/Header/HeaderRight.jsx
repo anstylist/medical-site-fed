@@ -70,7 +70,7 @@ function HeaderRight({ onMenuOpen, mustHideMenu }) {
                 My Account
               </NavLink>
             </li>
-            <li className='header__nav-right-menu__item' onClick={localStorage.clear()}>
+            <li className='header__nav-right-menu__item' onClick={() => { localStorage.clear() }}>
               <NavLink to='/' className='header__nav-right-link '>
                 Logout
               </NavLink>

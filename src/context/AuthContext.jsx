@@ -10,9 +10,8 @@ export const AuthProvider = ({ children }) => {
     token: localStorage.getItem('token') || '',
     roles: JSON.parse(localStorage.getItem('roles')) || []
   })
-
   return (
-    <AuthContext.Provider
+    < AuthContext.Provider
       value={{ authData, setAuthData }}
     >
       {children}
