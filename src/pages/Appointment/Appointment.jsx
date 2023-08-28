@@ -136,8 +136,6 @@ const Appointment = () => {
         html: `
           <p>Your medical appointment has been successfully scheduled.</p>
           <p>We've sent an email with all the appointment details.</p>
-          <p>Please check your inbox and make sure you're prepared for the scheduled date.</p>
-          <p>We look forward to seeing you soon, and we wish you a speedy recovery!</p>
         `,
         icon: 'success',
         confirmButtonText: 'Got It'
