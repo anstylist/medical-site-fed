@@ -1,14 +1,31 @@
+@use '../../styles/variables';
+
 .user-profile {
     font-family: Arial, sans-serif;
     margin: 20px;
     padding: 20px;
-    border: 1px solid #ccc;
     border-radius: 8px;
-    background-color: #f8f8f8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689612718/medical-site/footer-shape_ilh1vv.png");
+
+    &__avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      background-color: #f0f0f0;
+      object-fit: cover;
+      border: 3px solid variables.$color-lightblue;
+    }
   
     &__title {
       font-size: 24px;
       margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      font-weight: bold;
     }
   
     &__fields {
@@ -19,6 +36,7 @@
     &__field {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 10px;
       padding: 10px;
       border: 1px solid #ddd;
@@ -27,10 +45,6 @@
   
       &-label {
         font-weight: bold;
-      }
-  
-      &-value {
-        margin: 0;
       }
   
       &-input {
@@ -42,24 +56,54 @@
   
       &-button {
         padding: 5px 10px;
-        border: none;
+        background-color: variables.$color-lightblue;
         border-radius: 4px;
         cursor: pointer;
+        color: white;
         transition: background-color 0.2s ease-in-out;
-  
+        display: flex;
+        
         &--save {
-          background-color: #3cba54;
+          background-color: variables.$optional-color;
           color: #fff;
   
           &:hover {
-            background-color: #349e48;
+            background-color: variables.$optional-color;
           }
         }
   
         &:hover {
-          background-color: #eee;
+          background-color: variables.$color-button-hover;
         }
       }
     }
+    @media (min-width: 768px) {
+      &__title {
+        font-size: 48px;
+        margin-bottom: 40px;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      &__avatar {
+        width: 200px;
+        height: 200px;
+      }
+
+      &__fields {
+        width: 80%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      &__avatar {
+        width: 250px;
+        height: 250px;
+      }
+
+      &__fields {
+        width: 60%;
+      }
+    }
   }
-  

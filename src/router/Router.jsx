@@ -26,6 +26,7 @@ import UserProfile from '../pages/UserProfile/UserProfile'
 import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
+import Checkout from '../pages/Checkout/Checkout'
 
 const router = createBrowserRouter([
   {
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
       {
         path: '/user-profile',
         element: <UserProfile />
+      },
+      {
+        path: '/checkout',
+        element: <Checkout />
       }
     ]
   },
