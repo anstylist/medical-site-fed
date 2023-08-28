@@ -9,7 +9,7 @@ import CartProductsContext from '../context/CartProductsContext'
 import cartProducts from '../__mocks__/cart-products.json'
 import './App.scss'
 
-function App () {
+function App() {
   // TODO: set the productList initial value to an empty [] array after implementing the Cart component
   const [productsList, setProductsList] = useState(cartProducts)
 

@@ -22,7 +22,6 @@ import Products from '../pages/Products/Products'
 import ProductDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
 import Appointments from '../pages/Appointments/Appointments'
-import FirstViewUnlogged from '../components/UnloggedMainView/FirstViewUnlogged'
 import UserProfile from '../pages/UserProfile/UserProfile'
 import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
@@ -122,10 +121,6 @@ const router = createBrowserRouter([
       {
         path: '/patient/appointments',
         element: <Appointments type={false} />
-      },
-      {
-        path: '/unlogged',
-        element: <FirstViewUnlogged />
       },
       {
         path: '/user-profile',
