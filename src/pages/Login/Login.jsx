@@ -38,7 +38,7 @@ function Login() {
           token: user.token,
           roles: user.profile.roles
         })
-        user.profile.roles.includes('ADMIN') ? navigate('/admin') : navigate('/')
+        user.profile?.roles?.includes('ADMIN') ? navigate('/admin') : navigate('/')
       } else {
         Swal.fire({
           title: 'Account deactivated!',
@@ -47,6 +47,7 @@ function Login() {
         })
       }
     } catch (error) {
+      console.log(error)
       Swal.fire({
         title: 'Error!',
         text: error,
