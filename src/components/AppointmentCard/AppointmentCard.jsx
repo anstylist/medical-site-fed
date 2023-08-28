@@ -60,20 +60,22 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
         className='appointment-card-image'
         src={!type
           ? appointment.doctor.image
-          : appointment.patient.sex === 'MALE'
+          : appointment.patient.gender === 'MALE'
             ? 'https://res.cloudinary.com/dzmkilinu/image/upload/v1691739544/medical-site/avatar-male_kezpkj.svg'
             : 'https://res.cloudinary.com/dzmkilinu/image/upload/v1691739544/medical-site/avatar-female_erjtsk.svg'
         } />
       <div className='appointment-card-info'>
-        <h3 className='specialty'> {appointment.doctor.specialty} </h3>
-        <h3 className='name'> {type ? appointment.patient.name : `Dr. ${appointment.doctor.name}`} </h3>
+        {appointment.doctor.specialities.map((item, index) => {
+          return <h3 className='specialty' key={index}> {item.speciality.name} </h3>
+        })}
+        <h3 className='name'> {type ? appointment.patient.user.fullName : `Dr. ${appointment.doctor.user.fullName}`} </h3>
         <label className='date'>
           <span><IoCalendarOutline size={18} /></span>
-          {appointment.date_appointment}
+          {new Date(appointment.appointmentDataTime).toISOString().split('T')[0]}
         </label>
         <label className='hour'>
           <span><BiTime size={18} /></span>
-          16:00 - 16:45
+          {new Date(appointment.appointmentDataTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </label>
         <Modal
           trigger={<label className='details'> Details <span><AiOutlineInfoCircle size={18} /></span></label>}
@@ -84,23 +86,23 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
             <h3 className='title'>Patient</h3>
             <label className='subtitle'>
               <span><AiOutlineUser size={18} /></span>
-              {appointment.patient.name}
+              {appointment.patient.user.fullName}
             </label>
             <label className='subtitle_2' >
               {
-                `Gender: ${appointment.patient.sex} 
-                 Age: ${new Date().getFullYear() - new Date(appointment.patient.date_birth).getFullYear()}`
+                ` ${appointment.patient.gender} 
+                 - ${new Date().getFullYear() - new Date(appointment.patient.birthDate).getFullYear()}`
               }
             </label>
             <h3 className='title'>Date of appointment</h3>
             <label className='subtitle'>
               <span><IoCalendarOutline size={18} /></span>
-              {appointment.date_appointment}
+              {new Date(appointment.appointmentDataTime).toISOString().split('T')[0]}
             </label>
             <h3 className='title'>Hour of appointment</h3>
             <label className='subtitle'>
               <span ><BiTime size={18} /></span>
-              16:00 - 16:45
+              {new Date(appointment.appointmentDataTime).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
             </label>
             <h3 className='title'>Hospital</h3>
             <label className='subtitle'>
@@ -110,18 +112,20 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
             <h3 className='title'>Specialty</h3>
             <label className='subtitle'>
               <span><LiaStethoscopeSolid size={20} /></span>
-              {appointment.doctor.specialty}
+              {appointment.doctor.specialities.map((item) => {
+                return item.speciality.name
+              })}
             </label>
             <h3 className='title'>Doctor</h3>
             <label className='subtitle'>
               <span><FaUserDoctor size={18} /></span>
-              {`Dr. ${appointment.doctor.name}`}
+              {`Dr. ${appointment.doctor.user.fullName}`}
             </label>
             <h3 className='title'>Reason of consultation</h3>
-            <p className='subtitle'>{appointment.message}</p>
+            <p className='subtitle'>{appointment.reason}</p>
           </div>
           {
-            appointment.state === 'PENDING' &&
+            appointment.status === 'PENDING' &&
             <div className='details__modal-buttons'>
               {options.map((option) => {
                 return (
