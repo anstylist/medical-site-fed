@@ -12,7 +12,6 @@ import './App.scss'
 function App() {
   // TODO: set the productList initial value to an empty [] array after implementing the Cart component
   const [productsList, setProductsList] = useState(cartProducts)
-  const [user, setUser] = useState({})
   const location = useLocation()
 
   useEffect(() => {
@@ -21,15 +20,14 @@ function App() {
 
   return (
     <>
-      <UserContext.Provider value={{ user, setUser }}>
-        <CartProductsContext.Provider value={{ productsList, setProductsList }}>
-          <Header />
-          <Main>
-            <Outlet />
-          </Main>
-          <Footer />
-        </CartProductsContext.Provider>
-      </UserContext.Provider>
+      <CartProductsContext.Provider value={{ productsList, setProductsList }}>
+        <Header />
+        <Main>
+          <Outlet />
+        </Main>
+        <Footer />
+      </CartProductsContext.Provider>
+
     </>
   )
 }
