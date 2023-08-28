@@ -1,12 +1,17 @@
 import React, { useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import { dataAppointments } from '../../components/data'
 import AppointmentCard from '../../components/AppointmentCard/AppointmentCard'
 import PropTypes from 'prop-types'
 import './Appointments.scss'
+import { getAppointmentsByPatient } from '../../services/AppointmentService'
+import { useLoaderData } from 'react-router'
+import Loading from '../../components/Loading/Loading'
 
 const Appointments = ({ type }) => {
-  const [currentDataAppointments, setDataAppointments] = useState(dataAppointments())
+  const appointment = useLoaderData()
+
+  console.log(appointment)
+  const [currentDataAppointments, setDataAppointments] = useState(appointment)
   const [activeTab, setActiveTab] = useState(0)
   const stateAppointment = ['PENDING', 'DONE', 'CANCELLED']
 
@@ -31,6 +36,7 @@ const Appointments = ({ type }) => {
   }
 
   return (
+
     <section className='appointments'>
       <Jumbotron
         pageTitle={'My Appointments'}
@@ -53,7 +59,7 @@ const Appointments = ({ type }) => {
               activeTab === index &&
               <div key={index} className="tab_panel">
                 {currentDataAppointments
-                  .filter((item) => item.state === state)
+                  .filter((item) => item.status === state)
                   .map((appointments) => (
                     <AppointmentCard key={appointments.id} appointment={appointments} type={type} onStateAppointment={handleStateAppointment} />
                   ))}
@@ -75,3 +81,16 @@ Appointments.propTypes = {
 }
 
 export default Appointments
+
+export const loaderAppointmentByType = async (type) => {
+  try {
+    if (!type) {
+      const { appointment } = await getAppointmentsByPatient()
+      console.log(appointment)
+      return appointment
+    }
+  } catch (error) {
+    console.error('Error loading data:', error)
+    throw error
+  }
+}
