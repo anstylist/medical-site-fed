@@ -21,15 +21,15 @@ function App() {
 
   return (
     <>
-      <AuthProvider>
-        <CartProductsContext.Provider value={{ productsList, setProductsList }}>
-          <Header />
-          <Main>
-            <Outlet />
-          </Main>
-          <Footer />
-        </CartProductsContext.Provider>
-      </AuthProvider>
+
+      <CartProductsContext.Provider value={{ productsList, setProductsList }}>
+        <Header />
+        <Main>
+          <Outlet />
+        </Main>
+        <Footer />
+      </CartProductsContext.Provider>
+
     </>
   )
 }
