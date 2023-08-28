@@ -26,6 +26,7 @@ import UserProfile from '../pages/UserProfile/UserProfile'
 import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
+import Checkout from '../pages/Checkout/Checkout'
 
 const router = createBrowserRouter([
   {
@@ -127,12 +128,8 @@ const router = createBrowserRouter([
         element: <UserProfile />
       },
       {
-        path: '/patient/appointments',
-        element: <Appointments type={false} />
-      },
-      {
-        path: '/patient/appointments',
-        element: <Appointments type={false} />
+        path: '/checkout',
+        element: <Checkout />
       }
     ]
   },
