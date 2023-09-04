@@ -70,7 +70,7 @@ const UserProfile = () => {
       : (
           fieldName === 'password'
             ? (
-        <Link to="/change-password">
+        <Link to="/forgot-password">
           <button className="user-profile__field-button">Change Password</button>
         </Link>
               )
