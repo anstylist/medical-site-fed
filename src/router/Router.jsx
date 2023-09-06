@@ -27,6 +27,7 @@ import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
 import Checkout from '../pages/Checkout/Checkout'
+import Reset from '../pages/Reset/Reset'
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
       {
         path: '/forgot-password',
         element: <Forgot />
+      },
+      {
+        path: '/reset-password',
+        element: <Reset />
       },
       {
         path: '/change-password',

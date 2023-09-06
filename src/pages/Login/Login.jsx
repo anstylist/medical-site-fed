@@ -8,7 +8,7 @@ import Loading from '../../components/Loading/Loading'
 import { loginService } from '../../services/AuthService'
 import { AuthContext } from '../../context/AuthContext'
 
-function Login() {
+function Login () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -95,7 +95,7 @@ function Login() {
                   <label htmlFor="remember-me">Remember me</label>
                 </div>
 
-                <Link to="/change-password" className="login__forgot-password">Forgot password?</Link>
+                <Link to="/forgot-password" className="login__forgot-password">Forgot password?</Link>
                 <button type='submit' className="login__button">Login →</button>
               </form>
 
