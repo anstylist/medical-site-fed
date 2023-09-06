@@ -4,6 +4,7 @@ import { http } from '../../services/http'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2'
+import { local } from '../../services/host'
 
 function Forgot () {
   const [email, setEmail] = useState('')
@@ -11,7 +12,6 @@ function Forgot () {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('handleSubmit function called')
 
     try {
       const response = await http.post('/auth/forgot-password', { email })
@@ -20,15 +20,14 @@ function Forgot () {
       const templateParams = {
         to_name: response.fullName,
         to_email: email,
-        reset_link: `https://localhost:5173/reset-password?token=${response.data.token}`
+        reset_link: `${local}/reset-password?token=${response.data.token}`
       }
 
       const serviceId = 'service_2rz54gq'
       const templateId = 'template_yi35hmm'
       const userId = 'wolwL4XHVd6GZeMxQ'
 
-      const emailResponse = emailjs.send(serviceId, templateId, templateParams, userId)
-      console.log(emailResponse)
+      emailjs.send(serviceId, templateId, templateParams, userId)
       Swal.fire({
         title: 'Email Sent',
         text: 'An email has been sent to reset your password.',
@@ -38,7 +37,6 @@ function Forgot () {
     } catch (error) {
       setMessage('An error occurred.')
 
-      // Show SweetAlert on error
       Swal.fire('Error!', 'An error occurred.', 'error')
     }
   }

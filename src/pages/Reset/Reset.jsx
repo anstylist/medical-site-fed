@@ -4,6 +4,7 @@ import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Reset.scss'
 import { useLocation } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { local } from '../../services/host'
 
 function Reset () {
   const [newPassword, setNewPassword] = useState('')
@@ -17,19 +18,14 @@ function Reset () {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // Check if passwords match
     if (newPassword !== confirmPassword) {
       setMessage('Passwords do not match.')
       return
     }
-    console.log('URL:', `/api/auth/reset-password?token=${token}`)
-    console.log('Token from URL:', token)
     try {
-      // Make a request to update the password
-      const response = await http.patch(`/auth/reset-password/${token}`, { newPassword })
+      const response = await http.patch(`${local}/auth/reset-password/${token}`, { newPassword })
 
       if (response.status === 200) {
-        // Password reset successfully
         Swal.fire({
           title: 'Password Reset Successful',
           text: 'Your password has been changed successfully.',
