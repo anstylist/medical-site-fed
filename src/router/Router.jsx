@@ -85,8 +85,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/appointment',
-        element: <Appointment />,
-        loader: loaderAppointmentData
+        loader: loaderAppointmentData,
+        element: <Appointment />
       },
       {
         path: '/doctors-timetable',
@@ -122,7 +122,14 @@ const router = createBrowserRouter([
       },
       {
         path: '/doctor/appointments',
-        element: <Appointments type={true} />
+        element:
+          <ProtectedRoute
+            authorizedRoles={['DOCTOR']}
+            redirectTo={'/'}
+          >
+            <Appointments type={true} />
+          </ProtectedRoute>,
+        loader: () => loaderAppointmentByType(true)
       },
       {
         path: '/patient/appointments',

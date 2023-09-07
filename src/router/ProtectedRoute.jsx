@@ -16,7 +16,6 @@ export const ProtectedRoute = (
   const { isExpired } = useJwt(token)
 
   const hasValidRole = roles?.some(role => authorizedRoles.includes(role))
-
   if (!hasValidRole || isExpired || !status) {
     return <Navigate to={redirectTo} replace />
   }
