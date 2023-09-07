@@ -8,7 +8,7 @@ export const AuthProvider = ({ children }) => {
     email: localStorage.getItem('email') || '',
     status: localStorage.getItem('status') || '',
     token: localStorage.getItem('token') || '',
-    role: localStorage.getItem('role') || []
+    roles: JSON.parse(localStorage.getItem('roles')) || []
   })
 
   const updateAuthData = ({ fullName = '', email = '', status = '', token = '', roles = [] } = {}) => {
@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('email', email)
     localStorage.setItem('status', status)
     localStorage.setItem('token', token)
-    localStorage.setItem('role', roles)
+    localStorage.setItem('roles', roles)
   }
 
   return (

@@ -17,3 +17,12 @@ export async function getAppointmentsByPatient() {
     throw error.message
   }
 }
+
+export async function getAppointmentsByDoctor() {
+  try {
+    const { data } = await http.get('/appointments/doctor')
+    return data
+  } catch (error) {
+    throw error.message
+  }
+}

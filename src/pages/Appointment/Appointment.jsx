@@ -66,27 +66,15 @@ const Appointment = () => {
       const date = new Date(appointment.appointmentDataTime)
       const templateParams = {
         to_name: appointment.name,
-        message:
-          `Patient information
-      Patient: ${appointment.name}
-      Email address: ${appointment.email}
-      Phone number: ${appointment.phone}
-      Nationality: ${appointment.nationality.name}
-      Date of birth: ${appointment.birthDate}
-      RH: ${appointment.rh}
-      Gender: ${appointment.gender}
-
-      Appointment information   
-      Speciality: ${appointment.speciality.name}
-      Doctor: ${appointment.doctor.name}
-      Hospital: ${appointment.hospital}
-      Date of appointment: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} 
-      Hour of appontment: ${date.getHours()}:${date.getMinutes()}
-      Reason for consult: ${appointment.message}
-      `,
+        speciality: appointment.speciality.name,
+        doctor: appointment.doctor.name,
+        hospital: appointment.hospital,
+        date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+        hour: `${date.getHours()}:${date.getMinutes()}`,
+        reason: appointment.message,
         to_email: appointment.email
       }
-      emailjs.send('service_2rz54gq', 'template_la3gleh', templateParams, 'wolwL4XHVd6GZeMxQ')
+      emailjs.send('service_2rz54gq', 'template_36hgr8m', templateParams, 'wolwL4XHVd6GZeMxQ')
     } catch (error) {
       throw error.message
     }
