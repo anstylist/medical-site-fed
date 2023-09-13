@@ -51,7 +51,7 @@ const Products = () => {
                 onClick={() => {
                   handleAddToCart(product)
                 }}
-                >Add to Cart <AiOutlineShoppingCart className='.product__add-to-cart-icon'/>
+                >Add to Cart <AiOutlineShoppingCart className='product__add-to-cart-icon'/>
               </button>
             </div>
             ))}

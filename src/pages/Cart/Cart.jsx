@@ -1,5 +1,5 @@
-import React, { useContext} from 'react'
-import  {useNavigate} from 'react-router-dom'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Cart.scss'
 import CartProductsContext from '../../context/CartProductsContext'
