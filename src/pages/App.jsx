@@ -4,14 +4,20 @@ import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
 import CartProductsContext from '../context/CartProductsContext'
-import UserContext from '../context/UserContext'
+
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
 // Temporary
 import cartProducts from '../__mocks__/cart-products.json'
 import './App.scss'
 
-function App() {
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
+
+function App () {
   // TODO: set the productList initial value to an empty [] array after implementing the Cart component
   const [productsList, setProductsList] = useState(cartProducts)
+
   const location = useLocation()
 
   useEffect(() => {
@@ -20,14 +26,15 @@ function App() {
 
   return (
     <>
-      <CartProductsContext.Provider value={{ productsList, setProductsList }}>
-        <Header />
-        <Main>
-          <Outlet />
-        </Main>
-        <Footer />
-      </CartProductsContext.Provider>
-
+      <Elements stripe={stripePromise}>
+        <CartProductsContext.Provider value={{ productsList, setProductsList }}>
+          <Header />
+          <Main>
+            <Outlet />
+          </Main>
+          <Footer />
+        </CartProductsContext.Provider>
+      </Elements>
     </>
   )
 }
