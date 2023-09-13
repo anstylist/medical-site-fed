@@ -193,6 +193,7 @@ const Appointment = () => {
                   onChange={handleChange}
                   disabled={!!patientData}
                   required
+                  data-cy="phone"
                 />
               </div>
               <div className='appointment__form__container--section'>
@@ -203,7 +204,8 @@ const Appointment = () => {
                   value={JSON.stringify(appointment.nationality)}
                   onChange={selectHandleChange}
                   disabled={!!patientData}
-                  required>
+                  required
+                  data-cy="nationality">
                   <option value=''>-- Select nationality --</option>
                   {countryData.map((item) => {
                     return (
@@ -226,6 +228,7 @@ const Appointment = () => {
                   onChange={handleChange}
                   disabled={!!patientData}
                   required
+                  data-cy="birthDate"
                 />
               </div>
               <div className='appointment__form__container--section'>
@@ -236,7 +239,8 @@ const Appointment = () => {
                   value={appointment.rh}
                   onChange={handleChange}
                   disabled={!!patientData}
-                  required>
+                  required
+                  data-cy="rh">
                   <option value=''>-- Select RH --</option>
                   {dataRh().map((item) => {
                     return (
@@ -255,6 +259,7 @@ const Appointment = () => {
                   onChange={handleChange}
                   disabled={!!patientData}
                   required
+                  data-cy="gender"
                   checked={patientData && patientData.gender === 'MALE'}
                 />
                 Male
@@ -281,7 +286,8 @@ const Appointment = () => {
                   name='speciality'
                   value={JSON.stringify(appointment.speciality)}
                   onChange={selectHandleChange}
-                  required>
+                  required
+                  data-cy="speciality-select">
                   <option value=''>-- Select speciality --</option>
                   {specialities.map((item) => {
                     return (
@@ -301,7 +307,8 @@ const Appointment = () => {
                   name='doctor'
                   value={JSON.stringify(appointment.doctor)}
                   onChange={selectHandleChange}
-                  required>
+                  required
+                  data-cy="doctor-select">
                   <option value=''>-- Select doctor --</option>
                   {
                     doctorFilter.map((item) => {
@@ -323,7 +330,8 @@ const Appointment = () => {
                   name='hospital'
                   value={appointment.hospital}
                   onChange={handleChange}
-                  required>
+                  required
+                  data-cy="hospital-select">
                   <option value=''>-- Select hospital --</option>
                   {dataHospitals().map((item) => {
                     return (
@@ -341,6 +349,7 @@ const Appointment = () => {
                   value={appointment.appointmentDataTime}
                   onChange={handleChange}
                   required
+                  data-cy="appointment-date-input"
                 />
               </div>
               <label htmlFor='message' id='label-textarea'>Reason for consult</label>
@@ -351,10 +360,11 @@ const Appointment = () => {
                 value={appointment.message}
                 onChange={handleChange}
                 required
+                data-cy="message-textarea"
               />
             </div>
           </div>
-          <button type='submit' name='submit' className='appointment__form--button'>
+          <button type='submit' name='submit' className='appointment__form--button' data-cy="submit-button">
             Submit →
           </button>
         </form>
