@@ -56,20 +56,15 @@
         ]
       },
       {
-        "id": "menu-user-pages",
-        "title": "User Pages",
+        "id": "menu-department",
+        "title": "Department",
         "submenu": [
           {
-            "id": "menu-my-appointments",
-            "title": "My Appointments",
-            "route": "/patient/appointments"
+            "id": "menu-departments-list-1",
+            "title": "Departments List",
+            "route": "/our-departments"
           }
         ]
-      },
-      {
-        "id": "menu-appointment",
-        "title": "Appointment",
-        "route": "/appointment"
       },
       {
         "id": "menu-doctors-timetable",
@@ -94,13 +89,18 @@
     ]
   },
   {
-    "id": "menu-department",
-    "title": "Department",
+    "id": "menu-appointment-management",
+    "title": "Appointment Management",
     "submenu": [
       {
-        "id": "menu-departments-list-1",
-        "title": "Departments List",
-        "route": "/our-departments"
+        "id": "menu-my-appointments",
+        "title": "My Appointments",
+        "route": "/patient/appointments"
+      },
+      {
+        "id": "menu-assigned-appointments",
+        "title": "Assigned appointments",
+        "route": "/doctor/appointments"
       }
     ]
   },
@@ -122,11 +122,6 @@
         "id": "menu-checkout-3",
         "title": "Checkout",
         "route": "/checkout"
-      },
-      {
-        "id": "menu-my-account-4",
-        "title": "My Account",
-        "route": "/my-account"
       }
     ]
   }

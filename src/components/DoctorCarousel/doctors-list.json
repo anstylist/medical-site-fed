@@ -2,26 +2,28 @@
   {
     "id": 1,
     "name": "Crystal Fitzhugh",
-    "specialty": "Endocrinologist",
+    "specialities": [
+      "Endocrinologist"
+    ],
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393391/medical-site/doctors-6_pm77j9.jpg",
     "socialLinks": [
       {
-        "id":11,
+        "id": 11,
         "type": "facebook",
         "url": "https://www.facebook.com/"
       },
       {
-        "id":12,
+        "id": 12,
         "type": "instagram",
         "url": "https://www.instagram.com/"
       },
       {
-        "id":13,
+        "id": 13,
         "type": "twitter",
         "url": "https://www.twitter.com/"
       },
       {
-        "id":14,
+        "id": 14,
         "type": "linkedin",
         "url": "https://www.linkedin.com/"
       }
@@ -30,7 +32,9 @@
   {
     "id": 2,
     "name": "Perry Barkley",
-    "specialty": "Family Physician",
+    "specialities": [
+      "Family Physician"
+    ],
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393390/medical-site/doctors-5_w2yhmu.jpg",
     "socialLinks": [
       {
@@ -58,7 +62,9 @@
   {
     "id": 3,
     "name": "Gail Parrish",
-    "specialty": "General Surgeon",
+    "specialities": [
+      "General Surgeon"
+    ],
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-8_cvetjm.jpg",
     "socialLinks": [
       {
@@ -86,141 +92,151 @@
   {
     "id": 4,
     "name": "Helen Scheffler",
-    "specialty": "Oncologist",
+    "specialities": [
+      "Oncologist"
+    ],
     "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-7_cddw1a.jpg",
     "socialLinks": [
-        {
-          "id": 41,
-          "type": "facebook",
-          "url": "https://www.facebook.com/"
-        },
-        {
-          "id": 42,
-          "type": "instagram",
-          "url": "https://www.instagram.com/"
-        },
-        {
-          "id": 43,
-          "type": "twitter",
-          "url": "https://www.twitter.com/"
-        },
-        {
-          "id": 44,
-          "type": "linkedin",
-          "url": "https://www.linkedin.com/"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "name": "Dr. Charles Gordon",
-      "specialty": "Medical Advisor",
-      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-1_oqluuf.jpg",
-      "socialLinks": [
-        {
-          "id":51,
-          "type": "facebook",
-          "url": "https://www.facebook.com/"
-        },
-        {
-          "id":52,
-          "type": "instagram",
-          "url": "https://www.instagram.com/"
-        },
-        {
-          "id":53,
-          "type": "twitter",
-          "url": "https://www.twitter.com/"
-        },
-        {
-          "id":54,
-          "type": "linkedin",
-          "url": "https://www.linkedin.com/"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "name": "Dr. Mattie Delgado",
-      "specialty": "Surgery Surgeon",
-      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-2_xoxxld.jpg",
-      "socialLinks": [
-        {
-          "id": 61,
-          "type": "facebook",
-          "url": "https://www.facebook.com/"
-        },
-        {
-          "id": 62,
-          "type": "instagram",
-          "url": "https://www.instagram.com/"
-        },
-        {
-          "id": 63,
-          "type": "twitter",
-          "url": "https://www.twitter.com/"
-        },
-        {
-          "id": 64,
-          "type": "linkedin",
-          "url": "https://www.linkedin.com/"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "name": "Dr. Verna Leto",
-      "specialty": "Cosmetic surgeon",
-      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/doctors-3_tpteqa.jpg",
-      "socialLinks": [
-        {
-          "id": 71,
-          "type": "facebook",
-          "url": "https://www.facebook.com/"
-        },
-        {
-          "id": 72,
-          "type": "instagram",
-          "url": "https://www.instagram.com/"
-        },
-        {
-          "id": 73,
-          "type": "twitter",
-          "url": "https://www.twitter.com/"
-        },
-        {
-          "id": 74,
-          "type": "linkedin",
-          "url": "https://www.linkedin.com/"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "name": "Dr. Gail Parrish",
-      "specialty": "Neurologist",
-      "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/doctors-4_er4fly.jpg",
-      "socialLinks": [
-          {
-            "id": 81,
-            "type": "facebook",
-            "url": "https://www.facebook.com/"
-          },
-          {
-            "id": 82,
-            "type": "instagram",
-            "url": "https://www.instagram.com/"
-          },
-          {
-            "id": 83,
-            "type": "twitter",
-            "url": "https://www.twitter.com/"
-          },
-          {
-            "id": 84,
-            "type": "linkedin",
-            "url": "https://www.linkedin.com/"
-          }
-        ]
+      {
+        "id": 41,
+        "type": "facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "id": 42,
+        "type": "instagram",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "id": 43,
+        "type": "twitter",
+        "url": "https://www.twitter.com/"
+      },
+      {
+        "id": 44,
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/"
       }
-  ]
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Dr. Charles Gordon",
+    "specialities": [
+      "Medical Advisor"
+    ],
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-1_oqluuf.jpg",
+    "socialLinks": [
+      {
+        "id": 51,
+        "type": "facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "id": 52,
+        "type": "instagram",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "id": 53,
+        "type": "twitter",
+        "url": "https://www.twitter.com/"
+      },
+      {
+        "id": 54,
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Dr. Mattie Delgado",
+    "specialities": [
+      "Surgery Surgeon"
+    ],
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/doctors-2_xoxxld.jpg",
+    "socialLinks": [
+      {
+        "id": 61,
+        "type": "facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "id": 62,
+        "type": "instagram",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "id": 63,
+        "type": "twitter",
+        "url": "https://www.twitter.com/"
+      },
+      {
+        "id": 64,
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "name": "Dr. Verna Leto",
+    "specialities": [
+      "Cosmetic surgeon"
+    ],
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/doctors-3_tpteqa.jpg",
+    "socialLinks": [
+      {
+        "id": 71,
+        "type": "facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "id": 72,
+        "type": "instagram",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "id": 73,
+        "type": "twitter",
+        "url": "https://www.twitter.com/"
+      },
+      {
+        "id": 74,
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "name": "Dr. Gail Parrish",
+    "specialities": [
+      "Neurologist"
+    ],
+    "image": "https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/doctors-4_er4fly.jpg",
+    "socialLinks": [
+      {
+        "id": 81,
+        "type": "facebook",
+        "url": "https://www.facebook.com/"
+      },
+      {
+        "id": 82,
+        "type": "instagram",
+        "url": "https://www.instagram.com/"
+      },
+      {
+        "id": 83,
+        "type": "twitter",
+        "url": "https://www.twitter.com/"
+      },
+      {
+        "id": 84,
+        "type": "linkedin",
+        "url": "https://www.linkedin.com/"
+      }
+    ]
+  }
+]

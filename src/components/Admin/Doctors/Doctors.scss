@@ -59,8 +59,9 @@
     .icon {
       position: absolute;
       width: auto;
-      top: 15px;
-      left: 8px;
+      top: 18px;
+      left: 10px;
+      color: #5D5D5D;
     }
   }
 
@@ -105,7 +106,6 @@
 
             .img {
               width: 80px;
-              height: 80px;
               border-radius: 2px;
             }
 
@@ -142,6 +142,30 @@
               }
             }
           }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1rem;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      button {
+        background-color: #F4F6F6;
+        color: #7F8C8D;
+        font-size: 14px;
+        font-family: variables.$font-poppins;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: variables.$color-lightblue;
+          color: variables.$bg-main-color;
+          cursor: pointer;
         }
       }
     }
