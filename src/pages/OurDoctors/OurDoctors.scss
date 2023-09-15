@@ -10,7 +10,7 @@
   &__bg {
     background-image: url('https://res.cloudinary.com/dzmkilinu/image/upload/v1689393388/medical-site/banner-bg-2_qhpmwi.jpg');
   }
-  
+
   &__container {
     margin-top: 4rem;
   }
@@ -24,7 +24,7 @@
     font-weight: bold;
     color: variables.$color-lightblue;
   }
-  
+
   &__text {
     font-size: variables.$font-size-large;
     font-family: variables.$font-poppins;
@@ -43,7 +43,7 @@
   }
 
   &__card {
-    width: 80;
+    width: 80%;
   }
 }
 
@@ -52,15 +52,15 @@
 
 @media screen and (min-width: 1024px) {
   .our-doctors {
-  
+
     &__cards-box {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
     }
-  
+
     &__card {
       width: 250px;
     }
-  } 
+  }
 }

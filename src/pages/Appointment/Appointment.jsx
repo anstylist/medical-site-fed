@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import emailjs from '@emailjs/browser'
 import { dataRh, dataHospitals } from '../../components/data'
 import { getPatientProfile } from '../../services/PatientService'
-import { useLoaderData } from 'react-router'
 import { AuthContext } from '../../context/AuthContext'
 import { getCountry } from '../../services/CountryService'
 import { getAllSpeciality } from '../../services/Speciality'
@@ -11,10 +10,15 @@ import { getAllDoctor } from '../../services/DoctorService'
 import { createAppointment } from '../../services/AppointmentService'
 import './Appointment.scss'
 import Swal from 'sweetalert2'
+import Loading from '../../components/Loading/Loading'
 
 const Appointment = () => {
   const { authData } = useContext(AuthContext)
-  const { patientData, countryData, specialities, doctorsData } = useLoaderData()
+  const [patientData, setPatientData] = useState(null)
+  const [countryData, setCountryData] = useState([])
+  const [specialities, setSpecialities] = useState([])
+  const [doctorsData, setDoctorsData] = useState([])
+  const [loading, setLoading] = useState(false)
   const [appointment, setAppointment] = useState({
     name: authData.fullName,
     email: authData.email,
@@ -39,6 +43,62 @@ const Appointment = () => {
     }
   })
 
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    // Este efecto se ejecutará cuando 'loading' cambie a 'false'.
+    if (!loading) {
+      initializeAppointment()
+    }
+  }, [loading])
+
+  const initializeAppointment = () => {
+    // Aquí puedes inicializar 'appointment' con los valores necesarios
+    // basados en 'patientData' y 'countryData'.
+    const newAppointment = {
+      name: authData.fullName,
+      email: authData.email,
+      phone: (patientData && patientData.phone) || '',
+      birthDate: (patientData && new Date(patientData.birthDate).toISOString().split('T')[0]) || '',
+      rh: (patientData && patientData.rh) || '',
+      gender: (patientData && patientData.gender) || '',
+      hospital: '',
+      appointmentDataTime: '',
+      message: '',
+      nationality: {
+        id: (patientData && countryData.filter((country) => country.id === patientData.countryId)[0].id) || '',
+        name: (patientData && countryData.filter((country) => country.id === patientData.countryId)[0].name) || ''
+      },
+      speciality: {
+        id: '',
+        name: ''
+      },
+      doctor: {
+        id: '',
+        name: ''
+      }
+    }
+    setAppointment(newAppointment)
+  }
+
+  const fetchData = async () => {
+    setLoading(true)
+    try {
+      const [patientData, countryData, specialities, doctorsData] = await Promise.all([getPatientProfile(), getCountry(), getAllSpeciality(), getAllDoctor()])
+      setCountryData(countryData)
+      setPatientData(patientData)
+      setSpecialities(specialities)
+      setDoctorsData(doctorsData)
+    } catch (error) {
+      console.error('Error loading data:', error)
+      throw error
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const breadcrumb = [
     {
       text: 'Home',
@@ -48,7 +108,7 @@ const Appointment = () => {
       text: 'Appointment'
     }
   ]
-
+  console.log(patientData)
   const doctorFilter = doctorsData.filter((doctor) => doctor.specialities.includes(appointment.speciality.name))
 
   const handleChange = (event) => {
@@ -114,7 +174,8 @@ const Appointment = () => {
           hospital: appointment.hospital,
           reason: appointment.message,
           status: 'PENDING',
-          doctorId: appointment.doctor.id
+          doctorId: appointment.doctor.id,
+          specialityId: appointment.speciality.id
         }
       }
       await createAppointment(config)
@@ -143,6 +204,10 @@ const Appointment = () => {
     resetForm()
   }
 
+  if (loading) {
+    return <Loading />
+  }
+
   return (
     <section className='appointment'>
       <Jumbotron
@@ -154,6 +219,7 @@ const Appointment = () => {
         <header className='appointment__header'>
           <h2 className='appointment__header__title'>If you need to appointment</h2>
         </header>
+
         <form className='appointment__form' onSubmit={onSubmit}>
           <div className='appointment__form__patient'>
             <h3 className='appointment__form__title'>Patient information</h3>
@@ -374,13 +440,3 @@ const Appointment = () => {
 }
 
 export default Appointment
-
-export const loaderAppointmentData = async () => {
-  try {
-    const [patientData, countryData, specialities, doctorsData] = await Promise.all([getPatientProfile(), getCountry(), getAllSpeciality(), getAllDoctor()])
-    return { patientData, countryData, specialities, doctorsData }
-  } catch (error) {
-    console.error('Error loading data:', error)
-    throw error
-  }
-}

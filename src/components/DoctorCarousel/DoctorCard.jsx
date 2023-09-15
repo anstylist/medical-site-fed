@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom'
 import './DoctorCard.scss'
 
 const socialIcon = {
-  facebook: <BiLogoFacebook className='doctor-card__social-icon'/>,
+  facebook: <BiLogoFacebook className='doctor-card__social-icon' />,
   instagram: <BiLogoInstagram className='doctor-card__social-icon' />,
-  twitter: <BiLogoTwitter className='doctor-card__social-icon'/>,
-  linkedin: <BiLogoLinkedin className='doctor-card__social-icon'/>
+  twitter: <BiLogoTwitter className='doctor-card__social-icon' />,
+  linkedin: <BiLogoLinkedin className='doctor-card__social-icon' />
 }
 
-const DoctorCard = ({ id, name, specialty, image, socialLinks, externalClass }) => {
+const DoctorCard = ({ id, name, specialities, image, socialLinks, email = '', phone = '', externalClass }) => {
   return (
     <section className={`doctor-card ${externalClass || ''}`}>
       <div className='doctor-card__pic'>
@@ -38,7 +38,15 @@ const DoctorCard = ({ id, name, specialty, image, socialLinks, externalClass }) 
       </div>
       <div className='doctor-card__id'>
         <h3 className='doctor-card__id-name'>Dr. {name}</h3>
-        <p className='doctor-card__id-specialty'>{specialty}</p>
+        <p className='doctor-card__id-specialty'>
+          {
+            specialities.map((speciality, index) => {
+              return <span key={index}>{speciality}</span>
+            })
+          }
+        </p>
+        {email && <p className='doctor-card__id-email'>{email}</p>}
+        {phone && <p className='doctor-card__id-phone'>{phone}</p>}
       </div>
     </section>
   )

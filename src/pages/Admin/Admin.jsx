@@ -3,6 +3,8 @@ import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Admin.scss'
 import Doctors from '../../components/Admin/Doctors/Doctors'
 import { AuthContext } from '../../context/AuthContext'
+import Patients from '../../components/Admin/Patients/Patients'
+import Appointments from '../../components/Admin/Appointments/Appointments'
 
 const Admin = () => {
   const { authData } = useContext(AuthContext)
@@ -48,7 +50,7 @@ const Admin = () => {
           {
             activeTab === 1 &&
             <div className="tab_panel">
-              <h2 className='title'> List of patients </h2>
+              <Patients />
             </div>
           }
           {
@@ -60,7 +62,7 @@ const Admin = () => {
           {
             activeTab === 3 &&
             <div className="tab_panel">
-              <h2 className='title'> List of appointments </h2>
+              <Appointments />
             </div>
           }
           {

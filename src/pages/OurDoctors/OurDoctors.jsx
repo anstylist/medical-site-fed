@@ -4,7 +4,7 @@ import DoctorCard from '../../components/DoctorCarousel/DoctorCard'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './OurDoctors.scss'
 
-function OurDoctors () {
+function OurDoctors() {
   const breadcrumb = [
     {
       text: 'Home',
@@ -33,7 +33,7 @@ function OurDoctors () {
               key={doctor.id}
               id={doctor.id}
               name={doctor.name}
-              specialty={doctor.specialty}
+              specialities={doctor.specialities}
               image={doctor.image}
               socialLinks={doctor.socialLinks}
               externalClass="our-doctors__card"

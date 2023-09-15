@@ -12,7 +12,7 @@ import ComingSoon from '../pages/ComingSoon/ComingSoon'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import Forgot from '../pages/Forgot/Forgot'
-import Appointment, { loaderAppointmentData } from '../pages/Appointment/Appointment'
+import Appointment from '../pages/Appointment/Appointment'
 import DoctorsTimetable from '../pages/DoctorsTimetable/DoctorsTimetable'
 import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
@@ -21,7 +21,7 @@ import OurDepartments from '../pages/OurDepartments/OurDepartments'
 import Products from '../pages/Products/Products'
 import ProductDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
-import Appointments, { loaderAppointmentByType } from '../pages/Appointments/Appointments'
+import Appointments from '../pages/Appointments/Appointments'
 import UserProfile from '../pages/UserProfile/UserProfile'
 import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
@@ -85,7 +85,6 @@ const router = createBrowserRouter([
       },
       {
         path: '/appointment',
-        loader: loaderAppointmentData,
         element: <Appointment />
       },
       {
@@ -128,13 +127,11 @@ const router = createBrowserRouter([
             redirectTo={'/'}
           >
             <Appointments type={true} />
-          </ProtectedRoute>,
-        loader: () => loaderAppointmentByType(true)
+          </ProtectedRoute>
       },
       {
         path: '/patient/appointments',
-        element: <Appointments type={false} />,
-        loader: () => loaderAppointmentByType(false)
+        element: <Appointments type={false} />
       },
       {
         path: '/user-profile',

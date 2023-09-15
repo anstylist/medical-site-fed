@@ -11,6 +11,7 @@
   width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
 
 
   form {
@@ -40,7 +41,38 @@
       width: 100%;
       padding: 0.5rem;
       width: 600px;
-      border-radius: 5px;
+    }
+
+    .container_image {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+
+      .image {
+        border: 2px solid variables.$color-lightblue;
+        border-radius: 50%;
+        width: 170px;
+        height: 180px;
+        padding: 0.1rem;
+        color: variables.$color-lightblue;
+      }
+
+      .upload {
+        display: flex;
+        gap: 5px;
+        color: variables.$color-gray;
+        font-family: variables.$font-poppins;
+        align-items: center;
+
+        &:hover {
+          color: variables.$color-hover-icon;
+          cursor: pointer;
+        }
+      }
     }
 
     .speciality {
@@ -58,7 +90,6 @@
         color: variables.$color-gray;
         padding: 0.5rem;
         width: 90%;
-        border-radius: 5px;
         font-size: 14px;
       }
 
@@ -101,27 +132,29 @@
       align-items: center;
       justify-content: right;
       gap: 0.5rem;
-      color: #FDFEFE;
 
-      &-save,
       &-cancel {
+        color: variables.$color-hover-icon;
         padding: 0.5rem 1rem;
-        border-radius: 5px;
+        border: 1px solid variables.$color-hover-icon;
 
         &:hover {
-          background-color: #3498DB;
+          color: variables.$color-lightblue;
+          border-color: variables.$color-lightblue;
           cursor: pointer;
         }
-
       }
+
 
       &-save {
-        background-color: #52BE80;
-      }
+        padding: 0.5rem 2rem;
+        color: variables.$bg-main-color;
+        background-color: variables.$color-hover-icon ;
 
-      &-cancel {
-        background-color: #E74C3C;
-
+        &:hover {
+          cursor: pointer;
+          background-color: variables.$color-lightblue;
+        }
       }
 
     }
@@ -136,7 +169,7 @@
     }
 
     &::-webkit-scrollbar-thumb {
-      background: variables.$optional-color;
+      background: #A6ACAF;
     }
   }
 

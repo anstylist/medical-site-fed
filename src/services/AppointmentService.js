@@ -26,3 +26,12 @@ export async function getAppointmentsByDoctor() {
     throw error.message
   }
 }
+
+export async function updateStatusAppointment(id, data) {
+  try {
+    const response = await http.patch(`/appointments/${id}`, data)
+    return response
+  } catch (error) {
+    throw error.message
+  }
+}
