@@ -1,12 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Products.scss'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import CartProductsContext from '../../context/CartProductsContext'
-import products from '../../__mocks__/products.json'
+import * as ProductService from '../../services/ProductService'
 
 const Products = () => {
+  const [products, setProducts] = useState([])
   const { setProductsList } = useContext(CartProductsContext)
 
   const handleAddToCart = (product) => {
@@ -22,6 +23,20 @@ const Products = () => {
       text: 'Shop'
     }
   ]
+
+  useEffect(() => {
+    const { controller, productsPromise } = ProductService.searchProducts()
+
+    productsPromise
+      .then((data) => {
+        setProducts(data)
+      })
+
+    return () => {
+      controller.abort()
+    }
+  })
+
   return (
     <>
 
@@ -31,16 +46,21 @@ const Products = () => {
             breadcrumb={breadcrumb}
         />
         <div className="shop-products">
-        <div className="products-banner">
+        {/* <div className="products-banner">
             <p className="banner-results">Showing 1-9 of 27 results</p>
             <select className="banner-sort">
                 <option value="default">Default sorting</option>
                 <option value="lowest">Price: low to high</option>
                 <option value="highest">Price: high to low</option>
             </select>
-        </div>
+        </div> */}
         <div className="shop-products__product-list">
-            {products.map(product => (
+          {!products && (
+            <div className="product-list__product">
+              <h3> No products yet, try it later </h3>
+            </div>
+          )}
+            {products?.map(product => (
             <div className="product-list__product" key={product.id}>
               <Link to={`/products/${product.id}`}>
                 <img src={product.image} alt={product.name} className="product__image" />
