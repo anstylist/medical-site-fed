@@ -12,7 +12,7 @@ import './HeaderRight.scss'
 
 function HeaderRight({ onMenuOpen, mustHideMenu }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
-  const { productsList, setProductsList } = useContext(CartProductsContext)
+  const { productsList } = useContext(CartProductsContext)
   const { authData, updateAuthData } = useContext(AuthContext)
 
   const isLoggedIn = authData.token && !isExpired(authData.token)

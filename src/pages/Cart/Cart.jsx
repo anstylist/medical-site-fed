@@ -22,13 +22,13 @@ function Cart () {
   const isEmptyProductsList = productsList?.length === 0
 
   const handleDeleteClick = (productToDelete) => {
-    const isConfirmedDelete = confirm(`Desea eliminar el producto ${productToDelete.name}?`)
+    const isConfirmedDelete = confirm(`Do you want to delete the product ${productToDelete.name}?`)
     if (!isConfirmedDelete) {
       return -1
     }
     const newProducts = productsList.filter((product) => product.id !== productToDelete.id)
     setProductsList(newProducts)
-    alert(`El producto ${productToDelete.name} fue eliminado exitosamente`)
+    alert(`The product ${productToDelete.name} was deleted successfully`)
   }
 
   const handleQuantity = (productToChange, event) => {
