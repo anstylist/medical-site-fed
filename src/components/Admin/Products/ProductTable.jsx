@@ -6,7 +6,7 @@ import './ProductTable.scss'
 
 function ProductTable ({ products, isLoading, onOpenEdit }) {
   const headboard = ['Name', 'Description', 'Code', 'Category', 'Price', 'Stock', '']
-  const isListEmpty = !products || products.length === 0
+  const isListEmpty = !products || !products.length
 
   return (
     <section className='product-table'>

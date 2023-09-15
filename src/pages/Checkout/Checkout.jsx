@@ -85,7 +85,7 @@ function Checkout () {
         }))
       })
 
-      setOrder(response.order)
+      setOrder(response.order)`/orders/${response.order.id}`
 
       Swal.fire(
         'Order Created!',
@@ -120,7 +120,7 @@ function Checkout () {
     }
   }, [])
 
-  if (productsList.length === 0) {
+  if (!productsList.length) {
     navigateTo('/products')
   }
 

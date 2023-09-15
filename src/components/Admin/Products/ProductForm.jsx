@@ -41,12 +41,6 @@ const getValidationSchema = (isEdition) => {
         'fileSize',
         'File too large',
         value => {
-          console.log('--- AC: ', {
-            value,
-            size: value?.size,
-            FILE_SIZE,
-            isValid: value?.size <= FILE_SIZE
-          })
           if (!value && isEdition) {
             return true
           }

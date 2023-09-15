@@ -67,7 +67,6 @@ function Products () {
   }
 
   const handleSave = ({ id, formData }) => {
-    console.log('-- AC: ', { id, formData })
     setIsLoading(true)
 
     if (!id) {

@@ -26,19 +26,17 @@ function ControlledModal ({
 
     document.addEventListener('keydown', handleScape)
 
-    // Función para deshabilitar el desplazamiento del documento cuando el modal está abierto
     const disableScroll = () => {
       document.body.style.overflow = 'hidden'
     }
 
-    // Función para habilitar el desplazamiento del documento cuando el modal se cierra
     const enableScroll = () => {
       document.body.style.overflow = 'auto'
     }
 
-    if (isOpen) { // Se abrió el modal
+    if (isOpen) {
       disableScroll()
-    } else { // Se cerró el modal
+    } else {
       enableScroll()
       document.removeEventListener('keydown', handleScape)
     }
