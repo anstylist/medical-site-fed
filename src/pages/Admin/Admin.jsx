@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Admin.scss'
 import Doctors from '../../components/Admin/Doctors/Doctors'
+import Products from '../../components/Admin/Products/Products'
 import { AuthContext } from '../../context/AuthContext'
 import Patients from '../../components/Admin/Patients/Patients'
 import Appointments from '../../components/Admin/Appointments/Appointments'
@@ -68,7 +69,7 @@ const Admin = () => {
           {
             activeTab === 4 &&
             <div className="tab_panel">
-              <h2 className='title'> List of products </h2>
+              <Products />
             </div>
           }
           {
