@@ -1,18 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './Products.scss'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
-import CartProductsContext from '../../context/CartProductsContext'
 import * as ProductService from '../../services/ProductService'
+import useAddProductToCart from '../../hooks/useAddProductToCart';
 
 const Products = () => {
   const [products, setProducts] = useState([])
-  const { setProductsList } = useContext(CartProductsContext)
-
-  const handleAddToCart = (product) => {
-    setProductsList(prevProducts => [...prevProducts, product])
-  }
+  const { handleAddToCart } = useAddProductToCart()
 
   const breadcrumb = [
     {
@@ -35,7 +31,7 @@ const Products = () => {
     return () => {
       controller.abort()
     }
-  })
+  }, [])
 
   return (
     <>
@@ -69,7 +65,7 @@ const Products = () => {
               </Link>
               <button className="product__add-to-cart"
                 onClick={() => {
-                  handleAddToCart(product)
+                  handleAddToCart(product, 1)
                 }}
                 >Add to Cart <AiOutlineShoppingCart className='product__add-to-cart-icon'/>
               </button>
