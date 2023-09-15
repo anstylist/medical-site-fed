@@ -5,6 +5,7 @@ import './Cart.scss'
 import CartProductsContext from '../../context/CartProductsContext'
 import { BsTrash } from 'react-icons/bs'
 import TotalSum from '../../components/TotalSum/TotalSum'
+import { AuthContext } from '../../context/AuthContext'
 
 const breadcrumb = [
   {
@@ -18,6 +19,7 @@ const breadcrumb = [
 
 function Cart () {
   const navigateTo = useNavigate()
+  const { authData } = useContext(AuthContext)
   const { productsList, setProductsList } = useContext(CartProductsContext)
   const isEmptyProductsList = productsList?.length === 0
 
@@ -55,7 +57,11 @@ function Cart () {
 
   const handleSubmitOrder = (event) => {
     event.preventDefault()
-    // TODO: Navegar programáticamente a Checkout si todo está bien
+    console.log(authData)
+    if (!authData.token) {
+      navigateTo('/login')
+      return
+    }
     navigateTo('/checkout')
   }
 
