@@ -44,11 +44,6 @@
             "route": "/privacy-policy"
           },
           {
-            "id": "menu-404-error-3",
-            "title": "404 Error",
-            "route": "/not-found"
-          },
-          {
             "id": "menu-coming-soon-7",
             "title": "Coming Soon",
             "route": "/coming-soon"
@@ -117,11 +112,6 @@
         "id": "menu-cart-2",
         "title": "Cart",
         "route": "/cart"
-      },
-      {
-        "id": "menu-checkout-3",
-        "title": "Checkout",
-        "route": "/checkout"
       }
     ]
   }

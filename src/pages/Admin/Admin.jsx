@@ -11,7 +11,7 @@ const Admin = () => {
   const { authData } = useContext(AuthContext)
   const fullName = authData.fullName
   const [activeTab, setActiveTab] = useState(0)
-  const statePanels = ['Doctors', 'Patients', 'Not Patients', 'Appointments', 'Products', 'Orders']
+  const statePanels = ['Doctors', 'Patients', 'Appointments', 'Products', 'Orders']
   const breadcrumb = [
     {
       text: 'Go to home',
@@ -57,23 +57,17 @@ const Admin = () => {
           {
             activeTab === 2 &&
             <div className="tab_panel">
-              <h2 className='title'> List of no patients </h2>
+              <Appointments />
             </div>
           }
           {
             activeTab === 3 &&
             <div className="tab_panel">
-              <Appointments />
-            </div>
-          }
-          {
-            activeTab === 4 &&
-            <div className="tab_panel">
               <Products />
             </div>
           }
           {
-            activeTab === 5 &&
+            activeTab === 4 &&
             <div className="tab_panel">
               <h2 className='title'> List of orders </h2>
             </div>
