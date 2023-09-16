@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem('email', email)
     localStorage.setItem('status', status)
     localStorage.setItem('token', token)
-    localStorage.setItem('roles', roles)
+    localStorage.setItem('roles', JSON.stringify(roles))
   }
 
   return (

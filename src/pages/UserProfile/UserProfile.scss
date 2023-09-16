@@ -17,7 +17,7 @@
       margin-bottom: 20px;
       background-color: #f0f0f0;
       object-fit: cover;
-      border: 3px solid variables.$color-lightblue;
+      border: 2px solid variables.$color-lightblue;
     }
   
     &__title {
@@ -26,17 +26,20 @@
       display: flex;
       justify-content: center;
       font-weight: bold;
+      color: variables.$color-gray
     }
   
     &__fields {
-      display: grid;
+      display: flex;
+      flex-direction: column;
       gap: 20px;
     }
   
     &__field {
       display: flex;
-      align-items: center;
+      flex-direction: row;
       justify-content: space-between;
+      align-items: center;
       gap: 10px;
       padding: 10px;
       border: 1px solid #ddd;
@@ -98,12 +101,12 @@
 
     @media (min-width: 1024px) {
       &__avatar {
-        width: 250px;
-        height: 250px;
+        width: 180px;
+        height: 180px;
       }
 
       &__fields {
-        width: 60%;
+        width: 30%;
       }
     }
   }
