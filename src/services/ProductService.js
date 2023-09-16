@@ -3,8 +3,6 @@ import { http } from './http'
 export const getProductById = (id) => {
   const controller = new AbortController()
 
-  console.log('--- AC - searchProducts')
-
   return {
     controller,
     productPromise: http.get(`/products/${id}`, {
@@ -27,8 +25,6 @@ export const updateProduct = async (id, product) => {
 
 export const searchProducts = (search) => {
   const controller = new AbortController()
-
-  console.log('--- AC - searchProducts')
 
   return {
     controller,

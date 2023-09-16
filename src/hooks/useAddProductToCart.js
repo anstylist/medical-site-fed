@@ -7,17 +7,21 @@ export default () => {
   const handleAddToCart = (product, quantity) => {
     setProductsList(prevProducts => {
       const doesProductExist = prevProducts.find((productCart) => productCart.id === product.id)
+      let actualQuantity = quantity
 
-      if (!doesProductExist) {
-        return [...prevProducts, { ...product, quantity }]
+      if (actualQuantity > product.stock) {
+        actualQuantity = product.stock
       }
 
-      // If this reduce is ran the product already exists
+      if (!doesProductExist) {
+        return [...prevProducts, { ...product, quantity: actualQuantity }]
+      }
+
       return prevProducts.reduce((acc, item) => {
         if (item.id === product.id) {
           acc.push({
             ...item,
-            quantity: item.quantity + quantity
+            quantity: item.quantity + actualQuantity
           })
 
           return acc

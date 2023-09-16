@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, Outlet } from 'react-router-dom'
 import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
-import CartProductsContext from '../context/CartProductsContext'
+import { CartProductsProvider } from '../context/CartProductsContext'
 
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
@@ -13,8 +13,6 @@ import './App.scss'
 const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
 
 function App () {
-  const [productsList, setProductsList] = useState([])
-
   const location = useLocation()
 
   useEffect(() => {
@@ -24,13 +22,13 @@ function App () {
   return (
     <>
       <Elements stripe={stripePromise}>
-        <CartProductsContext.Provider value={{ productsList, setProductsList }}>
+        <CartProductsProvider>
           <Header />
           <Main>
             <Outlet />
           </Main>
           <Footer />
-        </CartProductsContext.Provider>
+        </CartProductsProvider>
       </Elements>
     </>
   )
