@@ -11,13 +11,14 @@ import './HeaderRight.scss'
 
 function HeaderRight({ onMenuOpen, mustHideMenu }) {
   const [isMenuVisible, setIsMenuVisible] = useState(false)
-  const { productsList } = useContext(CartProductsContext)
+  const { productsList, setProductsList } = useContext(CartProductsContext)
   const { authData, updateAuthData } = useContext(AuthContext)
 
   const isLoggedIn = authData.token && !isExpired(authData.token)
 
   const handleLogout = () => {
     updateAuthData()
+    setProductsList([])
     localStorage.clear()
   }
 

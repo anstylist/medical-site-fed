@@ -16,8 +16,6 @@ const FormSendMessage = () => {
     const { name, value, type, checked } = e.target
     const newValue = type === 'checkbox' ? checked : value
 
-    console.log('--- AC - ', e.target.checked, formData)
-
     setFormData((prevData) => ({
       ...prevData,
       [name]: newValue

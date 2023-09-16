@@ -10,11 +10,11 @@ import {
 } from '@stripe/react-stripe-js'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Checkout.scss'
-import { dataCountries } from '../../components/data'
 import TotalSum from '../../components/TotalSum/TotalSum'
 import { getTotalToPay } from '../../components/TotalSum/shop.util'
 import CartProductsContext from '../../context/CartProductsContext'
 import CheckoutService from '../../services/CheckoutService'
+import * as CountryService from '../../services/CountryService'
 import Loading from '../../components/Loading/Loading'
 
 const breadcrumb = [
@@ -32,6 +32,7 @@ function Checkout () {
   const navigateTo = useNavigate()
   const { productsList, setProductsList } = useContext(CartProductsContext)
   const [isLoading, setIsLoading] = useState(false)
+  const [countries, setCountries] = useState([])
   const [checkout, setCheckout] = useState({
     name: '',
     email: '',
@@ -85,7 +86,7 @@ function Checkout () {
         }))
       })
 
-      setOrder(response.order)`/orders/${response.order.id}`
+      setOrder(response.order)
 
       Swal.fire(
         'Order Created!',
@@ -113,6 +114,10 @@ function Checkout () {
   }
 
   useEffect(() => {
+    CountryService.getCountry().then(data => {
+      setCountries(data)
+    })
+
     return () => {
       if (order) {
         setProductsList([])
@@ -196,7 +201,7 @@ function Checkout () {
                   onChange={handlechange}
                   required>
                   <option value=''>-- Select Country --</option>
-                  {dataCountries().map((item) => {
+                  {countries.map((item) => {
                     return (
                       <option key={item.id} value={item.id}>{item.name}</option>
                     )
