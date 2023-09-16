@@ -24,6 +24,16 @@
     background-image: url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg");
   }
 
+  &__result {
+    padding: 2rem;
+    background-color: #DDDDDD;
+    font-size: 1.5rem;
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
   &__form {
     display: flex;
     flex-direction: column;

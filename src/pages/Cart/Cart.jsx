@@ -5,6 +5,7 @@ import './Cart.scss'
 import CartProductsContext from '../../context/CartProductsContext'
 import { BsTrash } from 'react-icons/bs'
 import TotalSum from '../../components/TotalSum/TotalSum'
+import { AuthContext } from '../../context/AuthContext'
 
 const breadcrumb = [
   {
@@ -18,17 +19,18 @@ const breadcrumb = [
 
 function Cart () {
   const navigateTo = useNavigate()
+  const { authData } = useContext(AuthContext)
   const { productsList, setProductsList } = useContext(CartProductsContext)
   const isEmptyProductsList = productsList?.length === 0
 
   const handleDeleteClick = (productToDelete) => {
-    const isConfirmedDelete = confirm(`Desea eliminar el producto ${productToDelete.name}?`)
+    const isConfirmedDelete = confirm(`Do you want to delete the product ${productToDelete.name}?`)
     if (!isConfirmedDelete) {
       return -1
     }
     const newProducts = productsList.filter((product) => product.id !== productToDelete.id)
     setProductsList(newProducts)
-    alert(`El producto ${productToDelete.name} fue eliminado exitosamente`)
+    alert(`The product ${productToDelete.name} was deleted successfully`)
   }
 
   const handleQuantity = (productToChange, event) => {
@@ -55,7 +57,11 @@ function Cart () {
 
   const handleSubmitOrder = (event) => {
     event.preventDefault()
-    // TODO: Navegar programáticamente a Checkout si todo está bien
+    console.log(authData)
+    if (!authData.token) {
+      navigateTo('/login')
+      return
+    }
     navigateTo('/checkout')
   }
 

@@ -1,0 +1,82 @@
+@use '../../../styles/variables';
+  
+.card {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 10px;
+
+}
+
+.empty-message {
+
+}
+
+.img {
+  width: 80px;
+}
+
+.name {
+  margin-left: 3rem;
+  display: flex;
+  text-wrap: pretty;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.code {
+  margin-left: 1rem;
+  text-align: center;
+}
+
+.price {
+  margin-left: 1rem;
+  text-align: center;
+}
+
+.product-table {
+
+
+  &__container {
+    margin-top: 2rem;
+
+  }
+}
+
+.stock {
+  margin-left: 1rem;
+  text-align: center;
+}
+
+.table {
+  width: 100%;
+  box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
+  &__td {
+    vertical-align: middle;
+
+
+  }
+  &__th {
+    font-family: variables.$font-poppins;
+    font-weight: 400;
+    background-color: #F4F6F6;
+    text-align:center;
+    color: #7F8C8D;
+    padding: 1rem;
+  }
+
+  &__body{
+    font-family: variables.$font-poppins;
+    font-weight: 400;
+    font-size: 13px;
+  }
+
+  &__tr{
+    border-bottom: 1px solid variables.$color-gray-light;
+  }
+}
+.text {
+  padding-left: 4rem;
+ 
+}

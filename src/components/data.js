@@ -62,8 +62,8 @@ export const dataTimetable = () => {
 
 export const dataCountries = () => {
   const countries = [
-    { id: 3, name: 'Peru' },
-    { id: 4, name: 'Colombia' }
+    { id: 'clmiy14yb0002n238adlw2rkt', name: 'Peru' },
+    { id: 'clmiy14yc0003n238m0j96505', name: 'Colombia' }
   ]
   return countries
 }

@@ -1,9 +1,10 @@
+/* eslint-disable react/prop-types */
 import React, { useContext } from 'react'
 import './TotalSum.scss'
 import CartProductsContext from '../../context/CartProductsContext'
 import { getTotalToPay } from './shop.util'
 
-function TotalSum ({ inCheckout }) {
+function TotalSum ({ inCheckout, withButton = true } = {}) {
   const { productsList } = useContext(CartProductsContext)
   const shipping = 0
   const calculatedTotal = getTotalToPay(productsList)
@@ -49,7 +50,9 @@ function TotalSum ({ inCheckout }) {
             </div>
           </li>
         </ul>
-        <button type='submit' className='total-sum__btn'>Proceed to checkout</button>
+        {withButton && (
+          <button type='submit' className='total-sum__btn'>Proceed to checkout</button>
+        )}
       </div>
     </section>
   )

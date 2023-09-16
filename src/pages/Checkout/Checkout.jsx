@@ -1,4 +1,6 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import Swal from 'sweetalert2'
 import {
   useElements,
   useStripe,
@@ -13,6 +15,7 @@ import TotalSum from '../../components/TotalSum/TotalSum'
 import { getTotalToPay } from '../../components/TotalSum/shop.util'
 import CartProductsContext from '../../context/CartProductsContext'
 import CheckoutService from '../../services/CheckoutService'
+import Loading from '../../components/Loading/Loading'
 
 const breadcrumb = [
 
@@ -26,18 +29,22 @@ const breadcrumb = [
 ]
 
 function Checkout () {
-  const { productsList } = useContext(CartProductsContext)
+  const navigateTo = useNavigate()
+  const { productsList, setProductsList } = useContext(CartProductsContext)
+  const [isLoading, setIsLoading] = useState(false)
   const [checkout, setCheckout] = useState({
     name: '',
     email: '',
     phone: '',
-    country: '',
+    countryId: '',
     address: '',
     city: '',
     state: '',
     postCode: '',
     notes: ''
   })
+
+  const [order, setOrder] = useState()
 
   const stripe = useStripe()
   const elements = useElements()
@@ -50,6 +57,8 @@ function Checkout () {
     event.preventDefault()
 
     try {
+      setIsLoading(true)
+
       const { error, paymentMethod } = await stripe.createPaymentMethod({
         type: 'card',
         card: elements.getElement(
@@ -70,21 +79,49 @@ function Checkout () {
         checkout,
         products: productsList.map((product) => ({
           id: product.id,
+          productId: product.id,
           price: product.price,
           quantity: product.quantity
         }))
       })
 
+      setOrder(response.order)`/orders/${response.order.id}`
+
+      Swal.fire(
+        'Order Created!',
+        'Your order has been created successfully',
+        'success'
+      )
+
       console.log('SUCCESS: ', response)
     } catch (error) {
       console.log('ERROR: ', error)
+      Swal.fire(
+        'Order error!',
+        `Has ocurred an error trying creating the order. ${error.message}`,
+        'warning'
+      )
     } finally {
       elements.getElement(
         CardNumberElement,
         CardExpiryElement,
         CardCvcElement
       ).clear()
+
+      setIsLoading(false)
     }
+  }
+
+  useEffect(() => {
+    return () => {
+      if (order) {
+        setProductsList([])
+      }
+    }
+  }, [])
+
+  if (!productsList.length) {
+    navigateTo('/products')
   }
 
   return (
@@ -94,6 +131,14 @@ function Checkout () {
         pageTitle={'Checkout'}
         backgroundClassName="checkout__bg"
         breadcrumb={breadcrumb} />
+
+      {order && (
+        <div className='checkout__result'>
+          The order order &nbsp;<b>{order.id}</b>&nbsp; has been created successfully!
+        </div>
+      )}
+      {isLoading && <Loading />}
+
       <section className='checkout__container'>
         <form className='checkout__form' onSubmit={handleSubmitPayment} method='POST'>
           <fieldset>
@@ -143,17 +188,17 @@ function Checkout () {
                 />
               </div>
               <div className='checkout__form-container'>
-                <label htmlFor='country'>Country</label>
+                <label htmlFor='countryId'>Country</label>
                 <select
-                  id='country'
-                  name='country'
+                  id='countryId'
+                  name='countryId'
                   value={checkout.country}
                   onChange={handlechange}
                   required>
                   <option value=''>-- Select Country --</option>
                   {dataCountries().map((item) => {
                     return (
-                      <option key={item.id} value={item.name}>{item.name}</option>
+                      <option key={item.id} value={item.id}>{item.name}</option>
                     )
                   })}
                 </select>
@@ -195,6 +240,7 @@ function Checkout () {
                   />
               </div>
             </section>
+            {!order && (
             <section className='checkout__form-box'>
               <div className='checkout__title'>
                 <h3 className='checkout__title-h3'>
@@ -210,12 +256,14 @@ function Checkout () {
                 <CardCvcElement className='stripe-input'/>
               </div>
             </section>
+            )}
           </fieldset>
           <section className='checkout__total'>
-            <TotalSum inCheckout={true} />
+            <TotalSum inCheckout={!order} withButton={!order} />
           </section>
         </form>
       </section>
+      {isLoading && <Loading />}
     </section>
   )
 }
