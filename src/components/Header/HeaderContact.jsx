@@ -4,12 +4,13 @@ import { MdAddCall, MdOutlinePhoneInTalk } from 'react-icons/md'
 import { GiWorld } from 'react-icons/gi'
 import { CiSearch } from 'react-icons/ci'
 import './HeaderContact.scss'
+import { NavLink } from 'react-router-dom'
 
 const flagEnglishURL = 'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/uk_ozjsir.png'
 const flagChinaURL = 'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393390/medical-site/china_io5yte.png'
 const flagArabianURL = 'https://res.cloudinary.com/dzmkilinu/image/upload/v1689393390/medical-site/uae_n9tglh.png'
 
-function HeaderContact () {
+function HeaderContact() {
   const [isLangMenuVisible, setIsLangMenuVisible] = useState(false)
   const [language, setLanguage] = useState('English')
 
@@ -29,7 +30,7 @@ function HeaderContact () {
           <ul className='header-contact__list'>
             <li className='header-contact__list-item'>
               <a className='header-contact__list-item--link' href="#">
-                <MdAddCall className='header-contact__list-item--icon'/>
+                <MdAddCall className='header-contact__list-item--icon' />
                 Emergency 24 hours
               </a>
             </li>
@@ -40,10 +41,10 @@ function HeaderContact () {
               </a>
             </li>
             <li className='header-contact__list-item'>
-              <a className='header-contact__list-item--link' href="#">
+              <NavLink to={'/find-doctor'} className='header-contact__list-item--link'>
                 <CiSearch className='header-contact__list-item--icon' />
                 Find a doctor
-              </a>
+              </NavLink>
             </li>
           </ul>
         </nav>
@@ -52,7 +53,7 @@ function HeaderContact () {
             <li className='header-contact__list-item'>
               <a className='header-contact__list-item--link' href="#">
                 <MdOutlinePhoneInTalk className='header-contact__list-item--icon' />
-                  (04) 85443322
+                (04) 85443322
               </a>
             </li>
             <li className='header-contact__list-item header-contact__list-item--menu'>
@@ -63,7 +64,7 @@ function HeaderContact () {
               >
                 <GiWorld className='header-contact__list-item--icon' />
                 {language}
-                <FaChevronDown className='header-contact__list-item--icon-menu'/>
+                <FaChevronDown className='header-contact__list-item--icon-menu' />
               </button>
               <ul className={`language-submenu ${isLangMenuVisible && 'language-submenu--visible'}`}>
                 <li className="language-submenu__item">

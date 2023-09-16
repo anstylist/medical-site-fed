@@ -4,7 +4,7 @@ import DoctorCard from './DoctorCard'
 import doctorsList from './doctors-list.json'
 import './DoctorCarousel.scss'
 
-export default function DoctorCarousel () {
+export default function DoctorCarousel() {
   const settings = {
     dots: true,
     infinite: true,
@@ -48,21 +48,21 @@ export default function DoctorCarousel () {
   }
 
   return (
-      <div className='doctor-carousel'>
-        <h2 className='doctor-carousel__title'>Our doctors</h2>
-        <h3 className='doctor-carousel__text'>Professional staff at our hospital</h3>
-        <Slider {...settings}>
-            {doctorsList.map((doctor) => (
-              <DoctorCard
-                key={doctor.id}
-                id={doctor.id}
-                name={doctor.name}
-                specialty={doctor.specialty}
-                image={doctor.image}
-                socialLinks={doctor.socialLinks}
-              />
-            ))}
-        </Slider>
-      </div>
+    <div className='doctor-carousel'>
+      <h2 className='doctor-carousel__title'>Our doctors</h2>
+      <h3 className='doctor-carousel__text'>Professional staff at our hospital</h3>
+      <Slider {...settings}>
+        {doctorsList.map((doctor) => (
+          <DoctorCard
+            key={doctor.id}
+            id={doctor.id}
+            name={doctor.name}
+            specialities={doctor.specialities}
+            image={doctor.image}
+            socialLinks={doctor.socialLinks}
+          />
+        ))}
+      </Slider>
+    </div>
   )
 }

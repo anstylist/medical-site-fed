@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, Outlet } from 'react-router-dom'
 import Main from '../components/Main/Main'
 import Footer from '../components/Footer/Footer'
 import Header from '../components/Header/Header'
-import CartProductsContext from '../context/CartProductsContext'
-import UserContext from '../context/UserContext'
-// Temporary
-import cartProducts from '../__mocks__/cart-products.json'
+import { CartProductsProvider } from '../context/CartProductsContext'
+
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+
 import './App.scss'
 
-function App() {
-  // TODO: set the productList initial value to an empty [] array after implementing the Cart component
-  const [productsList, setProductsList] = useState(cartProducts)
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY)
+
+function App () {
   const location = useLocation()
 
   useEffect(() => {
@@ -20,14 +21,15 @@ function App() {
 
   return (
     <>
-      <CartProductsContext.Provider value={{ productsList, setProductsList }}>
-        <Header />
-        <Main>
-          <Outlet />
-        </Main>
-        <Footer />
-      </CartProductsContext.Provider>
-
+      <Elements stripe={stripePromise}>
+        <CartProductsProvider>
+          <Header />
+          <Main>
+            <Outlet />
+          </Main>
+          <Footer />
+        </CartProductsProvider>
+      </Elements>
     </>
   )
 }

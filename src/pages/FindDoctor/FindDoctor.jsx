@@ -1,17 +1,24 @@
-import React, { useState } from 'react'
-import { dataCountries, dataDepartament, dataDoctor } from '../../components/data'
+import React, { useEffect, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import { FaRegCalendarAlt } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import './FindDoctor.scss'
+import { getAllSpeciality } from '../../services/Speciality'
+import { getAllDoctor } from '../../services/DoctorService'
+import Swal from 'sweetalert2'
+import DoctorCard from '../../components/DoctorCarousel/DoctorCard'
 
 const FindDoctor = () => {
   const [findDoctor, setFindDoctor] = useState({
-    specialty: '',
-    doctor: '',
-    location: '',
-    date_appointment: ''
+    specialty: 'ALL',
+    doctor: ''
   })
+  const [allSpecialities, setAllSpecialities] = useState([])
+  const [allDoctors, setAllDoctors] = useState([])
+
+  useEffect(() => {
+    fetchData()
+  }, [])
 
   const breadcrumb = [
     {
@@ -23,20 +30,37 @@ const FindDoctor = () => {
     }
   ]
 
-  const handlechange = (event) => {
-    setFindDoctor({ ...findDoctor, [event.target.name]: event.target.value })
+  const fetchData = async () => {
+    try {
+      const [dataSpecialities, dataDoctors] = await Promise.all([getAllSpeciality(), getAllDoctor()])
+      setAllSpecialities(dataSpecialities)
+      setAllDoctors(dataDoctors)
+    } catch (error) {
+      Swal.fire(
+        'Error!',
+        error,
+        'error'
+      )
+    }
   }
 
-  const onSubmit = (event) => {
-    event.preventDefault()
-    console.log(findDoctor)
-    setFindDoctor({
-      specialty: '',
-      doctor: '',
-      location: '',
-      date_appointment: ''
-    })
+  const handlechange = (event) => {
+    const { name, value } = event.target
+
+    if (name === 'specialty') {
+      setFindDoctor({ specialty: value, doctor: '' })
+    } else {
+      setFindDoctor({ ...findDoctor, [name]: value })
+    }
   }
+
+  const doctorFilter = findDoctor.specialty === 'ALL'
+    ? allDoctors
+    : allDoctors.filter(
+      !findDoctor.doctor
+        ? (doctor) => doctor.specialities.includes(findDoctor.specialty)
+        : (doctor) => doctor.fullName.includes(findDoctor.doctor)
+    )
 
   return (
     <section className='find-doctor'>
@@ -49,75 +73,68 @@ const FindDoctor = () => {
         <div className='find-doctor__header'>
           <h3 className='find-doctor__header__text'>Find a doctor</h3>
           <Link to='/appointment' className='find-doctor__header--appointment'>
-           <FaRegCalendarAlt size={24}/>Appointment
+            <FaRegCalendarAlt size={24} />Appointment
           </Link>
         </div>
-        <form className='find-doctor__form' onSubmit={onSubmit}>
+        <div className='find-doctor__form'>
           <h3 className='find-doctor__form__title'>Type here to find a doctor by name or specialty</h3>
           <div className='find-doctor__form__container'>
             <div className='find-doctor__form__container--section'>
-                <label htmlFor='specialty'>Specialty</label>
-                <select
-                id ='specialty'
+              <label htmlFor='specialty'>Specialty</label>
+              <select
+                id='specialty'
                 name='specialty'
                 value={findDoctor.specialty}
                 onChange={handlechange}
                 required>
-                  <option value=''>-- Select specialty --</option>
-                    {dataDepartament().map((item) => {
-                      return (
-                        <option key={item.id} value={item.name}>{item.name}</option>
-                      )
-                    })}
-                </select>
-              </div>
-              <div className='find-doctor__form__container--section'>
-                <label htmlFor='specialty'>Preferred doctor</label>
-                <select
-                id ='doctor'
+                <option value='ALL'> All Specialties</option>
+                {allSpecialities.map((item) => {
+                  return (
+                    <option
+                      key={item.id}
+                      value={item.name}
+                    >{item.name}</option>
+                  )
+                })}
+              </select>
+            </div>
+            <div className='find-doctor__form__container--section'>
+              <label htmlFor='doctor'>Preferred doctor</label>
+              <select
+                id='doctor'
                 name='doctor'
                 value={findDoctor.doctor}
                 onChange={handlechange}
-                required>
-                  <option value=''>-- Select doctor --</option>
-                    {dataDoctor().map((item) => {
-                      return (
-                        <option key={item.id} value={item.name}>{item.name}</option>
-                      )
-                    })}
-                </select>
-              </div>
-              <div className='find-doctor__form__container--section'>
-                <label htmlFor='specialty'>Location</label>
-                <select
-                id ='location'
-                name='location'
-                value={findDoctor.location}
-                onChange={handlechange}
-                >
-                  <option value=''>-- Select location --</option>
-                    {dataCountries().map((item) => {
-                      return (
-                        <option key={item.id} value={item.name}>{item.name}</option>
-                      )
-                    })}
-                </select>
-              </div>
-              <div className='find-doctor__form__container--section'>
-              <label htmlFor='date_appointment'>Date of appointment</label>
-               <input
-                id='date_appointment'
-                name='date_appointment'
-                type='date'
-                value={findDoctor.date_appointment}
-                onChange={handlechange}
-                />
+              >
+                <option value=''>-- Select doctor --</option>
+                {doctorFilter.map((item) => {
+                  return (
+                    <option key={item.id} value={item.fullName}>{item.fullName}</option>
+                  )
+                })}
+              </select>
             </div>
           </div>
-          <button type='submit' name='submit' className='find-doctor__form--button'>
-            Search →
-          </button>
-        </form>
+          <div className='find-doctor__form__search'>
+            {
+              doctorFilter.map((doctor) => {
+                return (
+                  <DoctorCard
+                    key={doctor.id}
+                    id={doctor.id}
+                    name={doctor.fullName}
+                    specialities={doctor.specialities}
+                    image={doctor.image}
+                    phone={doctor.phone}
+                    email={doctor.email}
+                    socialLinks={doctor.socialLinks}
+                    externalClass="find-doctor__card"
+                  />
+                )
+              })
+            }
+          </div>
+        </div>
       </section>
     </section>
   )

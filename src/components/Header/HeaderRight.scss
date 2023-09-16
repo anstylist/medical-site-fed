@@ -12,7 +12,7 @@
 
   &-mobile {
     display: flex;
-    margin-left: 1rem;  
+    margin-left: 1rem;
   }
 
   &-counter-tag {
@@ -76,6 +76,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
 
     &__user-avatar {
@@ -118,16 +122,16 @@
 
 @media screen and (min-width: 1024px) {
   .header__nav-right {
-  
+
     &-icon {
       width: 1.3rem;
       height: 1.3rem;
     }
-  
+
     &-mobile {
       display: none;
     }
-  
+
     &-menu {
       display: flex;
       justify-content: center;
@@ -150,6 +154,6 @@
         display: none;
       }
     }
-  
+
   }
 }

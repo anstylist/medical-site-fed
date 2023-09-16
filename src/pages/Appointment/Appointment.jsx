@@ -1,9 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import emailjs from '@emailjs/browser'
 import { dataRh, dataHospitals } from '../../components/data'
 import { getPatientProfile } from '../../services/PatientService'
-import { useLoaderData } from 'react-router'
 import { AuthContext } from '../../context/AuthContext'
 import { getCountry } from '../../services/CountryService'
 import { getAllSpeciality } from '../../services/Speciality'
@@ -11,10 +10,15 @@ import { getAllDoctor } from '../../services/DoctorService'
 import { createAppointment } from '../../services/AppointmentService'
 import './Appointment.scss'
 import Swal from 'sweetalert2'
+import Loading from '../../components/Loading/Loading'
 
 const Appointment = () => {
   const { authData } = useContext(AuthContext)
-  const { patientData, countryData, specialities, doctorsData } = useLoaderData()
+  const [patientData, setPatientData] = useState(null)
+  const [countryData, setCountryData] = useState([])
+  const [specialities, setSpecialities] = useState([])
+  const [doctorsData, setDoctorsData] = useState([])
+  const [loading, setLoading] = useState(false)
   const [appointment, setAppointment] = useState({
     name: authData.fullName,
     email: authData.email,
@@ -39,6 +43,62 @@ const Appointment = () => {
     }
   })
 
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    // Este efecto se ejecutará cuando 'loading' cambie a 'false'.
+    if (!loading) {
+      initializeAppointment()
+    }
+  }, [loading])
+
+  const initializeAppointment = () => {
+    // Aquí puedes inicializar 'appointment' con los valores necesarios
+    // basados en 'patientData' y 'countryData'.
+    const newAppointment = {
+      name: authData.fullName,
+      email: authData.email,
+      phone: (patientData && patientData.phone) || '',
+      birthDate: (patientData && new Date(patientData.birthDate).toISOString().split('T')[0]) || '',
+      rh: (patientData && patientData.rh) || '',
+      gender: (patientData && patientData.gender) || '',
+      hospital: '',
+      appointmentDataTime: '',
+      message: '',
+      nationality: {
+        id: (patientData && countryData.filter((country) => country.id === patientData.countryId)[0].id) || '',
+        name: (patientData && countryData.filter((country) => country.id === patientData.countryId)[0].name) || ''
+      },
+      speciality: {
+        id: '',
+        name: ''
+      },
+      doctor: {
+        id: '',
+        name: ''
+      }
+    }
+    setAppointment(newAppointment)
+  }
+
+  const fetchData = async () => {
+    setLoading(true)
+    try {
+      const [patientData, countryData, specialities, doctorsData] = await Promise.all([getPatientProfile(), getCountry(), getAllSpeciality(), getAllDoctor()])
+      setCountryData(countryData)
+      setPatientData(patientData)
+      setSpecialities(specialities)
+      setDoctorsData(doctorsData)
+    } catch (error) {
+      console.error('Error loading data:', error)
+      throw error
+    } finally {
+      setLoading(false)
+    }
+  }
+
   const breadcrumb = [
     {
       text: 'Home',
@@ -48,7 +108,7 @@ const Appointment = () => {
       text: 'Appointment'
     }
   ]
-
+  console.log(patientData)
   const doctorFilter = doctorsData.filter((doctor) => doctor.specialities.includes(appointment.speciality.name))
 
   const handleChange = (event) => {
@@ -66,27 +126,15 @@ const Appointment = () => {
       const date = new Date(appointment.appointmentDataTime)
       const templateParams = {
         to_name: appointment.name,
-        message:
-          `Patient information
-      Patient: ${appointment.name}
-      Email address: ${appointment.email}
-      Phone number: ${appointment.phone}
-      Nationality: ${appointment.nationality.name}
-      Date of birth: ${appointment.birthDate}
-      RH: ${appointment.rh}
-      Gender: ${appointment.gender}
-
-      Appointment information   
-      Speciality: ${appointment.speciality.name}
-      Doctor: ${appointment.doctor.name}
-      Hospital: ${appointment.hospital}
-      Date of appointment: ${date.getDate()}/${date.getMonth()}/${date.getFullYear()} 
-      Hour of appontment: ${date.getHours()}:${date.getMinutes()}
-      Reason for consult: ${appointment.message}
-      `,
+        speciality: appointment.speciality.name,
+        doctor: appointment.doctor.name,
+        hospital: appointment.hospital,
+        date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+        hour: `${date.getHours()}:${date.getMinutes()}`,
+        reason: appointment.message,
         to_email: appointment.email
       }
-      emailjs.send('service_2rz54gq', 'template_la3gleh', templateParams, 'wolwL4XHVd6GZeMxQ')
+      emailjs.send('service_2rz54gq', 'template_36hgr8m', templateParams, 'wolwL4XHVd6GZeMxQ')
     } catch (error) {
       throw error.message
     }
@@ -126,7 +174,8 @@ const Appointment = () => {
           hospital: appointment.hospital,
           reason: appointment.message,
           status: 'PENDING',
-          doctorId: appointment.doctor.id
+          doctorId: appointment.doctor.id,
+          specialityId: appointment.speciality.id
         }
       }
       await createAppointment(config)
@@ -155,6 +204,10 @@ const Appointment = () => {
     resetForm()
   }
 
+  if (loading) {
+    return <Loading />
+  }
+
   return (
     <section className='appointment'>
       <Jumbotron
@@ -166,6 +219,7 @@ const Appointment = () => {
         <header className='appointment__header'>
           <h2 className='appointment__header__title'>If you need to appointment</h2>
         </header>
+
         <form className='appointment__form' onSubmit={onSubmit}>
           <div className='appointment__form__patient'>
             <h3 className='appointment__form__title'>Patient information</h3>
@@ -205,6 +259,7 @@ const Appointment = () => {
                   onChange={handleChange}
                   disabled={!!patientData}
                   required
+                  data-cy="phone"
                 />
               </div>
               <div className='appointment__form__container--section'>
@@ -215,7 +270,8 @@ const Appointment = () => {
                   value={JSON.stringify(appointment.nationality)}
                   onChange={selectHandleChange}
                   disabled={!!patientData}
-                  required>
+                  required
+                  data-cy="nationality">
                   <option value=''>-- Select nationality --</option>
                   {countryData.map((item) => {
                     return (
@@ -238,6 +294,7 @@ const Appointment = () => {
                   onChange={handleChange}
                   disabled={!!patientData}
                   required
+                  data-cy="birthDate"
                 />
               </div>
               <div className='appointment__form__container--section'>
@@ -248,7 +305,8 @@ const Appointment = () => {
                   value={appointment.rh}
                   onChange={handleChange}
                   disabled={!!patientData}
-                  required>
+                  required
+                  data-cy="rh">
                   <option value=''>-- Select RH --</option>
                   {dataRh().map((item) => {
                     return (
@@ -267,6 +325,7 @@ const Appointment = () => {
                   onChange={handleChange}
                   disabled={!!patientData}
                   required
+                  data-cy="gender"
                   checked={patientData && patientData.gender === 'MALE'}
                 />
                 Male
@@ -293,7 +352,8 @@ const Appointment = () => {
                   name='speciality'
                   value={JSON.stringify(appointment.speciality)}
                   onChange={selectHandleChange}
-                  required>
+                  required
+                  data-cy="speciality-select">
                   <option value=''>-- Select speciality --</option>
                   {specialities.map((item) => {
                     return (
@@ -313,7 +373,8 @@ const Appointment = () => {
                   name='doctor'
                   value={JSON.stringify(appointment.doctor)}
                   onChange={selectHandleChange}
-                  required>
+                  required
+                  data-cy="doctor-select">
                   <option value=''>-- Select doctor --</option>
                   {
                     doctorFilter.map((item) => {
@@ -335,7 +396,8 @@ const Appointment = () => {
                   name='hospital'
                   value={appointment.hospital}
                   onChange={handleChange}
-                  required>
+                  required
+                  data-cy="hospital-select">
                   <option value=''>-- Select hospital --</option>
                   {dataHospitals().map((item) => {
                     return (
@@ -353,6 +415,7 @@ const Appointment = () => {
                   value={appointment.appointmentDataTime}
                   onChange={handleChange}
                   required
+                  data-cy="appointment-date-input"
                 />
               </div>
               <label htmlFor='message' id='label-textarea'>Reason for consult</label>
@@ -363,10 +426,11 @@ const Appointment = () => {
                 value={appointment.message}
                 onChange={handleChange}
                 required
+                data-cy="message-textarea"
               />
             </div>
           </div>
-          <button type='submit' name='submit' className='appointment__form--button'>
+          <button type='submit' name='submit' className='appointment__form--button' data-cy="submit-button">
             Submit →
           </button>
         </form>
@@ -376,13 +440,3 @@ const Appointment = () => {
 }
 
 export default Appointment
-
-export const loaderAppointmentData = async () => {
-  try {
-    const [patientData, countryData, specialities, doctorsData] = await Promise.all([getPatientProfile(), getCountry(), getAllSpeciality(), getAllDoctor()])
-    return { patientData, countryData, specialities, doctorsData }
-  } catch (error) {
-    console.error('Error loading data:', error)
-    throw error
-  }
-}

@@ -12,7 +12,7 @@ import ComingSoon from '../pages/ComingSoon/ComingSoon'
 import Login from '../pages/Login/Login'
 import Register from '../pages/Register/Register'
 import Forgot from '../pages/Forgot/Forgot'
-import Appointment, { loaderAppointmentData } from '../pages/Appointment/Appointment'
+import Appointment from '../pages/Appointment/Appointment'
 import DoctorsTimetable from '../pages/DoctorsTimetable/DoctorsTimetable'
 import EmergencyServices from '../pages/EmergencyServices/EmergencyServices'
 import PatientsVisitors from '../pages/PatientsVisitors/PatientsVisitors'
@@ -21,12 +21,13 @@ import OurDepartments from '../pages/OurDepartments/OurDepartments'
 import Products from '../pages/Products/Products'
 import ProductDetails from '../pages/ProductsDetails/ProductsDetails'
 import Cart from '../pages/Cart/Cart'
-import Appointments, { loaderAppointmentByType } from '../pages/Appointments/Appointments'
+import Appointments from '../pages/Appointments/Appointments'
 import UserProfile from '../pages/UserProfile/UserProfile'
 import Admin from '../pages/Admin/Admin'
 import { ProtectedRoute } from '../router/ProtectedRoute'
 import ChangePassword from '../pages/ChangePassword/ChangePassword'
 import Checkout from '../pages/Checkout/Checkout'
+import Reset from '../pages/Reset/Reset'
 
 const router = createBrowserRouter([
   {
@@ -75,13 +76,16 @@ const router = createBrowserRouter([
         element: <Forgot />
       },
       {
+        path: '/reset-password',
+        element: <Reset />
+      },
+      {
         path: '/change-password',
         element: <ChangePassword />
       },
       {
         path: '/appointment',
-        element: <Appointment />,
-        loader: loaderAppointmentData
+        element: <Appointment />
       },
       {
         path: '/doctors-timetable',
@@ -117,12 +121,17 @@ const router = createBrowserRouter([
       },
       {
         path: '/doctor/appointments',
-        element: <Appointments type={true} />
+        element:
+          <ProtectedRoute
+            authorizedRoles={['DOCTOR']}
+            redirectTo={'/'}
+          >
+            <Appointments type={true} />
+          </ProtectedRoute>
       },
       {
         path: '/patient/appointments',
-        element: <Appointments type={false} />,
-        loader: () => loaderAppointmentByType(false)
+        element: <Appointments type={false} />
       },
       {
         path: '/user-profile',

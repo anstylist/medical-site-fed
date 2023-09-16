@@ -8,7 +8,7 @@ import Loading from '../../components/Loading/Loading'
 import { loginService } from '../../services/AuthService'
 import { AuthContext } from '../../context/AuthContext'
 
-function Login() {
+function Login () {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
@@ -85,18 +85,18 @@ function Login() {
             <h2 className="login__title">Login</h2><div className="login__form">
               <form onSubmit={handleLogin}>
                 <label htmlFor="email" className="login__label">Email</label>
-                <input id='email' type="text" className="login__input" placeholder='Email' value={email} onChange={handleEmailChange} required />
+                <input id='email' type="text" className="login__input" data-cy="email-input" placeholder='Email' value={email} onChange={handleEmailChange} required />
 
                 <label htmlFor="password" className="login__label">Password</label>
-                <input id='password' type="password" className="login__input" placeholder='Password' value={password} onChange={handlePasswordChange} required />
+                <input id='password' type="password" className="login__input" data-cy="password-input" placeholder='Password' value={password} onChange={handlePasswordChange} required />
 
                 <div className="login__checkbox">
                   <input type="checkbox" id="remember-me" />
                   <label htmlFor="remember-me">Remember me</label>
                 </div>
 
-                <Link to="/change-password" className="login__forgot-password">Forgot password?</Link>
-                <button type='submit' className="login__button">Login →</button>
+                <Link to="/forgot-password" className="login__forgot-password">Forgot password?</Link>
+                <button type='submit' className="login__button" data-cy="login-button">Login →</button>
               </form>
 
               <p className="login__register-now">

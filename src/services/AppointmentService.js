@@ -17,3 +17,21 @@ export async function getAppointmentsByPatient() {
     throw error.message
   }
 }
+
+export async function getAppointmentsByDoctor() {
+  try {
+    const { data } = await http.get('/appointments/doctor')
+    return data
+  } catch (error) {
+    throw error.message
+  }
+}
+
+export async function updateStatusAppointment(id, data) {
+  try {
+    const response = await http.patch(`/appointments/${id}`, data)
+    return response
+  } catch (error) {
+    throw error.message
+  }
+}

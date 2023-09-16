@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { FiMenu } from 'react-icons/fi'
 import { FaChevronRight, FaChevronDown } from 'react-icons/fa'
 import { CgClose } from 'react-icons/cg'
@@ -7,8 +7,10 @@ import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai'
 import { NavLink } from 'react-router-dom'
 import menu from './menu.json'
 import './MainMenu.scss'
+import { AuthContext } from '../../context/AuthContext'
+import { isExpired } from 'react-jwt'
 
-function SubMenu ({ menuList, isSubMenuOpen }) {
+function SubMenu({ menuList, isSubMenuOpen }) {
   const [childSubMenuOpen, setChildSubMenuOpen] = useState(null)
 
   const handleSubmenuBtnClick = (menu) => {
@@ -36,7 +38,7 @@ function SubMenu ({ menuList, isSubMenuOpen }) {
           <NavLink to={`${item.route ?? '#'}`} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
             {item.title}
             {item.submenu && <FaChevronRight className='menu__list-icon menu__list-icon--chevron' />}
-            {item.submenu && (isChildSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
+            {item.submenu && (isChildSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus' /> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
           </NavLink>
           {item.submenu && (
             <SubMenu menuList={item.submenu} isSubMenuOpen={isChildSubMenuOpen(item.id)} />
@@ -47,9 +49,12 @@ function SubMenu ({ menuList, isSubMenuOpen }) {
   )
 }
 
-function MainMenu ({ onMenuOpen, mustHideMenu }) {
+function MainMenu({ onMenuOpen, mustHideMenu }) {
   const [isMainMenuVisible, setIsMainMenuVisible] = useState(false)
   const [subMenuOpen, setSubMenuOpen] = useState(null)
+  const { authData } = useContext(AuthContext)
+
+  const isLoggedIn = authData.token && !isExpired(authData.token)
 
   const handleMainBtnClick = () => {
     setIsMainMenuVisible((isVisible) => !isVisible)
@@ -91,23 +96,24 @@ function MainMenu ({ onMenuOpen, mustHideMenu }) {
         {isMainMenuVisible ? <CgClose className='main-menu__icon' /> : <FiMenu className='main-menu__icon' />}
       </button>
       <ul className={`menu__list ${isMainMenuVisible && 'menu__list--visible'}`}>
-        {menu.map((item) => (
-          <li key={item.id} className="menu__list-item">
+        {menu.map((item) => {
+          const itemLink = (<li key={item.id} className="menu__list-item">
             {item.route && (<NavLink to={item.route} className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
               {item.title}
               {item.submenu && <FaChevronDown className='menu__list-icon menu__list-icon--chevron' />}
-              {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
+              {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus' /> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
             </NavLink>)}
             {!item.route && (<span className="menu__list-link" onClick={() => handleSubmenuBtnClick(item)}>
               {item.title}
               {item.submenu && <FaChevronDown className='menu__list-icon menu__list-icon--chevron' />}
-              {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus'/> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
+              {item.submenu && (isSubMenuOpen(item.id) ? <AiOutlineMinus className='menu__list-icon menu__list-icon--minus' /> : <AiOutlinePlus className='menu__list-icon menu__list-icon--plus' />)}
             </span>)}
             {item.submenu && (
               <SubMenu className='' menuList={item.submenu} isSubMenuOpen={isSubMenuOpen(item.id)} />
             )}
-          </li>
-        ))}
+          </li>)
+          return item.id !== 'menu-appointment-management' ? itemLink : (isLoggedIn && itemLink)
+        })}
       </ul>
     </nav>
   )

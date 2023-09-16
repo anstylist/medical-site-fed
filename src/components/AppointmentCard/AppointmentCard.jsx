@@ -6,13 +6,15 @@ import { IoCalendarOutline, IoLocationOutline } from 'react-icons/io5'
 import { AiOutlineInfoCircle, AiOutlineUser } from 'react-icons/ai'
 import { LiaStethoscopeSolid } from 'react-icons/lia'
 import { FaUserDoctor } from 'react-icons/fa6'
-import { BsEmojiFrown, BsEmojiWink } from 'react-icons/bs'
+import { BsEmojiFrown, BsEmojiWink, BsGenderAmbiguous } from 'react-icons/bs'
+import { MdBloodtype } from 'react-icons/md'
+import { GiAges } from 'react-icons/gi'
 import Modal from '../Modal/Modal'
 import './AppointmentCard.scss'
+import { updateStatusAppointment } from '../../services/AppointmentService'
 
 const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
   const [message, setMessage] = useState(false)
-
   const options =
     type
       ? [
@@ -47,11 +49,17 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
         }
       ]
 
-  const handleStateAppointment = (newstate) => {
-    setMessage(true)
-    setTimeout(() => {
+  const handleStateAppointment = async (newstate) => {
+    try {
+      const data = {
+        status: newstate
+      }
+      await updateStatusAppointment(appointment.id, data)
+      setMessage(true)
       onStateAppointment(appointment.id, newstate)
-    }, 1000)
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -65,9 +73,7 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
             : 'https://res.cloudinary.com/dzmkilinu/image/upload/v1691739544/medical-site/avatar-female_erjtsk.svg'
         } />
       <div className='appointment-card-info'>
-        {appointment.doctor.specialities.map((item, index) => {
-          return <h3 className='specialty' key={index}> {item.speciality.name} </h3>
-        })}
+        <h3 className='specialty'> {appointment.speciality.name}</h3>
         <h3 className='name'> {type ? appointment.patient.user.fullName : `Dr. ${appointment.doctor.user.fullName}`} </h3>
         <label className='date'>
           <span><IoCalendarOutline size={18} /></span>
@@ -83,16 +89,18 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
         >
           <h3 className='details__modal-title'>Summary of the appointment</h3>
           <div className='details__modal-content'>
-            <h3 className='title'>Patient</h3>
+            <h3 className='title'>Patient information</h3>
             <label className='subtitle'>
               <span><AiOutlineUser size={18} /></span>
               {appointment.patient.user.fullName}
             </label>
-            <label className='subtitle_2' >
-              {
-                ` ${appointment.patient.gender} 
-                 - ${new Date().getFullYear() - new Date(appointment.patient.birthDate).getFullYear()}`
-              }
+            <label className='subtitle'>
+              <span><BsGenderAmbiguous size={18} /></span>
+              {appointment.patient.gender}
+              <span><GiAges size={18} /></span>
+              {new Date().getFullYear() - new Date(appointment.patient.birthDate).getFullYear()}
+              <span><MdBloodtype size={18} /></span>
+              {appointment.patient.rh}
             </label>
             <h3 className='title'>Date of appointment</h3>
             <label className='subtitle'>
@@ -112,9 +120,7 @@ const AppointmentCard = ({ appointment, type, onStateAppointment }) => {
             <h3 className='title'>Specialty</h3>
             <label className='subtitle'>
               <span><LiaStethoscopeSolid size={20} /></span>
-              {appointment.doctor.specialities.map((item) => {
-                return item.speciality.name
-              })}
+              {appointment.speciality.name}
             </label>
             <h3 className='title'>Doctor</h3>
             <label className='subtitle'>

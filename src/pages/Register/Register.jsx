@@ -7,7 +7,7 @@ import 'sweetalert2/src/sweetalert2.scss'
 import { registerService } from '../../services/RegisterService'
 import Loading from '../../components/Loading/Loading'
 
-function Register() {
+function Register () {
   const breadcrumb = [
     {
       text: 'Home',
@@ -89,6 +89,7 @@ function Register() {
                   value={user.fullName}
                   onChange={handleChange}
                   required
+                  data-cy="full-name-input"
                 />
 
                 <label htmlFor="email" className="register__label">Email</label>
@@ -101,6 +102,7 @@ function Register() {
                   value={user.email}
                   onChange={handleChange}
                   required
+                  data-cy="email-input"
                 />
 
                 <label htmlFor="password" className="register__label">Password</label>
@@ -113,6 +115,7 @@ function Register() {
                   value={user.password}
                   onChange={handleChange}
                   required
+                  data-cy="password-input"
                 />
 
                 <div className="register__checkbox">
@@ -121,11 +124,12 @@ function Register() {
                     id="agree-terms"
                     name="agreeTerms"
                     required
+                    data-cy="agree-terms-checkbox"
                   />
                   <label htmlFor="agree-terms">I agree with the <Link to="/terms-of-service" className='agree-terms'>Terms & conditions</Link></label>
                 </div>
 
-                <button type="submit" className="register__button">Register now →</button>
+                <button type="submit" className="register__button" data-cy="register-button">Register now →</button>
               </form>
               <p className="register__login-now">
                 Already have an account? <a href="/login" className='login-now-link'>Login</a>

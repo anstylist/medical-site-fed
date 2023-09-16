@@ -1,27 +1,22 @@
-import React, { useContext, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import products from '../../__mocks__/products.json'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import { AiOutlineShoppingCart } from 'react-icons/ai'
-import CartProductsContext from '../../context/CartProductsContext'
 import './ProductsDetails.scss'
+import useAddProductToCart from '../../hooks/useAddProductToCart'
+import * as ProductService from '../../services/ProductService'
 
 const ProductDetails = () => {
   const { productId } = useParams()
-
+  const [product, setProduct] = useState()
   const [addToCartSuccess, setAddToCartSuccess] = useState(false)
-  const product = products.find((product) => product.id === parseInt(productId))
+  const [quantity, setQuantity] = useState(1)
 
-  const { setProductsList } = useContext(CartProductsContext)
-
-  const handleAddToCart = (product) => {
-    setProductsList(prevProducts => [...prevProducts, product])
-    setAddToCartSuccess(true)
+  const handleChangeQuantity = (event) => {
+    setQuantity(Number.parseInt(event.target.value, 10))
   }
 
-  if (!product) {
-    return <div className="product-details">Product not found</div>
-  }
+  const { handleAddToCart } = useAddProductToCart()
 
   const breadcrumb = [
     {
@@ -32,6 +27,23 @@ const ProductDetails = () => {
       text: 'Product Details'
     }
   ]
+
+  useEffect(() => {
+    const { controller, productPromise } = ProductService.getProductById(productId)
+
+    productPromise
+      .then((data) => {
+        setProduct(data)
+      })
+
+    return () => {
+      controller.abort()
+    }
+  }, [])
+
+  if (!product) {
+    return <div className="product-details">Product not found</div>
+  }
 
   return (
     <>
@@ -58,14 +70,13 @@ const ProductDetails = () => {
             <input
               className="product-details__quantity"
               type="number"
-              placeholder="01"
+              value={quantity}
+              onChange={handleChangeQuantity}
             />
             <button className="product-details__add-to-cart"
             onClick={() => {
-              handleAddToCart(product)
-              setTimeout(() => {
-                setAddToCartSuccess(false)
-              }, 3000)
+              handleAddToCart(product, quantity)
+              setAddToCartSuccess(false)
             }}
             >Add to Cart <AiOutlineShoppingCart/></button>
             {addToCartSuccess && (

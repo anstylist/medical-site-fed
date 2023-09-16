@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 import './Modal.scss'
 
-function Modal({ trigger, children, className }) {
+function Modal ({ trigger, children, className }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const stopPropagation = (event) => {
@@ -35,6 +35,8 @@ function Modal({ trigger, children, className }) {
       enableScroll()
       document.removeEventListener('keydown', handleScape)
     }
+
+    return () => document.removeEventListener('keydown', handleScape)
   }, [isOpen])
 
   return (

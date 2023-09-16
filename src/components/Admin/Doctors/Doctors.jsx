@@ -1,27 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import { FaUserPlus, FaEdit, FaTrashAlt } from 'react-icons/fa'
-import { FcSearch } from 'react-icons/fc'
+import { FaMagnifyingGlass } from 'react-icons/fa6'
 import { RxUpdate } from 'react-icons/rx'
 import { BiLogoFacebook, BiLogoInstagram, BiLogoTwitter, BiLogoLinkedin } from 'react-icons/bi'
-import './Doctors.scss'
 import Loading from '../../Loading/Loading'
 import Swal from 'sweetalert2'
 import DoctorForm from './DoctorForm'
 import { doctorAll } from '../../../services/AdminService'
 import { updateUser } from '../../../services/UserService'
-import { createDoctor } from '../../../services/DoctorService'
+import { createDoctor, updateDoctor } from '../../../services/DoctorService'
+import './Doctors.scss'
 
 const Doctors = () => {
   const [filter, setFilter] = useState('')
   const [doctorsData, setDoctorsData] = useState([])
+  const [currentPage, setCurrentPage] = useState(0)
   const [loading, setLoading] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
+  const [isEdit, SetIsEdit] = useState(false)
   const [doctor, setDoctor] = useState(
     {
+      id: '',
       fullName: '',
       email: '',
       password: '',
-      image: '',
+      image: null,
       phone: '',
       facebook: '',
       twitter: '',
@@ -29,6 +32,12 @@ const Doctors = () => {
       instagram: '',
       specialities: ['']
     })
+
+  useEffect(
+    () => {
+      fetchData()
+    }
+    , [])
 
   const headboard = ['Name', 'Email', 'Phone Number', 'Social Networks', 'Status', 'Actions']
   const socialIcons = {
@@ -40,67 +49,95 @@ const Doctors = () => {
 
   const onCreateDoctor = async () => {
     try {
-      const data = {
-        userData: {
-          fullName: doctor.fullName,
-          email: doctor.email,
-          password: doctor.password
-        },
-        doctorData: {
-          image: doctor.image,
-          phone: doctor.phone,
-          facebook: doctor.facebook,
-          twitter: doctor.twitter,
-          linkedin: doctor.linkedin,
-          instagram: doctor.instagram
-        },
-        specialitiesNames: doctor.specialities
+      const data = new FormData()
+      const userData = {
+        fullName: doctor.fullName,
+        email: doctor.email,
+        password: doctor.password
       }
+      const doctorData = {
+        phone: doctor.phone,
+        facebook: doctor.facebook,
+        twitter: doctor.twitter,
+        linkedin: doctor.linkedin,
+        instagram: doctor.instagram
+      }
+      const specialitiesNames = doctor.specialities
+      const file = doctor.image
+
+      data.append('userData', JSON.stringify(userData))
+      data.append('doctorData', JSON.stringify(doctorData))
+      data.append('specialitiesNames', JSON.stringify(specialitiesNames))
+      data.append('image', file)
       const { data: { doctor: newDoctor } } = await createDoctor(data)
-      const updateDoctorData = [...doctorsData, formatDoctor(newDoctor)]
+      const updateDoctorData = [...doctorsData, formatDoctorData(newDoctor)]
       setDoctorsData(updateDoctorData)
     } catch (error) {
       throw error.message
     }
   }
 
-  const formatDoctor = (newDoctor) => {
-    return {
-      id: newDoctor.doctor.id,
-      fullName: newDoctor.fullName,
-      email: newDoctor.email,
-      image: newDoctor.doctor.image,
-      phone: newDoctor.doctor.phone,
-      status: newDoctor.status,
-      specialities: newDoctor.doctor.specialities.map((item) => {
-        return item.speciality.name
-      }),
-      socialLinks: [
-        {
-          type: 'facebook',
-          url: newDoctor.doctor.facebook
-        },
-        {
-          type: 'twitter',
-          url: newDoctor.doctor.twitter
-        },
-        {
-          type: 'linkedin',
-          url: newDoctor.doctor.linkedin
-        },
-        {
-          type: 'instagram',
-          url: newDoctor.doctor.instagram
-        }
-      ]
+  const onUpdateDoctor = async () => {
+    try {
+      const data = new FormData()
+      const doctorData = {
+        phone: doctor.phone,
+        facebook: doctor.facebook,
+        twitter: doctor.twitter,
+        linkedin: doctor.linkedin,
+        instagram: doctor.instagram
+      }
+      const specialitiesNames = doctor.specialities
+      const file = doctor.image
+      data.append('doctorData', JSON.stringify(doctorData))
+      data.append('specialitiesNames', JSON.stringify(specialitiesNames))
+      data.append('image', file)
+
+      await updateDoctor(doctor?.id, data)
+      const updateData = doctorsData.map((item) => {
+        return item.id === doctor.id ? { ...item, ...formatDoctorData(doctor, true) } : item
+      })
+      setDoctorsData(updateData)
+      SetIsEdit(false)
+    } catch (error) {
+      throw error.message
     }
   }
 
-  useEffect(
-    () => {
-      fetchData()
+  const formatDoctorData = (doctorData, isUpdate = false) => {
+    const commonData = {
+      id: isUpdate ? doctorData.id : doctorData.doctor.id,
+      fullName: doctorData.fullName,
+      email: doctorData.email,
+      image: isUpdate ? doctorData.image : doctorData.doctor.image,
+      phone: isUpdate ? doctorData.phone : doctorData.doctor.phone,
+      status: isUpdate ? true : doctorData.status,
+      specialities: isUpdate
+        ? doctorData.specialities.map((item) => {
+          return item
+        })
+        : doctorData.doctor.specialities.map((item) => item.speciality.name),
+      socialLinks: [
+        {
+          type: 'facebook',
+          url: isUpdate ? doctorData.facebook : doctorData.doctor.facebook
+        },
+        {
+          type: 'twitter',
+          url: isUpdate ? doctorData.twitter : doctorData.doctor.twitter
+        },
+        {
+          type: 'linkedin',
+          url: isUpdate ? doctorData.linkedin : doctorData.doctor.linkedin
+        },
+        {
+          type: 'instagram',
+          url: isUpdate ? doctorData.instagram : doctorData.doctor.instagram
+        }
+      ]
     }
-    , [])
+    return commonData
+  }
 
   const changeHandler = (event) => {
     setFilter(event.target.value)
@@ -135,9 +172,9 @@ const Doctors = () => {
   }
 
   const modalEditDoctor = (doctorEdit) => {
-    console.log(doctorEdit)
-    console.log(doctorEdit.socialLinks.filter((social) => { return social.type === 'facebook' })[0])
+    SetIsEdit(true)
     setDoctor({
+      id: doctorEdit.id,
       fullName: doctorEdit.fullName,
       email: doctorEdit.email,
       password: doctorEdit.password,
@@ -181,7 +218,20 @@ const Doctors = () => {
     })
   }
 
+  const nextPage = () => {
+    if (currentPage + 5 < filterData.length) {
+      setCurrentPage(currentPage + 5)
+    }
+  }
+
+  const previousPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 5)
+    }
+  }
+
   const filterData = doctorsData.filter((item) => { return item.fullName.toUpperCase().includes(filter.toUpperCase()) })
+
   return (
     <>
       <div className='admin-doctors'>
@@ -190,9 +240,10 @@ const Doctors = () => {
         )}
         {!loading && (
           <>
-            <h2 className='title'> List of doctors </h2><h2 className='subtitle'>{`${doctorsData.length} registered doctors`}</h2>
+            <h2 className='title'> List of doctors </h2>
+            <h2 className='subtitle'>{`${doctorsData.length} registered doctors`}</h2>
             <div className='admin-doctors-header'>
-              <FcSearch size={20} className='icon' />
+              <FaMagnifyingGlass size={15} className='icon' />
               <input
                 className='filterName'
                 name='searchDoctor'
@@ -247,7 +298,7 @@ const Doctors = () => {
                         </td>
                         <td className='status'>
                           {doctor.status
-                            ? <h4 style={{ color: '#5F8D4E', backgroundColor: '#F4FFF3', textAlign: 'center', borderRadius: '5px' }}>Active</h4>
+                            ? <h4 style={{ color: '#5F8D4E', backgroundColor: '#E9F7EF', textAlign: 'center', borderRadius: '5px' }}>Active</h4>
                             : <h4 style={{ color: '#F64E60', backgroundColor: '#FDEDEC', textAlign: 'center', borderRadius: '5px' }}>Inactive</h4>}
                         </td>
                         <td className='actions'>
@@ -261,10 +312,21 @@ const Doctors = () => {
                         </td>
                       </tr>
                     )
-                  })}
+                  }).slice(currentPage, currentPage + 5)}
                 </tbody>
-
               </table>
+              <div className='buttons'>
+                <button
+                  onClick={previousPage}
+                >
+                  Previous
+                </button>
+                <button
+                  onClick={nextPage}
+                >
+                  Next
+                </button>
+              </div>
             </div>
           </>
         )}
@@ -276,6 +338,9 @@ const Doctors = () => {
           setDoctor={setDoctor}
           onCreateDoctor={onCreateDoctor}
           setIsOpen={setIsOpen}
+          onUpdateDoctor={onUpdateDoctor}
+          edit={isEdit}
+          setEdit={SetIsEdit}
         />
       }
     </>

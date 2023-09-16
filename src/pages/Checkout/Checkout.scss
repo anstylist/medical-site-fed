@@ -24,6 +24,16 @@
     background-image: url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689393389/medical-site/banner-bg-1_yyg5bn.jpg");
   }
 
+  &__result {
+    padding: 2rem;
+    background-color: #DDDDDD;
+    font-size: 1.5rem;
+    width: 1200px;
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
   &__form {
     display: flex;
     flex-direction: column;
@@ -77,6 +87,30 @@
     display: flex;
     justify-content: center;
   }
+}
+
+.stripe-input {
+  display: block;
+  padding: 10px;
+  width: 100%;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+}
+
+.stripe-label {
+  margin-top: 10px;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  color: #32325d;
+}
+
+.stripe-form {
+  display: flex;
+  flex-direction: column;
 }
 
 @include mixins.set-container-width(".checkout");

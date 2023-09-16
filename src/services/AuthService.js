@@ -3,7 +3,6 @@ import { http } from './http'
 export const loginService = async (email, password) => {
   try {
     const { data } = await http.post('/auth/login', { email, password })
-    console.log(data)
     // We save in the localstore
     localStorage.setItem('fullName', data.profile?.fullName || '')
     localStorage.setItem('email', data.profile?.email || '')
@@ -13,6 +12,7 @@ export const loginService = async (email, password) => {
 
     return data
   } catch (error) {
-    throw error.response.data
+    console.log(error)
+    throw error
   }
 }

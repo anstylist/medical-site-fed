@@ -31,9 +31,21 @@
   }
 
   &__id-specialty {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
     font-family: variables.$font-open-sans;
     font-size: variables.$font-size-x-small;
     margin-top: 1.25rem;
+    color: #565656;
+  }
+
+  &__id-phone,
+  &__id-email {
+    margin-top: 0.5rem;
+    font-family: variables.$font-open-sans;
+    font-size: variables.$font-size-x-small;
     color: #565656;
   }
 

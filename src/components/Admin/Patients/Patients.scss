@@ -1,0 +1,97 @@
+@use '../../../styles/variables';
+
+.admin-patients {
+
+  &-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    position: relative;
+
+    .filterName {
+      font-family: variables.$font-poppins;
+      font-weight: 300;
+      border: 1px solid #CACFD2;
+      border-radius: 5px;
+      padding: 0.5rem;
+      padding-left: 2rem;
+      margin-right: 10px;
+      width: 350px;
+    }
+
+    .icon {
+      position: absolute;
+      width: auto;
+      top: 12px;
+      left: 10px;
+      color: #5D5D5D;
+    }
+  }
+
+  &-content {
+    margin-top: 2rem;
+
+    .table {
+      width: 100%;
+      box-shadow: 0 0 1.25rem rgba(108, 118, 134, 0.1);
+
+      thead {
+        th {
+          font-family: variables.$font-poppins;
+          font-weight: 400;
+          background-color: #F4F6F6;
+          text-align: left;
+          color: #7F8C8D;
+          padding: 1rem;
+        }
+      }
+
+      tbody {
+        font-family: variables.$font-poppins;
+        font-weight: 400;
+        font-size: 13px;
+
+        tr {
+          border-bottom: 1px solid variables.$color-gray-light;
+
+          td {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            vertical-align: middle;
+
+            .icon:hover {
+              color: variables.$color-hover-icon;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: row;
+      margin-top: 1rem;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      button {
+        background-color: #F4F6F6;
+        color: #7F8C8D;
+        font-size: 14px;
+        font-family: variables.$font-poppins;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: variables.$color-lightblue;
+          color: variables.$bg-main-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}

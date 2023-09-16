@@ -2,13 +2,16 @@ import React, { useContext, useState } from 'react'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Admin.scss'
 import Doctors from '../../components/Admin/Doctors/Doctors'
+import Products from '../../components/Admin/Products/Products'
 import { AuthContext } from '../../context/AuthContext'
+import Patients from '../../components/Admin/Patients/Patients'
+import Appointments from '../../components/Admin/Appointments/Appointments'
 
 const Admin = () => {
   const { authData } = useContext(AuthContext)
   const fullName = authData.fullName
   const [activeTab, setActiveTab] = useState(0)
-  const statePanels = ['Doctors', 'Patients', 'Not Patients', 'Appointments', 'Products', 'Orders']
+  const statePanels = ['Doctors', 'Patients', 'Appointments', 'Products', 'Orders']
   const breadcrumb = [
     {
       text: 'Go to home',
@@ -48,29 +51,23 @@ const Admin = () => {
           {
             activeTab === 1 &&
             <div className="tab_panel">
-              <h2 className='title'> List of patients </h2>
+              <Patients />
             </div>
           }
           {
             activeTab === 2 &&
             <div className="tab_panel">
-              <h2 className='title'> List of no patients </h2>
+              <Appointments />
             </div>
           }
           {
             activeTab === 3 &&
             <div className="tab_panel">
-              <h2 className='title'> List of appointments </h2>
+              <Products />
             </div>
           }
           {
             activeTab === 4 &&
-            <div className="tab_panel">
-              <h2 className='title'> List of products </h2>
-            </div>
-          }
-          {
-            activeTab === 5 &&
             <div className="tab_panel">
               <h2 className='title'> List of orders </h2>
             </div>
