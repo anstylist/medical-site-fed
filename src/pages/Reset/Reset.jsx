@@ -4,7 +4,6 @@ import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import './Reset.scss'
 import { useLocation } from 'react-router-dom'
 import Swal from 'sweetalert2'
-import { local } from '../../services/host'
 
 function Reset () {
   const [newPassword, setNewPassword] = useState('')
@@ -23,7 +22,7 @@ function Reset () {
       return
     }
     try {
-      const response = await http.patch(`${local}/auth/reset-password/${token}`, { newPassword })
+      const response = await http.patch(`/auth/reset-password/${token}`, { newPassword })
 
       if (response.status === 200) {
         Swal.fire({
