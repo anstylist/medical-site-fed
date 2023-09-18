@@ -6,6 +6,7 @@ import Products from '../../components/Admin/Products/Products'
 import { AuthContext } from '../../context/AuthContext'
 import Patients from '../../components/Admin/Patients/Patients'
 import Appointments from '../../components/Admin/Appointments/Appointments'
+import Orders from '../../components/Admin/Orders/Orders'
 
 const Admin = () => {
   const { authData } = useContext(AuthContext)
@@ -69,7 +70,7 @@ const Admin = () => {
           {
             activeTab === 4 &&
             <div className="tab_panel">
-              <h2 className='title'> List of orders </h2>
+              <Orders />
             </div>
           }
         </div>

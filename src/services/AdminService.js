@@ -26,3 +26,12 @@ export const appointmentsAll = async () => {
     throw error.message
   }
 }
+
+export const ordersAll = async () => {
+  try {
+    const { data } = await http.get('/orders/all')
+    return data
+  } catch (error) {
+    throw error.message
+  }
+}
