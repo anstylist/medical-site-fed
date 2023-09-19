@@ -20,7 +20,7 @@ import Loading from '../../components/Loading/Loading'
 const breadcrumb = [
 
   {
-    text: 'cart',
+    text: 'Cart',
     route: '/cart'
   },
   {

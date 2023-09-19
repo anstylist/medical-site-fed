@@ -4,7 +4,7 @@ import { http } from '../../services/http'
 import Jumbotron from '../../components/Jumbotron/Jumbotron'
 import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2'
-import { local } from '../../services/host'
+import { hostDeploy } from '../../services/host'
 
 function Forgot () {
   const [email, setEmail] = useState('')
@@ -20,7 +20,7 @@ function Forgot () {
       const templateParams = {
         to_name: response.fullName,
         to_email: email,
-        reset_link: `${local}/reset-password?token=${response.data.token}`
+        reset_link: `${hostDeploy}/reset-password?token=${response.data.token}`
       }
 
       const serviceId = 'service_2rz54gq'

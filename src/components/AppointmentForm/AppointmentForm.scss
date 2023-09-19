@@ -1,10 +1,11 @@
 @use '../../styles/variables';
 
 .main-banner-area {
-  display: block;
+  display: flex;
+  justify-content: left;
   height: auto;
   background-color: #161616;
-  background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/banner-bg-4_mot6ce.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.50), rgba(0, 0, 0, 0.30)), url("https://res.cloudinary.com/dzmkilinu/image/upload/v1689393387/medical-site/banner-bg-4_mot6ce.jpg");
   background-size: cover;
   padding: 2rem 1rem;
 }
@@ -20,6 +21,7 @@
 .main-banner-container__span {
   margin-bottom: 16px;
   color: #59cbe7;
+  font-size: 28px;
 }
 
 .main-banner-container__h1 {
@@ -64,55 +66,6 @@
   }
 }
 
-.main-form-container {
-  font-family: variables.$font-open-sans;
-  font-size: variables.$font-size-x-small;
-  line-height: variables.$font-line-height;
-  flex-direction: column;
-  align-items: center;
-  background-color: #ffffff;
-  padding: 16px;
-  border: 1px solid #ccc;
-  margin-top: 32px;
-}
-
-.main-form-container__h2 {
-  font-family: variables.$font-poppins;
-  font-size: variables.$font-size-small;
-  margin-bottom: 12px;
-  font-weight: bold;
-}
-
-.main-form-container__p {
-  margin-bottom: 8px;
-}
-
-.main-form-container__input,
-.main-form-container__select,
-.main-form-container__textarea {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 16px;
-  border: 1px solid #ccc;
-  resize: vertical;
-}
-
-.main-form-container__textarea {
-  min-height: 40px;
-}
-
-.main-form-container__button {
-  background-color: #59cbe7;
-  color: #fff;
-  padding: 10px 12px;
-  border: none;
-  width: 100%;
-  transition:0.6s ease;
-  cursor: pointer;
-  &:hover{
-    background-color: variables.$color-button-hover;
-  }
-}
 @media (min-width:576px){
   .main-banner-area {
     padding-inline: 3rem;
@@ -122,13 +75,14 @@
 @media (min-width: 769px) {
   .main-banner-area {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     align-items: center;
-    height: 100vh;
+    height: 70vh;
   }
 
   .main-banner-container {
-    text-align: left;
+    text-align: right;
+    padding-right: 5rem;
     max-width: 720px;
     font-size: variables.$font-size-small;
   }
@@ -142,36 +96,13 @@
     margin-bottom: 32px;
   }
 
+  .banner-list {
+    display: flex;
+    justify-content: flex-end;
+  }
+
   .banner-list li {
     margin-right: 16px;
-  }
-
-  .main-form-container {
-    padding: 26px;
-  }
-
-  .main-form-container__h2 {
-    font-size: variables.$font-size-large;
-    margin-bottom: 16px;
-  }
-
-  .main-form-container__p {
-    margin-bottom: 16px;
-  }
-
-  .main-form-container__input,
-  .main-form-container__select,
-  .main-form-container__textarea {
-    padding: 12px;
-  }
-
-  .main-form-container__textarea {
-    min-height: 50px;
-  }
-
-  .main-form-container__button {
-    padding: 14px 16px;
-    font-size: 14px;
   }
 
   .banner-list__icons {
@@ -188,6 +119,6 @@
 
 @media (min-width:1440px){
   .main-banner-container__h1 {
-    font-size: variables.$font-size-xx-large;
+    font-size: 50px;
   }
 }
