@@ -6,5 +6,8 @@ export default class CheckoutService {
       .then((response) => {
         return response.data
       })
+      .catch(error => {
+        throw new Error(error.response.data.message)
+      })
   }
 }
