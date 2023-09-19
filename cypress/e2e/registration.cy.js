@@ -1,11 +1,11 @@
 describe('User Registration', () => {
   beforeEach(() => {
-    cy.visit('https://localhost:5173/register')
+    cy.visit('https://mebid-site.vercel.app/register')
   })
 
   it('should allow a user to register', () => {
     cy.get('[data-cy=full-name-input]').type('John Doe', { force: true })
-    cy.get('[data-cy=email-input]').type('johndoe4@example.com', { force: true })
+    cy.get('[data-cy=email-input]').type('johndoe10@example.com', { force: true })
     cy.get('[data-cy=password-input]').type('password123', { force: true })
     cy.get('[data-cy=agree-terms-checkbox]').check({ force: true })
 
