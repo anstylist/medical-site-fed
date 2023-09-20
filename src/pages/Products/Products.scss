@@ -46,6 +46,13 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         position: relative;
         transition: transform 0.3s ease-in-out;
+
+        .product__container {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+        }
   
         .product__image {
           max-width: 100%;

@@ -87,6 +87,8 @@ function Checkout() {
         }))
       })
 
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+
       setOrder(response.order)
       handleSendMail(response.order)
 
@@ -95,6 +97,8 @@ function Checkout() {
         'Your order has been created successfully',
         'success'
       )
+
+      setProductsList([])
 
       console.log('SUCCESS: ', response)
     } catch (error) {
@@ -171,7 +175,7 @@ function Checkout() {
     }
   }, [])
 
-  if (!productsList.length) {
+  if (!productsList.length && !order) {
     navigateTo('/products')
   }
 
@@ -189,7 +193,7 @@ function Checkout() {
         </div>
       )}
 
-      <section className='checkout__container'>
+      {!order && (<section className='checkout__container'>
         <form className='checkout__form' onSubmit={handleSubmitPayment} method='POST'>
           <fieldset>
             <section className='checkout__form-box'>
@@ -312,7 +316,8 @@ function Checkout() {
             <TotalSum inCheckout={!order} withButton={!order} buttonText='Checkout' />
           </section>
         </form>
-      </section>
+      </section>)}
+
       {isLoading && <Loading />}
     </section>
   )

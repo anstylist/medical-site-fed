@@ -18,6 +18,7 @@
     display: flex;
     justify-content: center;
     margin-top: 1rem;
+    width: 30%;
   }
 
   &__review {
@@ -103,7 +104,8 @@
 
   @media (min-width: 769px) {
     padding: 2rem;
-    margin-top: 5rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
     &__info {
       padding-left: 4rem;
