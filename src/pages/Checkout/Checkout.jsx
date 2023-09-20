@@ -98,8 +98,8 @@ function Checkout () {
     } catch (error) {
       console.log('ERROR: ', error)
       Swal.fire(
-        'Order error!',
-        `Has ocurred an error trying creating the order. ${error.message}`,
+        'Order creation error!',
+        error.message,
         'warning'
       )
     } finally {
@@ -142,7 +142,6 @@ function Checkout () {
           The order order &nbsp;<b>{order.id}</b>&nbsp; has been created successfully!
         </div>
       )}
-      {isLoading && <Loading />}
 
       <section className='checkout__container'>
         <form className='checkout__form' onSubmit={handleSubmitPayment} method='POST'>
@@ -264,7 +263,7 @@ function Checkout () {
             )}
           </fieldset>
           <section className='checkout__total'>
-            <TotalSum inCheckout={!order} withButton={!order} />
+            <TotalSum inCheckout={!order} withButton={!order} buttonText='Checkout' />
           </section>
         </form>
       </section>
