@@ -8,6 +8,33 @@
   align-items: center;
   margin-bottom: 4rem;
 
+  .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #fff;
+      opacity: 0.8;
+    }
+
+    img {
+      z-index: 1;
+    }
+  }
+
   &__container {
     display: flex;
     flex-direction: column;
@@ -67,7 +94,8 @@
       padding: 1rem 1rem;
       width: 100%;        
     }
-}
+  }
+
   &__input {
     border: 1px solid #DDDDDD;
     width: 100%;
@@ -165,6 +193,4 @@
       align-items: center;
     }
   }
-
 }
-

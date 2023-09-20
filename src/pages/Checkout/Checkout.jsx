@@ -1,5 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import emailjs from '@emailjs/browser'
 import Swal from 'sweetalert2'
 import {
   useElements,
@@ -20,7 +21,7 @@ import Loading from '../../components/Loading/Loading'
 const breadcrumb = [
 
   {
-    text: 'cart',
+    text: 'Cart',
     route: '/cart'
   },
   {
@@ -28,7 +29,7 @@ const breadcrumb = [
   }
 ]
 
-function Checkout () {
+function Checkout() {
   const navigateTo = useNavigate()
   const { productsList, setProductsList } = useContext(CartProductsContext)
   const [isLoading, setIsLoading] = useState(false)
@@ -86,7 +87,10 @@ function Checkout () {
         }))
       })
 
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
+
       setOrder(response.order)
+      handleSendMail(response.order)
 
       Swal.fire(
         'Order Created!',
@@ -94,12 +98,14 @@ function Checkout () {
         'success'
       )
 
+      setProductsList([])
+
       console.log('SUCCESS: ', response)
     } catch (error) {
       console.log('ERROR: ', error)
       Swal.fire(
-        'Order error!',
-        `Has ocurred an error trying creating the order. ${error.message}`,
+        'Order creation error!',
+        error.message,
         'warning'
       )
     } finally {
@@ -110,6 +116,50 @@ function Checkout () {
       ).clear()
 
       setIsLoading(false)
+    }
+  }
+
+  const handleSendMail = (order) => {
+    try {
+      const templateParams = {
+        number_order: order.id,
+        to_email: order.email,
+        total_order: Number(productsList.reduce((subtotal, product) => subtotal + product.price * product.quantity, 0)).toFixed(2),
+        my_html:
+          `
+    <table style="width:100%;">
+    <thead
+    style="font-weight: 400;
+    background-color: #F4F6F6;
+    text-align: left;
+    color: #7F8C8D;
+    padding: 1rem;"
+    >
+      <tr>
+        <th>Product</th>
+        <th>Quanty</th>
+        <th>Price</th>
+      </tr>
+     </thead>
+     <tbody> 
+      ${productsList.map(product => `
+        <tr style="border-bottom: 1px solid variables.$color-gray-light;">
+          <td style="display: flex;
+          justify-content: center; align-items: center;">
+          <img src="${product.image}" style="width:70px"/>
+          <p style="padding-left:20px">${product.name}</p>
+          </td>
+          <td>${product.quantity}</td>
+          <td>${product.price}</td>
+        </tr>
+      `).join('')}
+      </tbody> 
+    </table>
+  `
+      }
+      emailjs.send('service_q14m78b', 'template_gi17yu7', templateParams, 'PskvEZ0v3VVoD6fpn')
+    } catch (error) {
+      throw error.message
     }
   }
 
@@ -125,7 +175,7 @@ function Checkout () {
     }
   }, [])
 
-  if (!productsList.length) {
+  if (!productsList.length && !order) {
     navigateTo('/products')
   }
 
@@ -142,9 +192,8 @@ function Checkout () {
           The order order &nbsp;<b>{order.id}</b>&nbsp; has been created successfully!
         </div>
       )}
-      {isLoading && <Loading />}
 
-      <section className='checkout__container'>
+      {!order && (<section className='checkout__container'>
         <form className='checkout__form' onSubmit={handleSubmitPayment} method='POST'>
           <fieldset>
             <section className='checkout__form-box'>
@@ -236,38 +285,39 @@ function Checkout () {
               </div>
               <div className='checkout__form-container'>
                 <label htmlFor='notes' id='label-textarea'>Order notes</label>
-                  <textarea
-                    placeholder="Order notes"
-                    id='notes'
-                    name='notes'
-                    value={checkout.notes}
-                    onChange={handlechange}
-                  />
+                <textarea
+                  placeholder="Order notes"
+                  id='notes'
+                  name='notes'
+                  value={checkout.notes}
+                  onChange={handlechange}
+                />
               </div>
             </section>
             {!order && (
-            <section className='checkout__form-box'>
-              <div className='checkout__title'>
-                <h3 className='checkout__title-h3'>
-                  Card Details
-                </h3>
-              </div>
-              <div className='checkout__form-container'>
-                <label className='stripe-label'>Card Number</label>
-                <CardNumberElement className='stripe-input' options={{ showIcon: true }}/>
-                <label className='stripe-label'>Expiration Date</label>
-                <CardExpiryElement className='stripe-input'/>
-                <label className='stripe-label'>CVC</label>
-                <CardCvcElement className='stripe-input'/>
-              </div>
-            </section>
+              <section className='checkout__form-box'>
+                <div className='checkout__title'>
+                  <h3 className='checkout__title-h3'>
+                    Card Details
+                  </h3>
+                </div>
+                <div className='checkout__form-container'>
+                  <label className='stripe-label'>Card Number</label>
+                  <CardNumberElement className='stripe-input' options={{ showIcon: true }} />
+                  <label className='stripe-label'>Expiration Date</label>
+                  <CardExpiryElement className='stripe-input' />
+                  <label className='stripe-label'>CVC</label>
+                  <CardCvcElement className='stripe-input' />
+                </div>
+              </section>
             )}
           </fieldset>
           <section className='checkout__total'>
-            <TotalSum inCheckout={!order} withButton={!order} />
+            <TotalSum inCheckout={!order} withButton={!order} buttonText='Checkout' />
           </section>
         </form>
-      </section>
+      </section>)}
+
       {isLoading && <Loading />}
     </section>
   )
