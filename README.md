@@ -178,6 +178,23 @@ This project has been set up with E2E tests using Cypress. To access the testing
 
 For support, email medicalsite2023@gmail.com or join our Slack channel.
 
+## Challenges
+
+- As a team the biggest challenge was presented to us in the backend, it took us some time to start with the implementation to understand the flow
+- Learn prism ORM and know how it worked to implement it
+
+  **Achieved Goal**
+- One of the main achievements is that we defined a directory structure both in back and in frost that allows us to scale our app, we use linters, CSS resets from the beginning, our backend is divided into layers to decentralize specific functionalities applying solid principles
+
+
+## Future Improvements 
+
+- Including a patient rating and feedback system can help users make informed decisions about doctors and products.
+- Offer video conferencing with doctors
+- Customer service, Implement a live chat or hotline
+- That both the user and the doctor could have and see YOUR medical history
+- A user can see a history of all their orders placed
+
 
 <a name="auth"></a>
 ## Authors
